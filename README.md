@@ -32,7 +32,7 @@
   
 # Development - What We Use !!? 
 
-### 1. GitHub & GitFlow:
+### 1. GitHub, GitFlow:
 > [`GitHub`](https://www.youtube.com/watch?v=w3jLJU7DT5E) is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 >
 > [`GitFlow`](https://youtu.be/aJnFGMclhU8?t=199) is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
@@ -40,7 +40,9 @@
 
 [![Watch the video](GitFlow.gif)](https://youtu.be/aJnFGMclhU8?t=199)
 
-### 2. NodeJS & ExpressJS, Rest API, MongoDB:
+### 2. JS, NodeJS, ExpressJS, Rest API, MongoDB:
+> [`JavaScript`](https://www.youtube.com/watch?v=nItSSTwBvSU) often abbreviated as JS, is a high-level, interpreted scripting language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
+>
 > [`Node.js`](https://www.youtube.com/watch?v=2gQG4cFjahw) is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
 >
 > [`Express.js`](https://youtu.be/gnsO8-xJ8rs?t=34) is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It facilitates the rapid development of Node based Web applications.
