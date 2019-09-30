@@ -15,7 +15,6 @@ We will have a working prototype ready to showcase on 20th November and final pr
 
 ## Team "Chuck Norris" (Team-6)
 
-  -- [x]### Members
   - [x] Lucian Nechita
   - [x] Marius Pal
   - [x] Carlos Barbier
