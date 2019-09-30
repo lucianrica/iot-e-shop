@@ -39,18 +39,20 @@
 
 [![Watch the video](GitFlow.gif)](https://youtu.be/aJnFGMclhU8?t=199)
 
-#### 2. NodeJS & ExpressJS:
+#### 2. NodeJS & ExpressJS, Rest API, MongoDB:
 > [`Node.js`](https://www.youtube.com/watch?v=2gQG4cFjahw) is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
 >
 > [`Express.js`](https://youtu.be/gnsO8-xJ8rs?t=34) is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It facilitates the rapid development of Node based Web applications.
-
-#### 3. MVC , Rest API, MongoDB:
-> [`MVC`](https://www.youtube.com/watch?v=DUg2SWWK18I) stands for "Model-View-Controller." MVC is an application design model comprised of three interconnected parts. They include the model (data), the view (user interface), and the controller (processes that handle input).
 >
 > [`RESTful API`](https://www.youtube.com/watch?v=7YcW25PHnAA) is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data. ... REST technology is generally preferred to the more robust Simple Object Access Protocol (SOAP) technology because REST leverages less bandwidth, making it more suitable for internet usage.
 >
 > [`MongoDB`](https://www.youtube.com/watch?v=CvIr-2lMLsk) is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema.
 
+#### 3. MVC , MicroServices:
+> [`MVC`](https://www.youtube.com/watch?v=DUg2SWWK18I) stands for "Model-View-Controller." MVC is an application design model comprised of three interconnected parts. They include the model (data), the view (user interface), and the controller (processes that handle input).
+>
+> [`MicroServices`](https://www.youtube.com/watch?v=j3XufmvEMiM) are a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures an application as a collection of loosely coupled services.
 
 
 
+ 
