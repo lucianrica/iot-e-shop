@@ -16,7 +16,8 @@
 
 
 
-[![Screenshot](old-radio-and-phone.gif)](#)
+> [![Screenshot](old-radio-and-phone.gif)](#)
+
 
 #### Team Members:
 
@@ -37,7 +38,7 @@
 > [`GitFlow`](https://youtu.be/aJnFGMclhU8?t=199) is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
 
 
-[![Watch the video](GitFlow.gif)](https://youtu.be/aJnFGMclhU8?t=199)
+> [![Watch the video](GitFlow.gif)](https://youtu.be/aJnFGMclhU8?t=199)
 
 #### 2. NodeJS & ExpressJS, Rest API, MongoDB:
 > [`Node.js`](https://www.youtube.com/watch?v=2gQG4cFjahw) is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
