@@ -16,7 +16,7 @@
 
 
 
-[![Screenshot](old-radio-and-telephonel.gif)](#)
+[![Screenshot](old-radio-and-telephone.gif)](#)
 
 #### Team Members:
 
