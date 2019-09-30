@@ -32,10 +32,24 @@
 # Development - What We Use !!? 
 
 #### 1. GitHub & GitFlow:
-> `GitHub` is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere
+> [`GitHub`](https://github.com/) is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 >
-> `GitFlow` is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team
+> [`GitFlow`](https://datasift.github.io/gitflow/IntroducingGitFlow.html) is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
 
 
 [![Watch the video](GitFlow.gif)](https://youtu.be/aJnFGMclhU8?t=199)
+
+#### 2. NodeJS & ExpressJS:
+> [`Node.js`](https://nodejs.org/en/) is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
+>
+> [`Express.js`](https://expressjs.com/) is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It facilitates the rapid development of Node based Web applications.
+
+#### 3. MVC & AdonisJS:
+> [`MVC`](https://techterms.com/definition/mvc) stands for "Model-View-Controller." MVC is an application design model comprised of three interconnected parts. They include the model (data), the view (user interface), and the controller (processes that handle input).
+>
+> [`Adonis.js`](https://adonisjs.com/) is a Node.js MVC framework that runs on all operating systems. It offers a stable eco-system to write a server-side web application so that you can focus on business needs over finalizing which package to choose or not.
+
+
+
+
 
