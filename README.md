@@ -26,5 +26,5 @@ Application will be accessible worldwide, will facilitate 3rd party shipments, s
 ### We Use - GitFlow
 
 
-[![Watch the video](GitFlow.PNG)](https://www.youtube.com/watch?v=aJnFGMclhU8)
+[![Watch the video](GitFlow.gif)](https://www.youtube.com/watch?v=aJnFGMclhU8)
 
