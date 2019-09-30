@@ -1,3 +1,13 @@
+
+ ```
+            © Kouakou Carlos Barbier, Lucian Nechita, Marius Pal, Daniel Costel Neagu [2019]
+This disclaimer informs readers that the views, thoughts, and opinions expressed in the text belong solely
+to the author(s), and not necessarily to the author’s employer, organization, committee or other group or 
+individual(s), do not necessarily reflect the official opinion of any bodies or person, and bodies nor any 
+person acting on their behalf may be held responsible for the use which may be made of the information 
+contained therein.
+```
+
 ### Internet of Things ???
 
 
@@ -55,6 +65,7 @@
 > [`MVC`](https://www.youtube.com/watch?v=DUg2SWWK18I) stands for "Model-View-Controller." MVC is an application design model comprised of three interconnected parts. They include the model (data), the view (user interface), and the controller (processes that handle input).
 >
 > [`MicroServices`](https://www.youtube.com/watch?v=j3XufmvEMiM) are a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures an application as a collection of loosely coupled services.
+
 
 
 
