@@ -40,7 +40,7 @@
 [![Watch the video](GitFlow.gif)](https://youtu.be/aJnFGMclhU8?t=199)
 
 #### 2. NodeJS & ExpressJS:
-> [`Node.js`](https://nodejs.org/en/) is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
+> [`Node.js`](https://nodejs.org/en/about/) is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
 >
 > [`Express.js`](https://expressjs.com/) is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It facilitates the rapid development of Node based Web applications.
 
