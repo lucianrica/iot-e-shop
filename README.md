@@ -21,9 +21,11 @@ Application will be accessible worldwide, will facilitate 3rd party shipments, s
   - [x] Daniel Costel Neagu
   
   
-# Development 
+# Development - What We Use? 
 
-### We Use - GitFlow
+### 1. GitFlow
+
+> GitFlow is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team
 
 
 [![Watch the video](GitFlow.gif)](https://youtu.be/aJnFGMclhU8?t=199)
