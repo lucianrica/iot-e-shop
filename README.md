@@ -1,4 +1,4 @@
-#### Internet of Things !!?
+#### Internet of Things ???
 
 
 > In essence, the Internet of Things means that “dumb” devices (e.g., a lightbulb) become “smart” when the lightbulb can be remotely controlled and/or able to exchange data with production, operator or other connected devices. 
