@@ -13,11 +13,18 @@ Application will be accessible worldwide, will facilitate 3rd party shipments, s
 
 ![Screenshot](old-radio-and-telephonel.gif)
 
-## Team "Chuck Norris" (Team-6)
+### Team "Chuck Norris" (Team-6)
 
   - [x] Lucian Nechita
   - [x] Marius Pal
   - [x] Carlos Barbier
   - [x] Daniel Costel Neagu
+  
+  
+# Development 
 
+### We Use - GitFlow
+
+
+[![Watch the video](GitFlow.PNG)](https://www.youtube.com/watch?v=aJnFGMclhU8)
 
