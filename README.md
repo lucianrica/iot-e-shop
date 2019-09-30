@@ -34,7 +34,7 @@
 #### 1. GitHub & GitFlow:
 > [`GitHub`](https://github.com/) is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 >
-> [`GitFlow`]() is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
+> [`GitFlow`] is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
 
 
 [![Watch the video](GitFlow.gif)](https://youtu.be/aJnFGMclhU8?t=199)
