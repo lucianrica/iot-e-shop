@@ -11,7 +11,7 @@ The aim of our project is to create a web application to act as a marketplace ju
 Application will be accessible worldwide, will facilitate 3rd party shipments, selling/buying functionality, and help customers discover new products.
 
 
-![Screenshot](old-radio-and-telephone.gif)
+![Screenshot](old-radio-and-telephonel.gif)
 
 ## Team "Chuck Norris" (Team-6)
 
