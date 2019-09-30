@@ -13,7 +13,7 @@
 
 
 
-[Screenshot](old-radio-and-telephonel.gif)
+![Screenshot](old-radio-and-telephonel.gif)
 
 #### Team Members:
 
