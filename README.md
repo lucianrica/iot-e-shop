@@ -32,11 +32,8 @@ contained therein.
 #### Team Members:
 
  >1.  Lucian Nechita
- >
  >2.  Marius Pal
- >
  >3.  Carlos Barbier
- >
  >4.  Daniel Costel Neagu
 
   
