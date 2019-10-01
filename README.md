@@ -26,7 +26,7 @@ contained therein.
 
 
 
-[![Screenshot](old-telephone-and-radio.gif)](#)
+[![Screenshot](old-radio-and-telephone.gif)](#)
 
 
 #### Team Members:
