@@ -37,9 +37,18 @@ contained therein.
  >4.  Daniel Costel Neagu
 
   
-# Development - What We Use !!? 
+# We Use: 
 
-### 1. Version Control:
+### 1. Project Management:
+> [`Agile Methodology`](https://www.youtube.com/watch?v=Z9QbYZh1YXY) is a particular approach to project management that is utilized in software development. This method assists teams in responding to the unpredictability of constructing software. It uses incremental, iterative work sequences that are commonly known as sprints.
+>
+> [`SCRUM`](https://www.youtube.com/watch?v=2Vt7Ik8Ublw) is a simple framework for effective team collaboration on complex products. Scrum replaces a programmed algorithmic approach with a heuristic one, with respect for people and self-organization to deal with unpredictability and solving complex problems.
+>
+> [`Trello`](https://trello.com/en) is a team collaboration tool which enable you to organize and priotirize projects in a flexible way
+>
+
+
+### 2. Version Control:
 > [`GitHub`](https://www.youtube.com/watch?v=w3jLJU7DT5E) is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 >
 > [`GitFlow`](https://youtu.be/aJnFGMclhU8?t=199) is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
@@ -47,7 +56,7 @@ contained therein.
 
 [![Watch the video](GitFlow.gif)](https://youtu.be/aJnFGMclhU8?t=199)
 
-### 2. Technologies:
+### 3. Technologies:
 > [`JavaScript`](https://www.youtube.com/watch?v=nItSSTwBvSU) often abbreviated as JS, is a high-level, interpreted scripting language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
 >
 > [`Node.js`](https://www.youtube.com/watch?v=2gQG4cFjahw) is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
@@ -58,11 +67,11 @@ contained therein.
 >
 > [`MongoDB`](https://www.youtube.com/watch?v=CvIr-2lMLsk) is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema.
 
-### 3. Application Architecture:
+### 4. Application Architecture:
 > [`MVC`](https://www.youtube.com/watch?v=DUg2SWWK18I) stands for "Model-View-Controller." MVC is an application design model comprised of three interconnected parts. They include the model (data), the view (user interface), and the controller (processes that handle input).
 >
 
-### 4. Application Deployment:
+### 5. Application Deployment:
 > [`TBC`](#) Choose deployment!!! .
 >
 
