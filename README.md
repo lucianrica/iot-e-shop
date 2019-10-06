@@ -86,5 +86,5 @@ contained therein.
 
 ### 8. License
 >
-> [`License Type`](LICENSE.md)
+> [`License Type`](LICENSE)
  
