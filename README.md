@@ -62,6 +62,10 @@ contained therein.
 > [`MVC`](https://www.youtube.com/watch?v=DUg2SWWK18I) stands for "Model-View-Controller." MVC is an application design model comprised of three interconnected parts. They include the model (data), the view (user interface), and the controller (processes that handle input).
 >
 
+### 4. Application Deployment:
+> [`TBC`](#) Choose deployment!!! .
+>
+
 
 
 
