@@ -39,7 +39,7 @@ contained therein.
   
 # Development - What We Use !!? 
 
-### 1. GitHub, GitFlow:
+### 1. Version Control:
 > [`GitHub`](https://www.youtube.com/watch?v=w3jLJU7DT5E) is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 >
 > [`GitFlow`](https://youtu.be/aJnFGMclhU8?t=199) is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
@@ -47,7 +47,7 @@ contained therein.
 
 [![Watch the video](GitFlow.gif)](https://youtu.be/aJnFGMclhU8?t=199)
 
-### 2. JS, NodeJS, ExpressJS, Rest API, MongoDB:
+### 2. Technologies:
 > [`JavaScript`](https://www.youtube.com/watch?v=nItSSTwBvSU) often abbreviated as JS, is a high-level, interpreted scripting language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
 >
 > [`Node.js`](https://www.youtube.com/watch?v=2gQG4cFjahw) is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
@@ -58,10 +58,10 @@ contained therein.
 >
 > [`MongoDB`](https://www.youtube.com/watch?v=CvIr-2lMLsk) is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema.
 
-### 3. MVC , MicroServices:
+### 3. Application Architecture:
 > [`MVC`](https://www.youtube.com/watch?v=DUg2SWWK18I) stands for "Model-View-Controller." MVC is an application design model comprised of three interconnected parts. They include the model (data), the view (user interface), and the controller (processes that handle input).
 >
-> [`MicroServices`](https://www.youtube.com/watch?v=j3XufmvEMiM) are a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures an application as a collection of loosely coupled services.
+
 
 
 
