@@ -67,7 +67,9 @@ contained therein.
 >
 
 
-
+# Installation Guide
+>
+[Click here for installation guidelines for this project](install.md)
 
 
  
