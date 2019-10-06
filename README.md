@@ -67,9 +67,13 @@ contained therein.
 >
 
 
-# Installation Guide
+### 5. Installation Guide
 >
-[Click here for installation guidelines for this project](install.md)
+[Click here for installation guidelines for this project](INSTALL.md)
+
+### 6. Contributing Guide
+>
+[Contribution guidelines for this project](CONTRIBUTING.md)
 
 
  
