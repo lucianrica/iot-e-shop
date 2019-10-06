@@ -84,7 +84,7 @@ contained therein.
 >
 > [`Contribution guidelines for this project`](CONTRIBUTING.md)
 
-### 8. Licence
+### 8. License
 >
-> [`Licence Type for this project`](LICENCE.md)
+> [`License Type`](LICENSE.md)
  
