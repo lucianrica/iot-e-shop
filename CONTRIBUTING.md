@@ -2,9 +2,12 @@
 
 
 ### 1. Collaboration Tools
+> Use the collaboration tool provided on the link bellow and check "Current Sprint" for tasks to be completed this week
+> [`See current sprint here`](https://trello.com/b/n242l9v5/iot-e-shop)
 >
-> [`Please use Trello colaboration tool  to see current sprint here`](https://trello.com/b/n242l9v5/iot-e-shop)
->
-> [`Scrum Sprint`](https://www.youtube.com/watch?v=2A9rkiIcnVI) is a repeatable fixed time-box during which a "Done" product of the highest possible value is created. 
->
+
+### 2. Clone the Repository 
+> 1. On GitHub, navigate to the main page of the repository.
+> 2. Under the repository name, click Clone or download.
+> [Clone](clone.gif)
 
