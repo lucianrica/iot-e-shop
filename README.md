@@ -5,7 +5,7 @@ This disclaimer informs readers that the views, thoughts, and opinions expressed
 to the author(s), and not necessarily to the author’s employer, organization, committee or other group or 
 individual(s), do not necessarily reflect the official opinion of any bodies or person, and bodies nor any 
 person acting on their behalf may be held responsible for the use which may be made of the information 
-contained therein..
+contained therein. MAKE CHANGE
 ```
 
 ### Internet of Things ???
