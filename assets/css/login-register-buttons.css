@@ -1,0 +1,81 @@
+/* 
+Gmail Login Input Field Style ! A few days back Gmail changed it’s login screen with a nice interactive input field with floating labels when the user focus to write. This looks awesome and reminds of many android native device form fields. The ionic framework also having options to create a similar type of form fields with floating labels on them.
+
+reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
+*/
+
+
+
+/* 
+ * Buttons
+ */
+
+/* Button settings */
+.btn {
+   font-size: 80%;
+   border-radius: 0.7rem;
+   letter-spacing: .13rem;
+   font-weight: bold;
+   padding: 1rem;
+   transition: all 0.2s;
+}
+
+
+
+/* Create a simple white box, and add the shadow for the initial state */
+.btn {
+   position: relative;
+   display: inline-block;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+   transition: all 0.3s ease-in-out;
+}
+
+
+
+/* Create the hidden pseudo-element and include the shadow for the end state */
+.btn::after {
+   opacity: 0;
+   box-shadow: 0 10px 20px 15px rgba(0, 0, 0, 0.3);
+   transition: opacity 0.3s ease-in-out;
+}
+
+
+
+/* Scale up the box */
+.btn:hover {
+   transform: scale(1.01, 1.01);
+   box-shadow: 2px 7px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* Fade in the pseudo-element with the bigger shadow */
+.btn:hover::after {
+   opacity: 1;
+}
+
+
+
+/* Background color for google button */
+.btn-google {
+   color: white;
+   background-color: #ea4335;
+
+}
+
+
+
+/* Background color for facebook button */
+.btn-facebook {
+   color: white;
+   background-color: #3b5998;
+}
+
+
+
+
+
+
+
+
+
