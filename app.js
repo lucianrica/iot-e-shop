@@ -65,6 +65,8 @@ app.use(function (req, res, next) {
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/oauth', require('./routes/oauth'));
+app.use('/fb-auth', require('./routes/fb-auth'));
 
 
 
