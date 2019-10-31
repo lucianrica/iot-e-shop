@@ -1,0 +1,69 @@
+<!-- include HTML header for styling and other scripts -->
+<% include ../partials/html-header %>
+<!-- Temporary buttons -->
+<%- include ../nav-bar-temp %>
+<div class="container">
+   <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+         <div class="card card-signin flex-row my-5">
+            <div class="card-img-left d-none d-md-flex">
+               <!-- Background image for card set in CSS! -->
+            </div>
+            <div class="card-body">
+               <h5 class="card-title text-center">Register</h5>
+
+
+               <form class="form-signin" action="/users/register" method="POST">
+                  <div class="form-wrapper-outer">
+                     <div class="field-wrapper">
+                        <% include ../partials/errors %>
+                     </div>
+
+                     <div class="field-wrapper">
+                        <input type="name" id="name" name="name" value="<%= typeof name != 'undefined' ? name : '' %>">
+                        <div class="field-placeholder"><span>Enter your full name</span></div>
+                     </div>
+
+                     <div class="field-wrapper">
+                        <input type="email" id="email" name="email"
+                           value="<%= typeof email != 'undefined' ? email : '' %>">
+                        <div class="field-placeholder"><span>Enter your email</span></div>
+                     </div>
+
+                     <div class="field-wrapper">
+                        <input type="password" id="password" name="password"
+                           value="<%= typeof password != 'undefined' ? password : '' %>">
+                        <div class="field-placeholder"><span>Enter your password</span></div>
+                     </div>
+
+                     <div class="field-wrapper">
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                           value="<%= typeof confirmPassword != 'undefined' ? confirmPassword : '' %>">
+                        <div class="field-placeholder"><span>Confirm your password</span></div>
+                     </div>
+
+
+                     <br class="my-4">
+
+                     <!-- Buttons -->
+                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+
+                     <a class="d-block text-center mt-2 small" href="/users/login">Login</a>
+
+                     <hr class="my-4">
+                     <a href="/oauth/google"  class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
+                           class="fab fa-google mr-2"></i> Sign up with Google</a>
+                     <a href="/fb-auth/facebook" class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
+                           class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</a>
+                  </div>
+               </form>
+
+
+
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- include HTML footer for styling and other scripts -->
+<%- include ../partials/html-footer %>

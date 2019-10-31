@@ -1,0 +1,66 @@
+/* 
+Gmail Login Input Field Style ! A few days back Gmail changed it’s login screen with a nice interactive input field with floating labels when the user focus to write. This looks awesome and reminds of many android native device form fields. The ionic framework also having options to create a similar type of form fields with floating labels on them.
+
+reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
+*/
+
+
+
+/* 
+ *  Login & Register card class styling 
+ */
+
+ /* Create a simple white box, and add the shadow for the initial state */
+ .card {
+    /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); */
+    transition: all 0.3s ease-in-out;
+ }
+
+
+
+ /* Create the hidden pseudo-element and include the shadow for the end state */
+ .card::after {
+    opacity: 0;
+    box-shadow: 2 10px 20px 15px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease-in-out;
+ }
+
+
+
+ /* Scale up the box */
+ .card:hover {
+    transform: scale(1, 1);
+    box-shadow: 0px 5px 7px 1px rgba(0, 0, 0, 0.3);
+ }
+
+
+
+ /* Fade in the pseudo-element with the bigger shadow */
+ .card:hover::after {
+    opacity: 1;
+ }
+
+
+
+   /* Link to your background image using in the property below! */
+.card-signin .card-img-left{
+   width: 55%;
+   background: scroll center url('https://cdnassets.hw.net/1e/68/d87b4ef54563841832fd8bd889e8/adobestock-121631731.jpeg');
+   background-size: cover;
+}
+
+.card-img-left img {
+   width: 400px;
+}
+
+
+
+.card-signin {
+   border: 0 white;
+   border-radius: 0.4rem;
+   /* box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1); */
+}
+
+
+
+
