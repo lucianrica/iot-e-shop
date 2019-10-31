@@ -1,0 +1,66 @@
+<%- include ../partials/html-header %>
+<%- include ../nav-bar-temp %>
+
+
+<div class="container">
+   <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+         <div class="card card-signin flex-row my-5">
+            <div class="card-img-left d-none d-md-flex">
+               <!-- Background image for card set in CSS! -->
+            </div>
+
+            <div class="card-body">
+               <h5 class="card-title text-center">Sign In</h5>
+               
+               <form class="form-signin" action="/users/login" method="POST">
+                  <div class="form-wrapper-outer">
+                     <div class="field-wrapper">
+                        <% include ../partials/errors %>
+                     </div>
+                     <div class="field-wrapper">
+                        <input type="email" id="email" name="email"
+                           value="<%= typeof email != 'undefined' ? email : '' %>">
+                        <div class="field-placeholder"><span>Enter your email</span></div>
+
+                     </div>
+
+
+
+
+                     <div class="field-wrapper">
+                        <input type="password" id="password" name="password"
+                           value="<%= typeof password != 'undefined' ? password : '' %>">
+                        <div class="field-placeholder"><span>Enter your password</span></div>
+                     </div>
+
+
+
+                     <br class="my-4">
+
+
+                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
+
+                     <a class="d-block text-center mt-2 small" href="/users/register">Register</a>
+
+
+                     <hr class="my-4">
+
+
+                     <a href="/users/google"  class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
+                           class="fab fa-google mr-2"></i> Login
+                        with Google</a>
+                     <a href="/users/facebook" class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
+                           class="fab fa-facebook-f mr-2"></i>
+                        Login with Facebook</a>
+                  </div>
+               </form>
+
+
+
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <%- include ../partials/html-footer %>
