@@ -1,16 +1,16 @@
 const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
-const mongoose = require('mongoose');
 const keys = require('./keys');
 const bcrypt = require('bcryptjs');
 
 // Load User model
 const User = require('../models/User');
 
+
+
+// Export Auth Strategies
 module.exports = function (passport) {
-
-
 
    /**
    * Local Strategy
@@ -37,9 +37,6 @@ module.exports = function (passport) {
          });
       })
    );
-   /**
-   * Local Strategy END#######################################
-   */
 
 
 
@@ -50,14 +47,10 @@ module.exports = function (passport) {
       new GoogleStrategy({
          clientID: keys.googleClientID,
          clientSecret: keys.googleClientSecret,
-         callbackURL: '/oauth/google/callback',
+         callbackURL: '/users/google/callback',
          proxy: true
       }, (accessToken, refreshToken, profile, done) => {
-         // console.log(accessToken);
          // console.log(profile);
-         // const name = profile._json.name;
-         // const name = profile._json.email;
-         // console.log(name)
 
          const newUser = {
             name: profile._json.name,
@@ -69,10 +62,10 @@ module.exports = function (passport) {
          User.findOne({
             email: profile._json.email
          }).then(user => {
-            if(user){
+            if (user) {
                //Return User
                done(null, user);
-            }else{
+            } else {
                //Create User
                new User(newUser)
                   .save()
@@ -80,10 +73,7 @@ module.exports = function (passport) {
             }
          })
       })
-   )
-   /**
-    * Google Strategy END#######################################
-    */
+   );
 
 
 
@@ -91,15 +81,11 @@ module.exports = function (passport) {
       new FacebookStrategy({
          clientID: keys.facebookClientID,
          clientSecret: keys.facebookClientSecret,
-         callbackURL: '/fb-auth/facebook/callback',
+         callbackURL: '/users/facebook/callback',
          profileFields: ['email', 'name'],
          proxy: true
       }, (accessToken, refreshToken, profile, done) => {
-         // console.log(accessToken);
          // console.log('profile', profile);
-         // const name = profile._json.name;
-         // const name = profile._json.email;
-         // console.log(name)
 
          const newUser = {
             name: profile._json.name,

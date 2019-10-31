@@ -1,38 +1,45 @@
-/** Quick Memo
- Express is a module that can be used to create more than one application.
- Puts this module into the variable "express".Once you have a reference to the module, you can use it to create application.Each module has its own API.
+/** 
+ * Name: eShop 
+ * Authors: Lucian Nechita, Daniel Costel neagu, Marius Pal, Carlos Barbier
+ * Date: 28/10/2019
  */
-const express = require('express'); // Create variable "express"
-const mongoose = require('mongoose'); // Create variable "mongoose"
+
+
+const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
+const { ensureAuthenticated } = require('./config/auth');
 
 // Load User model
 const User = require('./models/User');
-
 // Passport Config
 require('./config/passport')(passport);
-
-
 // Initialise express
 const app = express();
 
 
-//  View-Engine and parsers
-app.set('view engine', 'ejs');// Set the VIEW ENGINE and 
-app.use('/assets', express.static('assets')); // Join static files
-app.use(express.json()); //Used to parse JSON bodies
-app.use(express.urlencoded({ extended: false }));//Parse URL-encoded bodies
+
+
+// Set the View-Engine
+app.set('view engine', 'ejs');
+// Join Static Files
+app.use('/public', express.static(path.join(__dirname, 'public')));
+//Used to parse JSON bodies
+app.use(express.json()); 
+//Parse URL-encoded bodies
+app.use(express.urlencoded({ extended: false }));
 
 
 
-//  Database connection
-const db = require('./config/keys').MongoURI; //MongoDB config API key  
-mongoose// Connect to MongoDb
-    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('3. MongoDB connection established\n'))
-    .catch(err => console.err(err));
+//  Database Config
+const db = require('./config/keys').MongoURI; 
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(() => console.log('3. MongoDB connection established\n'))
+        .catch(err => console.err(err));
+
 
 
 // Express session
@@ -45,14 +52,15 @@ app.use(
 );
 
 
+
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
 
+
 // Connect flash
 app.use(flash());
-
 // Global variables
 app.use(function (req, res, next) {
     res.locals.success_msg = req.flash('success_msg');
@@ -62,11 +70,10 @@ app.use(function (req, res, next) {
 });
 
 
+
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-app.use('/oauth', require('./routes/oauth'));
-app.use('/fb-auth', require('./routes/fb-auth'));
 
 
 
@@ -75,7 +82,7 @@ app.use('/fb-auth', require('./routes/fb-auth'));
 
 // TEMP CODE###################################
 // Dashboard Page
-app.get('/dashboard',  (req, res) =>
+app.get('/dashboard', ensureAuthenticated, (req, res) =>
     User.find({})
         .then(users => {
             res.render('dashboard', {
