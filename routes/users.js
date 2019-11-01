@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
 
 // Declare a Users variable and link it to controllers/users folder
 const UsersController = require('../controllers/users');
@@ -28,6 +27,15 @@ router.get('/google/callback', UsersController.userGoogle);
 // Facebook Authentication
 router.get('/facebook', UsersController.getFacebookPage);
 router.get('/facebook/callback', UsersController.userFacebook);
+
+
+
+// Forgot Password Page
+router.get('/forgot', UsersController.getForgotPage);
+router.get('/reset/:token', UsersController.resetPassword);
+router.post('/forgot', UsersController.emailRecoveryLink);
+router.post('/reset/:token', UsersController.createNewPassword);
+
 
 
 
