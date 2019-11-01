@@ -1,66 +1,103 @@
 <%- include ../partials/html-header %>
+<!-- Temporary buttons -->
 <%- include ../nav-bar-temp %>
 
 
 <div class="container">
    <div class="row">
-      <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="col-lg-10 col-xl-6 mx-auto">
          <div class="card card-signin flex-row my-5">
-            <div class="card-img-left d-none d-md-flex">
-               <!-- Background image for card set in CSS! -->
-            </div>
-
             <div class="card-body">
-               <h5 class="card-title text-center">Sign In</h5>
-               
+
+
+
+               <!-- Title & Close Button -->
+               <h4 class="card-title text-center w-100 font-weight-bold"></h4>
+               <button type="button" class="close" aria-label="Close">
+                  <a href="/" aria-hidden="true">&times;</a>
+               </button>
+               <h4 class="card-title text-center w-100 font-weight-bold">LOGIN</h4>
+
+
+
+               <!-- Form -->
                <form class="form-signin" action="/users/login" method="POST">
                   <div class="form-wrapper-outer">
+
+
+                     <!-- Hidden Errors div -->
                      <div class="field-wrapper">
                         <% include ../partials/errors %>
                      </div>
+
+
+
+                     <!-- Manually Sign In -->
                      <div class="field-wrapper">
                         <input type="email" id="email" name="email"
                            value="<%= typeof email != 'undefined' ? email : '' %>">
                         <div class="field-placeholder"><span>Enter your email</span></div>
-
                      </div>
-
-
-
-
                      <div class="field-wrapper">
                         <input type="password" id="password" name="password"
                            value="<%= typeof password != 'undefined' ? password : '' %>">
                         <div class="field-placeholder"><span>Enter your password</span></div>
                      </div>
+                     <div class="d-flex">
+                        <div class="mr-auto small">
+                           <input type="checkbox" checked="checked" name="remember"> Remember Me?
+                        </div>
+                        <div class=" small">
+                           <a id="forgotPassword" href="#">Forgot Password?</a>
+                        </div>
+                     </div>
+                     <div class="text-center">
+                        <br class="my-4">
+                        <button id="loginBtn" class="btn btn-success pl-5 pr-5" type="submit">Log in</button>
+                     </div>
+                     <br>
 
 
 
-                     <br class="my-4">
+                     <!-- Sign in with facebook or google -->
+                     <hr class="hr-text" data-content="or">
+                     <div class="modal-header text-center">
+                        <h6 class="modal-title w-100 font-weight-bold">Sign in with</h6>
+                     </div>
+                     <br>
+                     <div class="d-flex">
+                        <div class="ml-auto mr-2">
+                           <a href="/users/google" class="btn fa fa-google"></a>
+                        </div>
+                        <div class="ml-2 mr-auto">
+                           <a href="/users/facebook" class="btn fa fa-facebook"></a>
+                        </div>
+                     </div>
+                     <br>
 
 
-                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
 
-                     <a class="d-block text-center mt-2 small" href="/users/register">Register</a>
+                     <!-- Link to Account Creation -->
+                     <hr class="hr-text">
+                     <br>
+                     <div class="d-flex justify-content-center">
+                        <div class="m-2">
+                           <p class="pt-2">Need an Account?</p>
+                        </div>
+                        <div class="m-2">
+                           <div class="text-center">
+                              <a id="registerLink" class="btn btn-success pl-5 pr-5" href="/users/register">Register</a>
+                           </div>
+                        </div>
+                     </div>
 
-
-                     <hr class="my-4">
-
-
-                     <a href="/users/google"  class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
-                           class="fab fa-google mr-2"></i> Login
-                        with Google</a>
-                     <a href="/users/facebook" class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
-                           class="fab fa-facebook-f mr-2"></i>
-                        Login with Facebook</a>
                   </div>
                </form>
-
-
-
             </div>
          </div>
       </div>
    </div>
+
+
 
    <%- include ../partials/html-footer %>

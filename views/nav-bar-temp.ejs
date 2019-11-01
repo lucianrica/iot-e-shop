@@ -1,7 +1,42 @@
-<nav class="nav nav-bar">
+<nav class="navbar navbar-expand-sm navbar-light">
 
-   
-   <hr>
-   <a href="../users/login" class="btn btn-dark m-2">LOGIN</a>
-   <a href="../users/register" class="btn btn-dark m-2">Register</a>
+   <!-- Brand and btn for sm screens -->
+   <a class="navbar-brand ml-5 mr-5" href="/">Smart Device</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+
+   <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
+      <!-- Collapsable seach bar on sm screens -->
+      <div class="collapse navbar-collapse m-auto" id="navbar">
+         <form class="form-inline m-auto">
+            <input class="form-control pl-5 pr-5 ml-5" type="search" placeholder="    Search for Products"
+               aria-label="Search">
+            <button id="registerLink" class="btn btn-outline-success pl-5 pr-5 pt-2 pb-2" type="submit">Search</button>
+         </form>
+         <ul class="nav navbar-nav">
+            <li class="active"><a href="#"><span class="sr-only"></span></a>
+            </li>
+            <li><a href="#"></a>
+            </li>
+         </ul>
+      </div>
+
+      <!-- Login/Register/... buttons -->
+      <div class="text-center">
+         <a href="../users/login" class="btn pull-right btn-rounded ml--5"> login</a>
+      </div>
+      <div class="text-center">
+         <a href="../users/register" class="btn pull-right btn-rounded ml-3">register</a>
+      </div>
+      <div class="text-center">
+         <a href="#" class="pull-right ml-3"><i class="fa fa-heart fa-lg pt-3" aria-hidden="true"></i></a>
+      </div>
+      <div class="text-center">
+         <a href="#" class="pull-right ml-3 mr-5"><i class="fa fa-shopping-basket  fa-lg pt-3"
+               aria-hidden="true"></i></a>
+      </div>
+   </div>
 </nav>
+<hr class="hr-text mt-0" data-content="***">
