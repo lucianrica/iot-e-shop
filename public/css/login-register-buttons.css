@@ -1,23 +1,10 @@
-/* 
-Gmail Login Input Field Style ! A few days back Gmail changed it’s login screen with a nice interactive input field with floating labels when the user focus to write. This looks awesome and reminds of many android native device form fields. The ionic framework also having options to create a similar type of form fields with floating labels on them.
-
-reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
-*/
-
-
-
-/* 
- * Buttons
- */
 
 /* Button settings */
 .btn {
-   font-size: 80%;
-   border-radius: 0.7rem;
-   letter-spacing: .13rem;
-   font-weight: bold;
-   padding: 1rem;
-   transition: all 0.2s;
+   border-radius: 0.3rem;
+   letter-spacing: .05rem;
+   font-weight: 500;
+   padding: 0.6rem;
 }
 
 
@@ -27,7 +14,7 @@ reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
    position: relative;
    display: inline-block;
    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-   transition: all 0.3s ease-in-out;
+   transition: all 0.1s ease-in-out;
 }
 
 
@@ -36,7 +23,7 @@ reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
 .btn::after {
    opacity: 0;
    box-shadow: 0 10px 20px 15px rgba(0, 0, 0, 0.3);
-   transition: opacity 0.3s ease-in-out;
+   transition: opacity 0.1s ease-in-out;
 }
 
 
@@ -44,7 +31,7 @@ reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
 /* Scale up the box */
 .btn:hover {
    transform: scale(1.01, 1.01);
-   box-shadow: 2px 7px 4px -2px rgba(0, 0, 0, 0.3);
+   box-shadow: 2px 5px 3px -2px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -60,7 +47,6 @@ reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
 .btn-google {
    color: white;
    background-color: #ea4335;
-
 }
 
 
@@ -70,6 +56,97 @@ reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
    color: white;
    background-color: #3b5998;
 }
+
+
+
+/* 
+   <hr> line with text in the middle 
+   reference: https: //codepen.io/scottzirkel/pen/yNxNME 
+*/
+.hr-text {
+   line-height: 1em;
+   position: relative;
+   outline: 0;
+   border: 0;
+   color: black;
+   text-align: center;
+   height: 1.5em;
+   opacity: 0.5;
+}
+
+.hr-text:before {
+   content: '';
+   background: linear-gradient(to right, transparent, #818078, transparent);
+   position: absolute;
+   left: 0;
+   top: 50%;
+   width: 100%;
+   height: 1px;
+}
+
+.hr-text:after {
+   content: attr(data-content);
+   position: relative;
+   display: inline-block;
+   color: black;
+   padding: 0 0.5em;
+   line-height: 1.5em;
+   color: #818078;
+   background-color: #fcfcfa;
+}
+
+
+
+/* 
+   Social Media rouund buttons
+   reference: https: //www.w3schools.com/howto/howto_css_social_media_buttons.asp
+*/
+.fa-facebook, .fa-google {
+   padding-top: 28%;
+   font-size: 25px;
+   width: 50px;
+   height: 50px;
+   text-align: center;
+   text-decoration: none;
+   border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+   opacity: 0.9;
+   text-decoration: none;
+   color: black;
+}
+
+/* Set a specific color for each brand */
+.fa-facebook {
+   background: #3B5998;
+   color: white;
+}
+
+.fa-google {
+   background: #dd4b39;
+   color: white;
+}
+
+#registerLink {
+   background-color: #fcfcfa;
+   color: #9ACD32;
+   border-color: #9ACD32;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+#loginBtn {
+   background-color: #9ACD32;
+   color: #fcfcfa;
+   border-color: #9ACD32;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+
+
 
 
 
