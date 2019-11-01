@@ -8,20 +8,14 @@ reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
    margin: auto;
 }
 
-
-
 .form-wrapper-outer .form-logo {
    margin: 0px auto 15px;
    width: 100px;
 }
 
-
-
 .form-wrapper-outer .form-logo img {
    width: 100%;
 }
-
-
 
 .form-greeting {
    text-align: center;
@@ -29,20 +23,14 @@ reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
    margin-bottom: 15px;
 }
 
-
-
 .form-button {
    text-align: right;
 }
-
-
 
 .field-wrapper {
    position: relative;
    margin-bottom: 15px;
 }
-
-
 
 .field-wrapper input {
    border: 1px solid #DADCE0;
@@ -50,8 +38,6 @@ reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
    border-radius: 4px;
    width: 100%;
 }
-
-
 
 .field-wrapper .field-placeholder {
    font-size: 16px;
@@ -67,20 +53,14 @@ reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
    width: 100%;
 }
 
-
-
 .field-wrapper .field-placeholder span {
    background: #ffffff;
    padding: 0px 8px;
 }
 
-
-
 .field-wrapper input:not([disabled]):focus~.field-placeholder {
    color: #1A73E8;
 }
-
-
 
 .field-wrapper input:not([disabled]):focus~.field-placeholder,
 .field-wrapper.hasValue input:not([disabled])~.field-placeholder {

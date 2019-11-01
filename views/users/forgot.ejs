@@ -1,14 +1,10 @@
 <%- include ../partials/html-header %>
-<!-- Temporary buttons -->
 <%- include ../nav-bar-temp %>
-
 <div class="container">
    <div class="row">
       <div class="col-lg-10 col-xl-6 mx-auto">
          <div class="card card-signin flex-row my-5">
             <div class="card-body">
-
-
 
                <!-- Title & Close Button -->
                <h4 class="card-title text-center w-100 font-weight-bold"></h4>
@@ -20,14 +16,10 @@
                <!-- Form -->
                <form class="form-signin" action="/users/forgot" method="POST">
                   <div class="form-wrapper-outer">
-
-
                      <!-- Hidden Errors div -->
                      <div class="field-wrapper">
                         <% include ../partials/errors %>
                      </div>
-
-
 
                      <!-- Manually Sign In -->
                      <div class="field-wrapper">
@@ -50,26 +42,21 @@
                      </div>
                      <br>
 
-
-
                      <!-- Sign in with facebook or google -->
                      <hr class="hr-text" data-content="or">
-
-
 
                      <!-- Link to Account Creation -->
                      <br>
                      <div class="d-flex justify-content-center">
                         <div class="m-2">
-                           <p class="pt-3 small">Need an Account?</p>
+                           <p class="small">Need an Account?</p>
                         </div>
-                        <div class="m-2">
+                        <div>
                            <div class="text-center">
-                              <a id="registerLink" class="btn btn-success pl-5 pr-5" href="/users/register">Register</a>
+                              <a id="registerLink" class="btn btn-success p-1" href="/users/register">Register</a>
                            </div>
                         </div>
                      </div>
-
                   </div>
                </form>
             </div>
@@ -77,6 +64,4 @@
       </div>
    </div>
 </div>
-
-
 <%- include ../partials/html-footer %>

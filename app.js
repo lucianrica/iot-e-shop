@@ -4,7 +4,6 @@
  * Date: 28/10/2019
  */
 
-
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -13,14 +12,13 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const { ensureAuthenticated } = require('./config/auth');
 
+
 // Load User model
 const User = require('./models/User');
 // Passport Config
 require('./config/passport')(passport);
 // Initialise express
 const app = express();
-
-
 
 
 // Set the View-Engine
@@ -33,13 +31,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-
 //  Database Config
 const db = require('./config/keys').MongoURI; 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
         .then(() => console.log('3. MongoDB connection established\n'))
         .catch(err => console.err(err));
-
 
 
 // Express session
@@ -52,11 +48,9 @@ app.use(
 );
 
 
-
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 
 // Connect flash
@@ -70,12 +64,9 @@ app.use(function (req, res, next) {
 });
 
 
-
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-
-
 
 
 
@@ -93,12 +84,6 @@ app.get('/dashboard', ensureAuthenticated, (req, res) =>
 // app.use('/dashboard', require('./routes/users'));
 
 // ############################################
-
-
-
-
-
-
 
 
 // Setup Server
