@@ -22,6 +22,12 @@ const UserSchema = new Schema({
       required: true,
       default: 0 
    },
+   resetPasswordToken: {
+      type: String, 
+   },
+   resetPasswordExpires: {
+      type: Date
+   },
    date: {
       type: Date,
       default: Date.now
