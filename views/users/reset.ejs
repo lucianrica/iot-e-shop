@@ -1,17 +1,11 @@
 <!-- include HTML header for styling and other scripts -->
 <% include ../partials/html-header %>
-<!-- Temporary buttons -->
 <%- include ../nav-bar-temp %>
-
-
-
 <div class="container">
    <div class="row">
       <div class="col-lg-10 col-xl-6 mx-auto">
          <div class="card card-signin flex-row my-5">
             <div class="card-body">
-
-
 
                <!-- Title & Close Button -->
                <h4 class="card-title text-center w-100 font-weight-bold"></h4>
@@ -20,23 +14,16 @@
                </button>
                <h4 class="card-title text-center w-100 font-weight-bold">Create New Password</h4>
 
-
-
                <!-- Form -->
                <form class="form-signin" action="/users/reset/<%= token %>" method="POST">
                   <div class="form-wrapper-outer">
-
 
                      <!-- Hidden Errors div -->
                      <div class="field-wrapper">
                         <% include ../partials/errors %>
                      </div>
 
-
-
-                     <!-- Manually Reset Password -->
-                     
-                     
+                     <!-- Manually Reset Password -->                    
                      <div class="field-wrapper">
                         <input type="password" id="password" name="password"
                            value="<%= typeof password != 'undefined' ? password : '' %>">
@@ -49,7 +36,6 @@
                         <div class="field-placeholder"><span>Confirm your password</span></div>
                      </div>
 
-
                      <div class="text-center">
                         <br class="my-4">
                         <button id="loginBtn" class="btn btn-success pl-5 pr-5" type="submit">Save new Password</button>
@@ -57,30 +43,24 @@
 
                      <!-- Sign in with facebook or google -->
                      <hr class="hr-text" data-content="or">
-                                        
-
-
 
                      <!-- Link to Account Creation -->
                      <br>
                      <div class="d-flex justify-content-center">
                         <div class="m-2">
-                           <p class="pt-2">Want to log in?</p>
+                           <p class="small">Want to log in?</p>
                         </div>
-                        <div class="m-2">
+                        <div >
                            <div class="text-center">
-                              <a id="registerLink" class="btn btn-success pl-5 pr-5" href="/users/login">Log in</a>
+                              <a id="registerLink" class="btn btn-success p-1" href="/users/login">Log in</a>
                            </div>
                         </div>
                      </div>
-
                   </div>
                </form>
             </div>
          </div>
       </div>
    </div>
-
-
    <!-- include HTML footer for styling and other scripts -->
    <%- include ../partials/html-footer %>

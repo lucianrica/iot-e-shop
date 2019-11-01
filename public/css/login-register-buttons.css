@@ -1,13 +1,12 @@
-
 /* Button settings */
+
+
 .btn {
    border-radius: 0.3rem;
    letter-spacing: .05rem;
    font-weight: 500;
    padding: 0.6rem;
 }
-
-
 
 /* Create a simple white box, and add the shadow for the initial state */
 .btn {
@@ -17,8 +16,6 @@
    transition: all 0.1s ease-in-out;
 }
 
-
-
 /* Create the hidden pseudo-element and include the shadow for the end state */
 .btn::after {
    opacity: 0;
@@ -26,22 +23,16 @@
    transition: opacity 0.1s ease-in-out;
 }
 
-
-
 /* Scale up the box */
 .btn:hover {
    transform: scale(1.01, 1.01);
    box-shadow: 2px 5px 3px -2px rgba(0, 0, 0, 0.3);
 }
 
-
-
 /* Fade in the pseudo-element with the bigger shadow */
 .btn:hover::after {
    opacity: 1;
 }
-
-
 
 /* Background color for google button */
 .btn-google {
@@ -49,15 +40,11 @@
    background-color: #ea4335;
 }
 
-
-
 /* Background color for facebook button */
 .btn-facebook {
    color: white;
    background-color: #3b5998;
 }
-
-
 
 /* 
    <hr> line with text in the middle 
@@ -94,8 +81,6 @@
    color: #818078;
    background-color: #fcfcfa;
 }
-
-
 
 /* 
    Social Media rouund buttons

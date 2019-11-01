@@ -7,14 +7,10 @@ const bcrypt = require('bcryptjs');
 // Load User model
 const User = require('../models/User');
 
-
-
 // Export Auth Strategies
 module.exports = function (passport) {
 
-   /**
-   * Local Strategy
-   */
+   // Local Strategy   
    passport.use(
       new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
          // Match user
@@ -38,11 +34,7 @@ module.exports = function (passport) {
       })
    );
 
-
-
-   /**
-   * Google Strategy
-   */
+   //  Google Strategy   
    passport.use(
       new GoogleStrategy({
          clientID: keys.googleClientID,
@@ -75,8 +67,7 @@ module.exports = function (passport) {
       })
    );
 
-
-
+   // Facebook Strategy
    passport.use(
       new FacebookStrategy({
          clientID: keys.facebookClientID,
