@@ -4,15 +4,12 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const async = require('async');
 const nodemailer = require('nodemailer');
-const crypto = require('crypto')
-
+const crypto = require('crypto');
 // const { forwardAuthenticated } = require('../config/auth');
 // const { ensureAuthenticated } = require('../config/auth');
 
+// Load user model
 const User = require('../models/User');
-
-
-
 
 // Login Auth Controller
 router.getLoginPage = /*forwardAuthenticated,*/ (req, res) => {
@@ -27,13 +24,10 @@ router.userLogin = (req, res, next) => {
    })(req, res, next);
 }
 
-
-
 // Register Auth Controller
 router.getRegisterPage = (req, res) => {
    res.render('users/register')
 }
-
 router.userRegister = (req, res) => {
    const { name, email, password, confirmPassword } = req.body;
    let errors = [];
@@ -42,15 +36,12 @@ router.userRegister = (req, res) => {
    if (!name || !email || !password || !confirmPassword) {
       errors.push({ msg: 'Please enter all fields' });
    }
-
    if (password != confirmPassword) {
       errors.push({ msg: 'Passwords do not match' });
    }
-
    if (password.length < 6) {
       errors.push({ msg: 'Password must be at least 6 characters' });
    }
-
    if (errors.length > 0) {
       res.render('./users/register', {
          errors,
@@ -59,7 +50,6 @@ router.userRegister = (req, res) => {
          password,
          confirmPassword
       });
-
    } else {
       User.findOne({ email: email }).then(user => {
          if (user) {
@@ -99,8 +89,6 @@ router.userRegister = (req, res) => {
    }
 }
 
-
-
 // Google Auth Controller
 router.getGooglePage = (req, res, next) => {
    passport.authenticate('google', {
@@ -115,9 +103,6 @@ router.userGoogle = (req, res, next) => {
       failureFlash: true
    })(req, res, next);
 }
-
-
-
 
 // Facebook Auth Controller
 router.getFacebookPage = (req, res, next) => {
@@ -134,13 +119,10 @@ router.userFacebook = (req, res, next) => {
    })(req, res, next);
 }
 
-
 // Password Recovery
 router.getForgotPage = (req, res) => {
    res.render('users/forgot')
 }
-
-
 
 // Send recovery email
 router.emailRecoveryLink = (req, res, next) => {
@@ -196,8 +178,6 @@ router.emailRecoveryLink = (req, res, next) => {
    })
 }
 
-
-
 // Token validity expired
 router.resetPassword = (req, res) => {
    User.findOne({
@@ -215,8 +195,6 @@ router.resetPassword = (req, res) => {
       });
    });
 }
-
-
 
 // Create and save new Password
 router.createNewPassword = (req, res) => {
@@ -245,8 +223,6 @@ router.createNewPassword = (req, res) => {
                         .catch(err => console.log(err));
                   });
                });
-
-
             } else {
                if (!req.body.password || !req.body.confirmPassword) {
                   req.flash('error_msg', 'Please enter all fields');
@@ -254,11 +230,9 @@ router.createNewPassword = (req, res) => {
                if (req.body.password != req.body.confirmPassword) {
                   req.flash('error_msg', ' Passwords do not match');
                }
-
                if (req.body.password.length < 6) {
                   req.flash('error_msg', ' Password must be at least 6 characters');
                }
-
                return res.redirect('back');
             }
          });
@@ -289,14 +263,11 @@ router.createNewPassword = (req, res) => {
    });
 };
 
-
 // Logout
 router.userLogout = (req, res) => {
    req.logout();
    req.flash('success_msg', 'You are logged out');
    res.redirect('/users/login');
 }
-
-
 
 module.exports = router;

@@ -1,4 +1,4 @@
-// API keys, hidden for production deployment
+// API keys, hidden for production enviorements
 module.exports = {
    MongoURI: process.env.MONGO_URI,
    googleClientID: process.env.GOOGLE_CLIENT_ID,
