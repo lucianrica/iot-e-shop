@@ -16,11 +16,8 @@
                <!-- Form -->
                <form class="form-signin" action="/users/login" method="POST">
                   <div class="form-wrapper-outer">
+                     <% include ../partials/errors %>
 
-                     <!-- Hidden Errors div -->
-                     <div class="field-wrapper">
-                        <% include ../partials/errors %>
-                     </div>
 
                      <!-- Manually Sign In -->
                      <div class="field-wrapper">
@@ -77,10 +74,43 @@
                         </div>
                      </div>
 
-                  </div>
-               </form>
-            </div>
-         </div>
+
+
+                     <!-- log in accounts premade -->
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <hr class="hr-text" data-content="Premade Test Accounts">
+                     
+                     
+                     <div class="card-footer text-center">
+                        <div class="card-body text-secondary">
+                           <h5 class="card-title text-uppercase">test accounts</h5>
+                           <p class="card-text">We registerd few accounts with different privileges in order for the public users to test the
+                              application.</p>
+                        </div>
+                     
+                        <div class="d-flex justify-content-center">
+                     
+                           <div class="card-body text-secondary">
+                              
+                              <h5 class="card-title small">Admin Account: <br>email: admin@admin<br>password: adminadmin</h5>
+                              <hr>
+                              <h5 class="card-title small">Seller Account: <br>email: seller@seller<br>password: sellerseller</h5>
+                              <hr>
+                              <h5 class="card-title small">Basic Account: <br>email: basic@basic<br>password: basicbasic</h5>
+                              <hr>
+                           </div>
+                     
+                        </div>
+                     
+                     </div>
+
+                  </div>                  
+               </form>          
+            </div>           
+         </div>         
       </div>
    </div>
 </div>

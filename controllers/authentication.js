@@ -198,7 +198,7 @@ router.createNewPassword = (req, res) => {
          User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function (err, user) {
             if (!user) {
                req.flash('error', 'Password reset token is invalid or has expired.');
-               return res.redirect('back');
+               return res.render('back');
             }
             if (req.body.password === req.body.confirmPassword && req.body.password != '' && req.body.password.length >= 6) {
                bcrypt.genSalt(10, (err, salt) => {
