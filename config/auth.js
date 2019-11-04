@@ -7,11 +7,11 @@ module.exports = {
       req.flash('error_msg', 'Please log in to view that resource');
       res.redirect('/users/login');
    },
-   // Keep user logged in if authenticated once
+   // Skips login process if authenticated
    forwardAuthenticated: function (req, res, next) {
       if (!req.isAuthenticated()) {
          return next();
       }
-      res.redirect('/dashboard');
+      res.redirect('/index');
    }
 };

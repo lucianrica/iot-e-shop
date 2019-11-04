@@ -1,0 +1,51 @@
+<!-- Check if loggedin user has clearance to view this page -->
+<% if(loggedinUser.userType === 2) { %>
+
+<%- include ./partials/header-dashboard %>
+<%- include ./partials/customers-nav %>
+
+   <div class="table-responsive">
+      <table class="table table-striped table-sm">
+         <thead>
+            <tr>
+               <th>Account Type</th>
+               <th>Account ID</th>
+               <th>Created On</th>
+               <th>User Name</th>
+               <th>User Email</th>
+
+            </tr>
+         </thead>
+         <tbody>
+            <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
+
+            <% users.forEach(function(user){ %>
+            <% if(user.userType === 0) { %>
+            <tr>
+               <td class="text-uppercase text-muted small">
+                  <a href="/dashboards/admin/edit/<%= user.id %>">
+                     <% if(user.userType === 0) { %>
+                     BASIC
+                     <% } else if(user.userType === 1) { %>
+                     SELLER
+                     <% } else { %>
+                     ADMIN
+                     <% } %>
+                  </a>
+               </td>
+               <td class="text-muted small"><%= user.id %></td>
+               <td class="text-uppercase text-muted small">
+                  <%= user.date.toLocaleDateString("en-GB", options) %></td>
+               <td class="text-uppercase text-muted small"><%= user.name %></td>
+               <td class="text-uppercase text-muted small"><%= user.email %></td>
+
+            </tr>
+            <% } %>
+            <% }); %>
+         </tbody>
+      </table>
+   </div>
+   <%- include ./partials/footer-dashboard %>
+   <% } else { %>
+   <%- include ./partials/unauthorised-access %>
+   <% } %>
