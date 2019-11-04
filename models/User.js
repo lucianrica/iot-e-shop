@@ -30,10 +30,13 @@ const UserSchema = new Schema({
       type: Date,
       default: Date.now
    },
+   profilePhoto: {
+      type: String
+   }
 });
 
 // Create a Schema named 'User' for MongoDB, based on UserSchema above
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model('users', UserSchema);
 
 // Export it so we can use in other files
 module.exports = User;

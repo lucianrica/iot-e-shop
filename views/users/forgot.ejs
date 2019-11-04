@@ -1,5 +1,5 @@
 <%- include ../partials/html-header %>
-<%- include ../nav-bar-temp %>
+<%- include ../users/nav-login-register %>
 <div class="container">
    <div class="row">
       <div class="col-lg-10 col-xl-6 mx-auto">
@@ -9,17 +9,15 @@
                <!-- Title & Close Button -->
                <h4 class="card-title text-center w-100 font-weight-bold"></h4>
                <button type="button" class="close" aria-label="Close">
-                  <a href="/" aria-hidden="true">&times;</a>
+                  <a href="/users/login" aria-hidden="true">&times;</a>
                </button>
                <h4 class="card-title text-center w-100 font-weight-bold">Password Reset</h4>
 
                <!-- Form -->
                <form class="form-signin" action="/users/forgot" method="POST">
                   <div class="form-wrapper-outer">
-                     <!-- Hidden Errors div -->
-                     <div class="field-wrapper">
-                        <% include ../partials/errors %>
-                     </div>
+                     <% include ../partials/errors %>
+
 
                      <!-- Manually Sign In -->
                      <div class="field-wrapper">

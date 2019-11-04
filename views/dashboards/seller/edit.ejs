@@ -1,0 +1,134 @@
+<!-- Check if loggedin user has clearance to view this page -->
+<% if(loggedinUser.userType === 1) { %>
+
+<br>
+
+<div class="row">
+   <div class="col-md-4">
+      <div class="card mb-4 box-shadow">
+         <div class="card-body">
+            <hr class="hr-text" data-content="Account Info">
+            <div class="card-footer">
+               <div>
+                  <i class="fa fa-calendar"></i>
+                  <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
+                  <div class="text-uppercase text-muted small">
+                     <%= user.date.toLocaleDateString("en-GB", options) %></div>
+               </div>
+               <div>
+                  <i class="fa fa-user"></i>
+                  <div class="text-uppercase text-muted small"><%= user.name %></div>
+               </div>
+               <div>
+                  <i class="fa fa-envelope"></i>
+                  <div class="text-uppercase text-muted small"> <%= user.email %></div>
+               </div>
+
+               <% if(user.userType === 0) { %>
+
+               <div>
+                  <i class="fa fa-check"></i>
+                  <div class="text-uppercase text-muted small">BASIC Account</div>
+               </div>
+               <% } else if(user.userType === 1) { %>
+               <div>
+                  <i class="fa fa-bitcoin"></i>
+                  <div class="text-uppercase text-muted small">Seller Account</div>
+               </div>
+               <% } else { %>
+               <div>
+                  <i class="fa fa-certificate"></i>
+                  <div class="text-uppercase text-muted small">Admin Account</div>
+               </div>
+               <% } %>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="col-md-4">
+      <div class="card mb-4 box-shadow">
+         <div class="card-body">
+            <hr class="hr-text" data-content="Edit Account">
+            <div class="card-footer">
+
+               <!-- Form -->
+               <form class="form-signin" action="/dashboards/seller/<%= user.id %>?_method=PUT" method="POST">
+                  <input type="hidden" name="_method" value="PUT" />
+                  
+
+                     <!-- Manually Register -->
+                     <div class="field-wrapper">
+                        <input type="name" id="name" name="name" value="<%= typeof name != 'undefined' ? name : '' %>">
+
+                        <div class="field-placeholder"><span> Change Name</span></div>
+                     </div>
+
+                     
+
+                     <div class="d-flex">
+                        <div class="mr-auto small">
+                           <a id="forgotPassword" href="#"></a>
+                        </div>
+                        <div class=" small">
+                           <a id="forgotPassword" href="/users/forgot">Change Password?</a>
+                        </div>
+                     </div>
+                     <br>
+                     <div class="d-flex justify-content-center">
+                        <div>
+                           <div class="text-center">
+                              <button class="btn btn-warning m-2 p-1" type="submit">Save
+                                 Settings</button>
+                           </div>
+                        </div>
+                     </div>
+                  
+               </form>
+
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="col-md-4">
+      <div class="card mb-4 box-shadow">
+         <div class="card-body">
+            <hr class="hr-text" data-content="Delete Account">
+            <div class="card-footer">
+               <div class="card-body text-danger">
+                  <h5 class="card-title text-uppercase">WARNING, account, its settings and all and all
+                     will be
+                     lost</h5>
+
+               </div>
+               <form class="form-signin" action="/dashboards/seller/<%= user.id %>?_method=DELETE" method="POST">
+                  <input type="hidden" name="_method" value="DELETE" />
+                  <div class="d-flex justify-content-center small">
+                     <div>
+                        <div class="text-center">
+
+                           <button class="btn btn-danger m-4 p-2" type="submit">Delete Account
+                           </button>
+                           <div class="card-body text-danger">
+                              <h5 class="card-title small">WARNING, ACCOUNT: "<%= user.email %>"
+                                 <br>OWENED BY
+                                 "<%= user.name %>"
+                                 <br>WILL BE DESTROYED</h5>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </form>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+<% } else { %>
+<%- include ../admin/partials/unauthorised-access %>
+<% } %>
