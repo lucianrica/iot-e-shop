@@ -5,20 +5,18 @@ const passport = require('passport');
 const async = require('async');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
-// const { forwardAuthenticated } = require('../config/auth');
-// const { ensureAuthenticated } = require('../config/auth');
 
-// Load user model
+// Load User model
 const User = require('../models/User');
 
 // Login Auth Controller
-router.getLoginPage = /*forwardAuthenticated,*/ (req, res) => {
+router.getLoginPage = (req, res) => {
    res.render('users/login')
 }
 
 router.userLogin = (req, res, next) => {
    passport.authenticate('local', {
-      successRedirect: '/dashboard',
+      successRedirect: '/dashboards',
       failureRedirect: '/users/login',
       failureFlash: true
    })(req, res, next);
@@ -75,10 +73,7 @@ router.userRegister = (req, res) => {
                   newUser
                      .save()
                      .then(user => {
-                        req.flash(
-                           'success_msg',
-                           'You are now registered and can log in'
-                        );
+                        req.flash('success_msg', 'You are now registered and can log in');
                         res.redirect('/users/login');
                      })
                      .catch(err => console.log(err));
@@ -98,7 +93,7 @@ router.getGooglePage = (req, res, next) => {
 
 router.userGoogle = (req, res, next) => {
    passport.authenticate('google', {
-      successRedirect: '/dashboard',
+      successRedirect: '/dashboards',
       failureRedirect: '/users/login',
       failureFlash: true
    })(req, res, next);
@@ -113,7 +108,7 @@ router.getFacebookPage = (req, res, next) => {
 
 router.userFacebook = (req, res, next) => {
    passport.authenticate('facebook', {
-      successRedirect: '/dashboard',
+      successRedirect: '/dashboards',
       failureRedirect: '/users/login',
       failureFlash: true
    })(req, res, next);
@@ -214,10 +209,7 @@ router.createNewPassword = (req, res) => {
                      user.password = hash;
                      user.save()
                         .then(user => {
-                           req.flash(
-                              'success_msg',
-                              'Youre password is reset and can log in'
-                           );
+                           req.flash('success_msg', 'Youre password is reset and can log in');
                            res.redirect('/users/login');
                         })
                         .catch(err => console.log(err));
@@ -263,11 +255,5 @@ router.createNewPassword = (req, res) => {
    });
 };
 
-// Logout
-router.userLogout = (req, res) => {
-   req.logout();
-   req.flash('success_msg', 'You are logged out');
-   res.redirect('/users/login');
-}
 
 module.exports = router;

@@ -1,0 +1,43 @@
+<div class="m-0 p-0" style="background: white;">
+   <nav class="navbar navbar-expand-lg navbar-light pb-0">
+
+      <!-- Brand and btn for sm screens -->
+      <a class="navbar-brand ml-2 mr-5" href="/">
+         <img src="/public/img/logo.PNG" width="80" height="50" alt="">
+      </a>
+
+      <div class="collapse navbar-collapse m-auto" id="navbarSupportedContent">
+         <!-- Collapsable seach bar on sm screens -->
+         <div class="collapse navbar-collapse " id="navbar">
+            <form class="form-inline m-auto">
+               <input class="form-control " type="search" placeholder="    Search for Products" aria-label="Search"
+                  style="border-radius: 5px 0 0 5px;">
+               <button id="registerLink" class="btn btn-outline-success "
+                  style="padding: 5.5px; border-radius: 0 5px 5px 0;" type="submit">Search</button>
+            </form>
+            <div class="text-center">
+               <a href="#" class="pull-right mr-2"><i class="fa fa-heart fa-lg pt-2" aria-hidden="true"></i></a>
+            </div>
+            <div class="text-center">
+               <a href="#" class="pull-right mr-2"><i class="fa fa-shopping-basket  fa-lg pt-1"
+                     aria-hidden="true"></i></a>
+            </div>
+         </div>
+      </div>
+      <% if (user) { %>
+      <!-- If logged in -->
+      <a href="../../logout" class="btn btn-rounded">Logout</a>    
+      
+      <% } else { %>
+
+      <!-- Login/Register/... buttons -->
+      <div class="text-center pull-right">
+         <a href="../users/login" class="btn btn-rounded pl-2 pr-2"> login</a>
+      </div>
+      <div class="text-center pull-right">
+         <a href="../users/register" class="btn btn-rounded ml-2">register</a>
+      </div>
+      <% } %>
+   </nav>
+   <hr class="hr-text m-0 p-0 small" data-content="***">
+</div>

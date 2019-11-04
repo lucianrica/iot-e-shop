@@ -1,6 +1,6 @@
 <!-- include HTML header for styling and other scripts -->
 <% include ../partials/html-header %>
-<%- include ../nav-bar-temp %>
+<%- include ../users/nav-login-register %>
 <div class="container">
    <div class="row">
       <div class="col-lg-10 col-xl-6 mx-auto">
@@ -26,6 +26,7 @@
                      <!-- Manually Register -->
                      <div class="field-wrapper">
                         <input type="name" id="name" name="name" value="<%= typeof name != 'undefined' ? name : '' %>">
+                        
                         <div class="field-placeholder"><span>Enter your full name</span></div>
                      </div>
                      

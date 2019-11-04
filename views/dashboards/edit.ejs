@@ -1,0 +1,143 @@
+<!-- include HTML header for styling and other scripts -->
+<% include ../partials/html-header %>
+<%- include ../users/nav-login-register %>
+<div class="container">
+   <div class="row">
+      <div class="col-lg-10 col-xl-6 mx-auto">
+         <div class="card card-signin flex-row my-5">
+            <div class="card">
+               <div class="card-body">
+
+                  <!-- Title & Close Button -->
+                  <button type="button" class="close" aria-label="Close">
+                     <a href="/dashboards" aria-hidden="true">&times;</a>
+                  </button>
+                  <h5 class="card-title text-center w-100 font-weight-bold ">Account Information</h5>
+                  <br>
+
+                  <!-- Form -->
+                  <form action="/dashboards/<%= user.id %>?_method=PUT" method="POST">
+                     <input type="hidden" name="_method" value="PUT" />
+                     <!-- Hidden Errors div -->
+                     <div class="field-wrapper">
+                        <% include ../partials/errors %>
+                     </div>
+
+                     <div class="">
+                        <div class="card-footer">                           
+                           <div>
+                              <i class="fa fa-calendar"></i>
+                              <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
+                              <div class="text-uppercase text-muted small">
+                              <%= user.date.toLocaleDateString("en-GB", options) %></div>
+                           </div>                           
+                           <div>
+                              <i class="fa fa-user"></i>
+                              <div class="text-uppercase text-muted small"><%= user.name %></div>
+                           </div>                           
+                           <div>
+                              <i class="fa fa-envelope"></i><div class="text-uppercase text-muted small"> <%= user.email %></div>
+                           </div>
+
+                           <% if(user.userType === 0) { %>
+                           
+                           <div>
+                              <i class="fa fa-check"></i>
+                              <div class="text-uppercase text-muted small">BASIC Account</div>
+                           </div>
+                           <% } else if(user.userType === 1) { %>                          
+                           <div>
+                              <i class="fa fa-bitcoin"></i>
+                              <div class="text-uppercase text-muted small">Seller Account</div>
+                           </div>
+                           <% } else { %>
+                           <div>
+                              <i class="fa fa-certificate"></i>
+                              <div class="text-uppercase text-muted small">Admin Account</div>
+                           </div>
+                           <% } %>
+                        </div>
+                     </div>
+
+                     <!-- Account Settings -->
+                     <br><br>
+                     <hr class="hr-text" data-content="Account Settings">
+                     <div class="">
+                        <div class="card-footer">
+                           <% if(user.userType === 0) { %>
+                           <h6 class="card-title text-center w-100 font-weight-bold">Basic Account</h6>
+                           <% } else if(user.userType === 1) { %>
+                           <h6 class="card-title text-center w-100 font-weight-bold">Selling Account</h6>
+                           <% } else { %>
+                           <h6 class="card-title text-center w-100 font-weight-bold">Admin Account</h6>
+                           <% } %>
+
+                           <br>
+
+                           <div class="field-wrapper">
+                              <select name="userType" class="form-control" size="0">
+                                 <option value="0">Change to Basic Account</option>
+                                 <option value="1">Change to Seller Account</option>
+                                 <option value="2">Change to Admin Account</option>
+                              </select>
+                           </div>
+
+                           <!-- Link to Account Creation -->
+
+                           <div class="d-flex justify-content-center">
+                              <div>
+                                 <div class="text-center">
+                                    <a class="btn btn-secondary m-2 p-1" href="/dashboards">Go Back</a>
+                                 </div>
+                              </div>
+                              <div>
+                                 <div class="text-center">
+                                    <button class="btn btn-warning m-2 p-1" type="submit">Save Settings</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+
+                  
+                  <!-- Delete Account -->
+                  <br><br>
+                  <hr class="hr-text" data-content="Delete Account">
+
+
+                  <div class="card-footer">
+                     <div class="card-body text-danger">
+                        <h5 class="card-title text-uppercase">WARNING, Account and all its settings will be lost</h5>
+                        <p class="card-text">Your account should be deactivated within a few minutes, but some
+                           content
+                           may
+                           be viewable for a few days. Data is only
+                           retained for 30 days from date of deactivation after which it is deleted.</p>
+                     </div>
+                     <form class="form-signin" action="/dashboards/<%= user.id %>?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <div class="d-flex justify-content-center small">
+                           <div>
+                              <div class="text-center">
+                                 
+                                 <button class="btn btn-danger m-4 p-2" type="submit">Delete Account
+                                 </button>
+                                 <div class="card-body text-danger">
+                                    <h5 class="card-title">Account: "<%= user.email %>" owened by "<%= user.name %>"
+                                       will be deleted</h5>
+                                 
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- include HTML footer for styling and other scripts -->
+<%- include ../partials/html-footer %>
