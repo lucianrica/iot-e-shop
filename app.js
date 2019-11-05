@@ -14,8 +14,6 @@ const methodOverride = require('method-override');
 const { ensureAuthenticated } = require('./config/auth');
 
 
-// Load User model
-const User = require('./models/User');
 // Passport Config
 require('./config/passport')(passport);
 // Initialise express
@@ -71,6 +69,7 @@ app.use(function (req, res, next) {
 // Routes
 
 app.use('/', require('./routes/index'));
+app.use('/items', require('./routes/items'));
 app.use('/users', require('./routes/users'));
 app.use('/dashboards', require('./routes/dashboards'));
 

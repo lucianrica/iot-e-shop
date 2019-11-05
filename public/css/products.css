@@ -36,3 +36,13 @@
 a {
    text-decoration: none !important;
 }
+
+
+/* dashboard settings */
+
+@media only screen and (min-width: 768px) {
+   /* tablets and desktop */
+   #side-nav{
+      height: 873px;
+   }
+}
