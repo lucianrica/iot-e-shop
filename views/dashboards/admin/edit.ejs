@@ -73,6 +73,7 @@
 
                      <br>
 
+
                      <div class="field-wrapper">
                         <select name="userType" class="form-control" size="0">
                            <option value="0">Change to Basic Account</option>
@@ -86,12 +87,17 @@
                               <a class="btn btn-secondary m-2 p-1" href="/dashboards/admin/customers">Go Back</a>
                            </div>
                         </div>
+                        <% if(user.name === 'basic'||user.name ==='admin'||user.name ==='seller') { %>
+                        <p>Cannot Change, <br>protected account</p>
+                        <% } else { %>
                         <div>
                            <div class="text-center">
                               <button class="btn btn-warning m-2 p-1" type="submit">Save
                                  Settings</button>
                            </div>
                         </div>
+                        <% } %>
+
                      </div>
                   </div>
                </div>
@@ -111,7 +117,7 @@
                   <h5 class="card-title text-uppercase">WARNING, account, its settings and all and all
                      will be
                      lost</h5>
-                  
+
                </div>
                <form class="form-signin" action="/dashboards/admin/<%= user.id %>?_method=DELETE" method="POST">
                   <input type="hidden" name="_method" value="DELETE" />
@@ -119,8 +125,14 @@
                      <div>
                         <div class="text-center">
 
+                           <% if(user.name === 'basic'||user.name ==='admin'||user.name ==='seller') { %>
+                           <p>Cannot delete, protected account</p>
+                           <% } else { %>
                            <button class="btn btn-danger m-4 p-2" type="submit">Delete Account
                            </button>
+                           <% } %>
+
+
                            <div class="card-body text-danger">
                               <h5 class="card-title small">WARNING, ACCOUNT: "<%= user.email %>"
                                  <br>OWENED BY
