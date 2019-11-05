@@ -4,7 +4,7 @@
 <%- include ./partials/header-dashboard %>
 <%- include ./partials/customers-nav %>
 
-   <div class="table-responsive">
+   <div class="table-responsive card">
       <table class="table table-striped table-sm">
          <thead>
             <tr>
@@ -16,10 +16,12 @@
 
             </tr>
          </thead>
+         
          <tbody>
             <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
-
+            
             <% users.forEach(function(user){ %>
+               
             <tr>
                <td class="text-uppercase text-muted small">
                   <a href="/dashboards/admin/edit/<%= user.id %>">
@@ -39,8 +41,11 @@
                <td class="text-uppercase text-muted small"><%= user.email %></td>
 
             </tr>
+            
             <% }); %>
+            
          </tbody>
+         
       </table>
    </div>
    <%- include ./partials/footer-dashboard %>
