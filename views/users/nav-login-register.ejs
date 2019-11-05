@@ -1,44 +1,56 @@
 <!-- Hidden Errors div -->
-<div class="m-0 p-0" style="background: white;">
-   <nav class="navbar navbar-expand-lg navbar-light pb-0">
 
-      <!-- Brand and btn for sm screens -->
-      <a class="navbar-brand ml-2 mr-5" href="/">
-         <img src="/public/img/logo.PNG" width="80" height="50" alt="">
-      </a>
+<nav class="navbar navbar-expand navbar-light pb-0" style="background: white;">
 
-      <div class="collapse navbar-collapse m-auto" id="navbarSupportedContent">
-         <!-- Collapsable seach bar on sm screens -->
-         <div class="collapse navbar-collapse " id="navbar">
-            <form class="form-inline m-auto">
-               <input class="form-control " type="search" placeholder="    Search for Products" aria-label="Search"
-                  style="border-radius: 5px 0 0 5px;">
-               <button id="registerLink" class="btn btn-outline-success "
-                  style="padding: 5.5px; border-radius: 0 5px 5px 0;" type="submit">Search</button>
-            </form>
-            <div class="text-center">
-               <a href="#" class="pull-right mr-2"><i class="fa fa-heart fa-lg pt-2" aria-hidden="true"></i></a>
+   <!-- Brand and btn for sm screens -->
+   <a class="navbar-brand mr-auto" href="/">
+      <img src="/public/img/logo.PNG" width="70" height="45" alt="">
+   </a>
+   
+   <div class="text-center" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+   
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+               Shop
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+               <a class="dropdown-item" href="/">Home</a>
+               <hr class="hr-text p-0 m-0">
+               <a class="dropdown-item" href="/items">Item</a>
+               <hr class="hr-text p-0 m-0">
+               <a class="dropdown-item" href="/items/add">Add item</a>
             </div>
-            <div class="text-center">
-               <a href="#" class="pull-right mr-2"><i class="fa fa-shopping-basket  fa-lg pt-1"
-                     aria-hidden="true"></i></a>
-            </div>
-         </div>
-      </div>
-      <% if (user) { %>
-      <!-- If logged in -->
-      <a href="/logout" class="btn btn-rounded">Logout</a>    
-      
-      <% } else { %>
+         </li>
+      </ul>
+   </div>
 
-      <!-- Login/Register/... buttons -->
-      <div class="text-center pull-right">
-         <a href="../users/login" class="btn btn-rounded pl-2 pr-2"> login</a>
-      </div>
-      <div class="text-center pull-right">
-         <a href="../users/register" class="btn btn-rounded ml-2">register</a>
-      </div>
-      <% } %>
-   </nav>
-   <hr class="hr-text m-0 p-0 small" data-content="">
-</div>
+   <div class="" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="true">
+               Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+               <% if (user) { %>
+               <a class="dropdown-item" href="/logout">logout</a>
+               <% } else { %>
+               <a class="dropdown-item" href="../users/login">login</a>
+               <hr class="hr-text p-0 m-0">
+               <a class="dropdown-item" href="../users/register">register</a>
+               <% } %>
+            </div>
+         </li>
+      </ul>
+   </div>
+   <a href="#" class="pull-right ml-2"><i class="fa fa-heart" aria-hidden="true"></i></a>
+   
+   
+   <a href="#" class="pull-right ml-2"><i class="fa fa-shopping-basket  " aria-hidden="true"></i></a>
+
+
+</nav>
+<hr class="hr-text m-0 p-0 small" data-content="">
