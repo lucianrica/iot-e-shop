@@ -8,40 +8,31 @@ const AdministrationController = require('../controllers/administration');
 // // Dashboard Page
 router.get('/', ensureAuthenticated, 
    AdministrationController.getDashboard);
-// router.get('/admin', ensureAuthenticated, 
-//    AdministrationController.getDashboard);
 
 
 /**
  * Admin Controlls
  */
 // Customers Page
-router.get('/admin/customers', ensureAuthenticated, 
-   AdministrationController.getCustomersAsAdmin);
+router.get('/admin/customers', ensureAuthenticated, AdministrationController.getCustomersAsAdmin);
 
 // Admins Filter
-router.get('/admin/admins', ensureAuthenticated, 
-   AdministrationController.getAdminsAsAdmin);
+router.get('/admin/admins', ensureAuthenticated, AdministrationController.getAdminsAsAdmin);
 
 // Sellers Filter
-router.get('/admin/sellers', ensureAuthenticated, 
-   AdministrationController.getSellersAsAdmin);
+router.get('/admin/sellers', ensureAuthenticated, AdministrationController.getSellersAsAdmin);
 
 // Basic Users Filter
-router.get('/admin/basic', ensureAuthenticated, 
-   AdministrationController.getBasicAsAdmin);
+router.get('/admin/basic', ensureAuthenticated, AdministrationController.getBasicAsAdmin);
 
 // Get user
-router.get('/admin/edit/:id', ensureAuthenticated, 
-   AdministrationController.getUserAsAdmin);
+router.get('/admin/edit/:id', ensureAuthenticated, AdministrationController.getUserAsAdmin);
 
 // Edit user
-router.put('/admin/:id', ensureAuthenticated, 
-   AdministrationController.editUserAsAdmin);
+router.put('/admin/:id', ensureAuthenticated, AdministrationController.editUserAsAdmin);
 
 // Delete user
-router.delete('/admin/:id', ensureAuthenticated, 
-   AdministrationController.deleteUserAsAdmin);
+router.delete('/admin/:id', ensureAuthenticated, AdministrationController.deleteUserAsAdmin);
 
 
 // /**
@@ -49,16 +40,13 @@ router.delete('/admin/:id', ensureAuthenticated,
 //  */
 
 // // Get user
-router.get('/basic/edit/:id', ensureAuthenticated, 
-   AdministrationController.getUserAsBasic);
+router.get('/basic/edit/:id', ensureAuthenticated, AdministrationController.getUserAsBasic);
 
 // Edit user
-router.put('/basic/:id', ensureAuthenticated, 
-   AdministrationController.editUserAsBasic);
+router.put('/basic/:id', ensureAuthenticated, AdministrationController.editUserAsBasic);
 
 // Delete user
-router.delete('/basic/:id', ensureAuthenticated, 
-   AdministrationController.deleteUser);
+router.delete('/basic/:id', ensureAuthenticated, AdministrationController.deleteUser);
 
 
 // /**
@@ -66,16 +54,13 @@ router.delete('/basic/:id', ensureAuthenticated,
 //  */
 
 // // Get user
-router.get('/seller/edit/:id', ensureAuthenticated, 
-   AdministrationController.getUserAsSeller);
+router.get('/seller/edit/:id', ensureAuthenticated, AdministrationController.getUserAsSeller);
 
 // Edit user
-router.put('/seller/:id', ensureAuthenticated, 
-   AdministrationController.editUserAsSeller);
+router.put('/seller/:id', ensureAuthenticated, AdministrationController.editUserAsSeller);
 
 // Delete user
-router.delete('/seller/:id', ensureAuthenticated, 
-   AdministrationController.deleteUser);
+router.delete('/seller/:id', ensureAuthenticated, AdministrationController.deleteUser);
 
 
 
