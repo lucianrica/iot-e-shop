@@ -1,0 +1,233 @@
+/* disable browser scroll barwidth */
+::-webkit-scrollbar {
+   width: 0px;
+}
+
+.row {
+   margin-left: 0px;
+   margin-right: 0px;
+}
+
+/* ##################  Button settings #######################*/
+
+.btn {
+   font-weight: 500;
+}
+
+/*add the shadow for the initial state */
+.btn {
+   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+   transition: all 0.1s ease-in-out;
+}
+
+/* Scale up the box */
+.btn:hover {
+   transform: scale(1.01, 1.01);
+   box-shadow: 2px 5px 3px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* 
+   Social Media rouund buttons
+   reference: https: //www.w3schools.com/howto/howto_css_social_media_buttons.asp
+*/
+.fa-facebook,
+.fa-google {
+   padding-top: 28%;
+   font-size: 25px;
+   width: 50px;
+   height: 50px;
+   text-align: center;
+   border-radius: 50%;
+}
+
+/* Set a specific color for each brand */
+.fa-facebook {
+   background: #3B5998;
+   color: white;
+}
+
+.fa-google {
+   background: #dd4b39;
+   color: white;
+}
+
+/* ##################### Horizontal line Settings ################## */
+/* reference: https: //codepen.io/scottzirkel/pen/yNxNME */
+
+.hr-text {
+   line-height: 1em;
+   position: relative;
+   outline: 0;
+   border: 0;
+   color: black;
+   text-align: center;
+   height: 1.5em;
+   opacity: 0.5;
+}
+
+.hr-text:before {
+   content: '';
+   background: linear-gradient(to right, transparent, #818078, transparent);
+   position: absolute;
+   left: 0;
+   top: 50%;
+   width: 100%;
+   height: 1px;
+}
+
+.hr-text:after {
+   content: attr(data-content);
+   position: relative;
+   display: inline-block;
+   color: black;
+   padding: 0 0.5em;
+   line-height: 1.5em;
+   color: #818078;
+   background-color: #fcfcfa;
+}
+
+
+/* ######################## Card Class Settings ####################### */
+/* add the shadow for the initial state */
+.card {
+   border: none;
+   transition: all 0.3s ease-in-out;
+}
+
+/* Scale up the box */
+.card:hover {
+   transform: scale(1, 1);
+   box-shadow: 0px 5px 7px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Fade in the pseudo-element with the bigger shadow */
+.card:hover::after {
+   opacity: 1;
+}
+
+
+
+/* ############### Forms and input fields Secctings ################## */
+/* 
+Gmail Login Input Field Style 
+reference(https: //www.freakyjolly.com/gmail-login-input-field-style/ )
+*/
+
+.form-wrapper-outer {
+   padding: 40px;
+   margin: auto;
+}
+
+.form-wrapper-outer .form-logo {
+   margin: 0px auto 15px;
+   width: 100px;
+}
+
+.form-wrapper-outer .form-logo img {
+   width: 100%;
+}
+
+.form-greeting {
+   text-align: center;
+   font-size: 25px;
+   margin-bottom: 15px;
+}
+
+.form-button {
+   text-align: right;
+}
+
+.field-wrapper {
+   position: relative;
+   margin-bottom: 15px;
+}
+
+.field-wrapper input {
+   border: 1px solid #DADCE0;
+   padding: 15px;
+   border-radius: 4px;
+   width: 100%;
+}
+
+.field-wrapper .field-placeholder {
+   font-size: 16px;
+   position: absolute;
+   bottom: 17px;
+   box-sizing: border-box;
+   color: #80868b;
+   left: 8px;
+   padding: 0 8px;
+   transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+   z-index: 1;
+   text-align: left;
+   width: 100%;
+}
+
+.field-wrapper .field-placeholder span {
+   background: #ffffff;
+   padding: 0px 8px;
+}
+
+.field-wrapper input:not([disabled]):focus~.field-placeholder {
+   color: #1A73E8;
+}
+
+.field-wrapper input:not([disabled]):focus~.field-placeholder,
+.field-wrapper.hasValue input:not([disabled])~.field-placeholder {
+   -webkit-transform: scale(.75) translateY(-39px) translateX(-60px);
+   transform: scale(.75) translateY(-39px) translateX(-60px);
+
+}
+
+
+
+/* ##################### Home Page Intro #################### */
+
+.main-intro {
+   background-repeat: no-repeat;
+   background-image: url('https://mk0g501c3orgpam92jak.kinstacdn.com/wp-content/uploads/2011/10/blue-stars.jpg');
+   object-fit: fill;
+
+}
+
+
+.backgroundLogin {
+   background-repeat: no-repeat;
+   object-fit: fill;
+   width: 100%;
+   height: 100%;
+}
+
+.main-intro p {
+   color: white;
+   text-shadow: 2px -1px 2px black;
+}
+
+.main-intro-carousel {
+   margin-top: -80px;
+}
+
+.main-intro-carousel img {
+   height: 200px;
+   width: 32.5%;
+}
+
+.carousel-inner {
+   border-radius: 1px;
+   background: #F9F9F9;
+   box-shadow: 0px 5px 10px #888888;
+}
+
+a {
+   text-decoration: none !important;
+}
+
+/* ################## Dashboard Settings #######################*/
+
+@media only screen and (min-width: 768px) {
+
+   /* tablets and desktop */
+   #side-nav {
+      height: 873px;
+   }
+}

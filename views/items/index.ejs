@@ -1,0 +1,39 @@
+<%- include ../partials/html-header %>
+
+<div class="container mt-5">
+
+
+<% include ../partials/errors %>
+<div class="row">
+   <% items.forEach(function(item){ %>
+   <div class="col-md-4 col-lg-3 col-xl-3">
+      <div class="card mb-4 shadow-sm">
+         <img src="<%= item.link %>" width="100%" height="225" />
+         <div class="card-body">
+            <h5 class="overflow-hidden" style="min-height: 50px; max-height: 50px;"><%= item.title %></h5>
+            <p class="card-text overflow-auto" style="min-height: 115px; max-height: 115px;"><%= item.smallIntro %></p>
+            <div class="d-flex justify-content-between align-items-center">
+               <div class="btn-group">
+                  
+                     <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <a href="/items/showOne/<%= item.id %>">View</a>
+                     </button>
+
+                     <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <a href="/items/edit/<%= item.id %>">Edit</a>
+                     </button>
+                  
+                  
+                  
+                  
+               </div>
+               <small class="text-muted text-success">€<%= item.price %></small>
+            </div>
+         </div>
+      </div>
+   </div>
+   <% }); %>
+</div>
+</div>
+
+<%- include ../partials/html-footer %>

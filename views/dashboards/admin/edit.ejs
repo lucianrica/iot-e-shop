@@ -1,157 +1,150 @@
 <!-- Check if loggedin user has clearance to view this page -->
 <% if(loggedinUser.userType === 2) { %>
+   <%- include ./header %>
+   <%- include ./customers-nav %>
+   <div class="row col-md-12 no-gutters">
 
-<%- include ./partials/header-dashboard %>
-<%- include ./partials/customers-nav %>
+      <div class="col-lg-3">
+         <div class="card mb-4 box-shadow">
+            <div class="card-body">
+               <hr class="hr-text" data-content="Account Info">
+               <div class="card-footer">
+                  <div>
+                     <i class="fa fa-calendar"></i>
+                     <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
+                     <div class="text-uppercase text-muted small">
+                        <%= user.date.toLocaleDateString("en-GB", options) %></div>
+                  </div>
+                  <div>
+                     <i class="fa fa-user"></i>
+                     <div class="text-uppercase text-muted small"><%= user.name %></div>
+                  </div>
+                  <div>
+                     <i class="fa fa-envelope"></i>
+                     <div class="text-uppercase text-muted small"> <%= user.email %></div>
+                  </div>
 
+                  <% if(user.userType === 0) { %>
 
-
-
-
-
-<div class="row">
-
-   <div class="col-md-4">
-      <div class="card mb-4 box-shadow">
-         <div class="card-body">
-            <hr class="hr-text" data-content="Account Info">
-            <div class="card-footer">
-               <div>
-                  <i class="fa fa-calendar"></i>
-                  <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
-                  <div class="text-uppercase text-muted small">
-                     <%= user.date.toLocaleDateString("en-GB", options) %></div>
+                  <div>
+                     <i class="fa fa-check"></i>
+                     <div class="text-uppercase text-muted small">BASIC Account</div>
+                  </div>
+                  <% } else if(user.userType === 1) { %>
+                  <div>
+                     <i class="fa fa-bitcoin"></i>
+                     <div class="text-uppercase text-muted small">Seller Account</div>
+                  </div>
+                  <% } else { %>
+                  <div>
+                     <i class="fa fa-certificate"></i>
+                     <div class="text-uppercase text-muted small">Admin Account</div>
+                  </div>
+                  <% } %>
                </div>
-               <div>
-                  <i class="fa fa-user"></i>
-                  <div class="text-uppercase text-muted small"><%= user.name %></div>
-               </div>
-               <div>
-                  <i class="fa fa-envelope"></i>
-                  <div class="text-uppercase text-muted small"> <%= user.email %></div>
-               </div>
-
-               <% if(user.userType === 0) { %>
-
-               <div>
-                  <i class="fa fa-check"></i>
-                  <div class="text-uppercase text-muted small">BASIC Account</div>
-               </div>
-               <% } else if(user.userType === 1) { %>
-               <div>
-                  <i class="fa fa-bitcoin"></i>
-                  <div class="text-uppercase text-muted small">Seller Account</div>
-               </div>
-               <% } else { %>
-               <div>
-                  <i class="fa fa-certificate"></i>
-                  <div class="text-uppercase text-muted small">Admin Account</div>
-               </div>
-               <% } %>
             </div>
          </div>
       </div>
-   </div>
 
-   <!-- Account Type Settings -->
-   <div class="col-md-4">
-      <div class="card mb-4 box-shadow">
-         <div class="card-body">
-            <hr class="hr-text" data-content="Account Settings">
-            <form action="/dashboards/admin/<%= user.id %>?_method=PUT" method="POST">
-               <input type="hidden" name="_method" value="PUT" />
-               <% if(loggedinUser.userType === 2) { %>
-               <div class="">
-                  <div class="card-footer">
-                     <% if(user.userType === 0) { %>
-                     <h6 class="card-title text-center w-100 font-weight-bold">Basic Account</h6>
-                     <% } else if(user.userType === 1) { %>
-                     <h6 class="card-title text-center w-100 font-weight-bold">Selling Account</h6>
-                     <% } else { %>
-                     <h6 class="card-title text-center w-100 font-weight-bold">Admin Account</h6>
-                     <% } %>
-
-
-                     <br>
-
-
-
-                     <div class="field-wrapper">
-                        <select name="userType" class="form-control" size="0">
-                           <option value="0">Change to Basic Account</option>
-                           <option value="1">Change to Seller Account</option>
-                           <option value="2">Change to Admin Account</option>
-                        </select>
-                     </div>
-                     <div class="d-flex justify-content-center">
-                        <div>
-                           <div class="text-center">
-                              <a class="btn btn-secondary m-2 p-1" href="/dashboards/admin/customers">Go Back</a>
-                           </div>
-                        </div>
-                        <% if(user.name === 'basic'||user.name ==='admin'||user.name ==='seller') { %>
-                        <p>Cannot Change, <br>protected account</p>
+      <!-- Account Type Settings -->
+      <div class="col-lg-3">
+         <div class="card mb-4 box-shadow">
+            <div class="card-body">
+               <hr class="hr-text" data-content="Account Settings">
+               <form action="/dashboards/admin/<%= user.id %>?_method=PUT" method="POST">
+                  <input type="hidden" name="_method" value="PUT" />
+                  <% if(loggedinUser.userType === 2) { %>
+                  <div class="">
+                     <div class="card-footer">
+                        <% if(user.userType === 0) { %>
+                        <h6 class="card-title text-center w-100 font-weight-bold">Basic Account</h6>
+                        <% } else if(user.userType === 1) { %>
+                        <h6 class="card-title text-center w-100 font-weight-bold">Selling Account</h6>
                         <% } else { %>
-                        <div>
-                           <div class="text-center">
-                              <button class="btn btn-warning m-2 p-1" type="submit">Save
-                                 Settings</button>
-                           </div>
-                        </div>
+                        <h6 class="card-title text-center w-100 font-weight-bold">Admin Account</h6>
                         <% } %>
 
-                     </div>
-                  </div>
-               </div>
-               <% } %>
-            </form>
 
-         </div>
-      </div>
-   </div>
+                        <br>
 
-   <div class="col-md-4">
-      <div class="card mb-4 box-shadow">
-         <div class="card-body">
-            <hr class="hr-text" data-content="Delete Account">
-            <div class="card-footer">
-               <div class="card-body text-danger">
-                  <h5 class="card-title text-uppercase">WARNING, account, its settings and all and all
-                     will be
-                     lost</h5>
 
-               </div>
-               <form class="form-signin" action="/dashboards/admin/<%= user.id %>?_method=DELETE" method="POST">
-                  <input type="hidden" name="_method" value="DELETE" />
-                  <div class="d-flex justify-content-center small">
-                     <div>
-                        <div class="text-center">
 
+                        <div class="field-wrapper">
+                           <select name="userType" class="form-control" size="0">
+                              <option value="0">Change to Basic Account</option>
+                              <option value="1">Change to Seller Account</option>
+                              <option value="2">Change to Admin Account</option>
+                           </select>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                           <div>
+                              <div class="text-center">
+                                 <a class="btn btn-secondary m-2 p-1" href="/dashboards/admin/customers">Go Back</a>
+                              </div>
+                           </div>
                            <% if(user.name === 'basic'||user.name ==='admin'||user.name ==='seller') { %>
-                           <p>Cannot delete, protected account</p>
+                           <p>Cannot Change, <br>protected account</p>
                            <% } else { %>
-                           <button class="btn btn-danger m-4 p-2" type="submit">Delete Account
-                           </button>
+                           <div>
+                              <div class="text-center">
+                                 <button class="btn btn-warning m-2 p-1" type="submit">Save
+                                    Settings</button>
+                              </div>
+                           </div>
                            <% } %>
 
-
-                           <div class="card-body text-danger">
-                              <h5 class="card-title small">WARNING, ACCOUNT: "<%= user.email %>"
-                                 <br>OWENED BY
-                                 "<%= user.name %>"
-                                 <br>WILL BE DESTROYED</h5>
-                           </div>
                         </div>
                      </div>
                   </div>
+                  <% } %>
                </form>
-            </div>
 
+            </div>
+         </div>
+      </div>
+
+      <div class="col-lg-3">
+         <div class="card mb-4 box-shadow">
+            <div class="card-body">
+               <hr class="hr-text" data-content="Delete Account">
+               <div class="card-footer">
+                  <div class="card-body text-danger">
+                     <h5 class="card-title text-uppercase">WARNING, account, its settings and all and all
+                        will be
+                        lost</h5>
+
+                  </div>
+                  <form class="form-signin" action="/dashboards/admin/<%= user.id %>?_method=DELETE" method="POST">
+                     <input type="hidden" name="_method" value="DELETE" />
+                     <div class="d-flex justify-content-center small">
+                        <div>
+                           <div class="text-center">
+
+                              <% if(user.name === 'basic'||user.name ==='admin'||user.name ==='seller') { %>
+                              <p>Cannot delete, protected account</p>
+                              <% } else { %>
+                              <button class="btn btn-danger m-4 p-2" type="submit">Delete Account
+                              </button>
+                              <% } %>
+
+
+                              <div class="card-body text-danger">
+                                 <h5 class="card-title small">WARNING, ACCOUNT: "<%= user.email %>"
+                                    <br>OWENED BY
+                                    "<%= user.name %>"
+                                    <br>WILL BE DESTROYED</h5>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+
+            </div>
          </div>
       </div>
    </div>
-</div>
-<%- include ./partials/footer-dashboard %>
+   <%- include ./footer %>
 <% } else { %>
-<%- include ./partials/unauthorised-access %>
+   <%- include ../partials/unauthorised-access %>
 <% } %>
