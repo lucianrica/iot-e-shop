@@ -1,117 +1,89 @@
 <%- include ../partials/html-header %>
-<%- include ../users/nav-login-register %>
-<div class="container">
-   <div class="row">
-      <div class="col-lg-10 col-xl-6 mx-auto">
-         <div class="card card-signin flex-row my-5">
-            <div class="card-body">
-
-               <!-- Title & Close Button -->
-               <h4 class="card-title text-center w-100 font-weight-bold"></h4>
-               <button type="button" class="close" aria-label="Close">
-                  <a href="/" aria-hidden="true">&times;</a>
-               </button>
-               <h4 class="card-title text-center w-100 font-weight-bold">LOGIN</h4>
-
-               <!-- Form -->
-               <form class="form-signin" action="/users/login" method="POST">
-                  <div class="form-wrapper-outer">
-                     <% include ../partials/errors %>
+<img src="/public/img/login.png" class="position-absolute backgroundLogin p-0 m-0 d-none d-lg-block">
+</img>
 
 
-                     <!-- Manually Sign In -->
-                     <div class="field-wrapper">
-                        <input type="email" id="email" name="email"
-                           value="<%= typeof email != 'undefined' ? email : '' %>">
-                        <div class="field-placeholder"><span>Enter your email</span></div>
-                     </div>
-                     <div class="field-wrapper">
-                        <input type="password" id="password" name="password"
-                           value="<%= typeof password != 'undefined' ? password : '' %>">
-                        <div class="field-placeholder"><span>Enter your password</span></div>
-                     </div>
-                     <div class="d-flex">
-                        <div class="mr-auto small">
-                           <p type="" checked="checked" name="remember"></p>
-                        </div>
-                        <div class=" small">
-                           <a id="forgotPassword" href="/users/forgot">Forgot Password?</a>
-                        </div>
-                     </div>
-                     <div class="text-center">
-                        <br class="my-4">
-                        <button id="loginBtn" class="btn btn-success pl-5 pr-5" type="submit">Log in</button>
-                     </div>
-                     <br>
+<div class="row mt-4">
+   <div class="col-lg-8 col-xl-4 mx-auto">
+      <div class="card">
+         <div class="card-body">
 
-                     <!-- Sign in with facebook or google -->
-                     <hr class="hr-text" data-content="or">
-                     <div class="modal-header text-center">
-                        <h6 class="modal-title w-100 font-weight-bold">Sign in with</h6>
-                     </div>
-                     <br>
-                     <div class="d-flex">
-                        <div class="ml-auto mr-2">
-                           <a href="/users/google" class="btn fa fa-google"></a>
-                        </div>
-                        <div class="ml-2 mr-auto">
-                           <a href="/users/facebook" class="btn fa fa-facebook"></a>
-                        </div>
-                     </div>
-                     <br>
+            <!-- Title & Close Button -->
+            <button type="button" class="close" aria-label="Close">
+               <a href="/" aria-hidden="true">&times;</a>
+            </button>
+            <h4 class="card-title text-center w-100 font-weight-bold">LOGIN</h4>
 
-                     <!-- Link to Account Creation -->
-                     <hr class="hr-text">
-                     <br>
-                     <div class="d-flex justify-content-center small">
-                        <div class="m-2">
-                           <p class="small">Need an Account?</p>
-                        </div>
-                        <div>
-                           <div class="text-center">
-                              <a id="registerLink" class="btn btn-success p-1" href="/users/register">Register</a>
-                           </div>
+            <!-- Form -->
+            <form id="form" class="form-signin" action="/users/login" method="POST">
+               <div class="form-wrapper-outer">
+                  <% include ../partials/errors %>
+
+                  <!-- Manually LogIn -->
+                  <div class="field-wrapper">
+                     <input type="email" id="email" name="email"
+                        value="<%= typeof email != 'undefined' ? email : '' %>">
+                     <div class="field-placeholder"><span>Enter your email</span></div>
+                  </div>
+                  <div class="field-wrapper">
+                     <input type="password" id="password" name="password"
+                        value="<%= typeof password != 'undefined' ? password : '' %>">
+                     <div class="field-placeholder"><span>Enter your password</span></div>
+                  </div>
+                  <div class="d-flex">
+                     <div class="mr-auto small">
+                        <p type="" checked="checked" name="remember"></p>
+                     </div>
+                     <div class=" small">
+                        <a id="forgotPassword" href="/users/forgot">Forgot Password?</a>
+                     </div>
+                  </div>
+                  <div class="text-center">
+                     <br class="my-4">
+                     <button id="loginBtn" class="btn btn-success pl-5 pr-5" type="submit">Log in</button>
+                  </div>
+                  <br>
+
+                  <!-- Sign in with facebook or google -->
+                  <hr class="hr-text" data-content="or">
+                     <h6 class="card-title text-center text-muted">Sign in with</h6>
+                  
+                  <br>
+                  <div class="d-flex">
+                     <div class="ml-auto mr-2">
+                        <a href="/users/google" class="btn fa fa-google"></a>
+                     </div>
+                     <div class="ml-2 mr-auto">
+                        <a href="/users/facebook" class="btn fa fa-facebook"></a>
+                     </div>
+                  </div>
+                  <br>
+
+                  <!-- Link to Account Creation -->
+                  <br>
+                  <div class="d-flex justify-content-center small">
+                     <div class="m-2">
+                        <p class="small">Need an Account?</p>
+                     </div>
+                     <div>
+                        <div class="text-center">
+                           <a id="registerLink" class="btn btn-success p-1" href="/users/register">Register</a>
                         </div>
                      </div>
+                  </div>
 
-
-
-                     <!-- log in accounts premade -->
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <hr class="hr-text" data-content="Premade Test Accounts">
-                     
-                     
-                     <div class="card-footer text-center">
-                        <div class="card-body text-secondary">
-                           <h5 class="card-title text-uppercase">test accounts</h5>
-                           <p class="card-text">We registerd few accounts with different privileges in order for the public users to test the
-                              application.</p>
-                        </div>
-                     
-                        <div class="d-flex justify-content-center">
-                     
-                           <div class="card-body text-secondary">
-                              
-                              <h5 class="card-title small">Admin Account: <br>email: admin@admin<br>password: adminadmin</h5>
-                              <hr>
-                              <h5 class="card-title small">Seller Account: <br>email: seller@seller<br>password: sellerseller</h5>
-                              <hr>
-                              <h5 class="card-title small">Basic Account: <br>email: basic@basic<br>password: basicbasic</h5>
-                              <hr>
-                           </div>
-                     
-                        </div>
-                     
-                     </div>
-
-                  </div>                  
-               </form>          
-            </div>           
-         </div>         
+                  <!-- log in accounts premade -->
+                  
+                  <hr class="hr-text" data-content="Premade Test Accounts">
+                  <hr class="hr-text small" data-content="EMAIL: admin@admin  |  PASSWORD: adminadmin">
+                  <hr class="hr-text small" data-content="EMAIL: email: seller@seller  |  PASSWORD:
+                     sellerseller">
+                  <hr class="hr-text small" data-content="EMAIL: email: basic@basic  |  PASSWORD: basicbasic">              
+               </div>
+            </form>
+         </div>
       </div>
    </div>
 </div>
+
 <%- include ../partials/html-footer %>

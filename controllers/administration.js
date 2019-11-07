@@ -11,11 +11,11 @@ router.getDashboard = (req, res) => {
       .then(users => {
          if (loggedinUser.userType === 2) {
             // console.log(loggedinUser.userType)
-            res.render('./dashboards/admin/index', { users: users, loggedinUser })
+            res.render('dashboards/admin/index', { users: users, loggedinUser })
          } else if (loggedinUser.userType === 1) {
-            res.render('./dashboards/seller/index', { users: users, loggedinUser })
+            res.render('dashboards/seller/index', { users: users, loggedinUser })
          } else {
-            res.render('./dashboards/basic/index', { users: users, loggedinUser })
+            res.render('dashboards/basic/index', { users: users, loggedinUser })
          }
       })
 }
@@ -29,7 +29,7 @@ router.getCustomersAsAdmin = (req, res) => {
    const loggedinUser = req.user
    User.find({})
       .then(users => {
-         res.render('./dashboards/admin/customers', { users: users, loggedinUser })
+         res.render('dashboards/admin/customers', { users: users, loggedinUser })
       })
 }
 
@@ -38,7 +38,7 @@ router.getAdminsAsAdmin = (req, res) => {
    const loggedinUser = req.user
    User.find({})
       .then(users => {
-         res.render('./dashboards/admin/admins', { users: users, loggedinUser })
+         res.render('dashboards/admin/admins', { users: users, loggedinUser })
       })
 }
 
@@ -47,7 +47,7 @@ router.getSellersAsAdmin = (req, res) => {
    const loggedinUser = req.user
    User.find({})
       .then(users => {
-         res.render('./dashboards/admin/sellers', { users: users, loggedinUser })
+         res.render('dashboards/admin/sellers', { users: users, loggedinUser })
       })
 }
 
@@ -56,7 +56,7 @@ router.getBasicAsAdmin = (req, res) => {
    const loggedinUser = req.user
    User.find({})
       .then(users => {
-         res.render('./dashboards/admin/basic', { users: users, loggedinUser })
+         res.render('dashboards/admin/basic', { users: users, loggedinUser })
       })
 }
 
@@ -67,7 +67,7 @@ router.getUserAsAdmin = (req, res) => {
    //Find the user we want to change 
    User.findOne({ _id: req.params.id })
       .then(user => {
-         res.render('./dashboards/admin/edit', { user: user, loggedinUser })
+         res.render('dashboards/admin/edit', { user: user, loggedinUser })
       })
 }
 
