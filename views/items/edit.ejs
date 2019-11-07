@@ -1,0 +1,49 @@
+<%- include ../partials/html-header %>
+<h1>Edit Product</h1>
+<div class="row">
+   <div class="col-md-8 col-lg-7 col-xl-10 mx-auto">
+      <% include ../partials/errors %>
+
+      <!-- edit -->
+      <form action="/items/<%= item.id%>?_method=PUT" method="POST">
+         <input type="hidden" name="_method" value="PUT">
+         <div class="form-row">
+            <div class=" mb-3">
+               <input type="text" class="form-control" name="title" placeholder="Product Name" value="<%= item.title %>">
+            </div>
+         </div>
+         <div class="form-row">
+            <div class=" mb-3">
+               <input type="number" class="form-control" name="price" step=".01" placeholder="Price" value="<%= item.price %>">
+            </div>
+         </div>
+         <div class="form-row">
+            <div class=" mb-3">
+               <textarea type="text" class="form-control" name="smallIntro" maxlength="150"
+                  placeholder="Description up to 150 words"><%= item.smallIntro %></textarea>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class=" mb-3">
+               <textarea type="text" class="form-control" name="details" placeholder="Detailed Description"><%= item.details %></textarea>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class=" mb-3">
+               <input type="text" class="form-control" name="link" placeholder="http:// link to photo" value="<%= item.link %>">
+            </div>
+         </div>
+         <button class="btn btn-warning btn-sm" type="submit">Save new Details</button>
+      </form>
+
+      <br>
+      <br>
+      <!-- Delete -->
+      <form action="/items/<%= item.id%>?_method=DELETE" method="POST">
+         <input type="hidden" name="_method" value="DELETE">
+         <button class="btn btn-danger btn-sm" type="submit">Delete Product</button>
+      </form>
+
+   </div>
+</div>
+<%- include ../partials/html-footer %>

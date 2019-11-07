@@ -1,12 +1,12 @@
 <!-- Check if loggedin user has clearance to view this page -->
 <% if(loggedinUser.userType === 0) { %>
-<%- include ./partials/header-dashboard %>
 
+<%- include ./header %>
 
 <%- include ./edit %>
 
+<%- include ./footer %>
 
-<%- include ./partials/footer-dashboard %>
 <% } else { %>
-<%- include ../admin/partials/unauthorised-access %>
+<%- include ../partials/unauthorised-access %>
 <% } %>

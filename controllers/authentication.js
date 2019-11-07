@@ -42,22 +42,24 @@ router.userRegister = (req, res) => {
    }
    if (errors.length > 0) {
       res.render('./users/register', {
-         errors,
-         name,
-         email,
-         password,
-         confirmPassword
+         errors
+         // ,
+         // name,
+         // email,
+         // password,
+         // confirmPassword
       });
    } else {
       User.findOne({ email: email }).then(user => {
          if (user) {
-            errors.push({ msg: 'Email already exists' });
-            res.render('register', {
-               errors,
-               name,
-               email,
-               password,
-               confirmPassword
+            errors.push({ msg: 'Email already exists' })               
+            res.render('./users/register', {
+               errors
+               // ,
+               // name,
+               // email,
+               // password,
+               // confirmPassword
             });
          } else {
             const newUser = new User({
@@ -123,7 +125,7 @@ router.getForgotPage = (req, res) => {
 router.emailRecoveryLink = (req, res, next) => {
    async.waterfall([
       function (done) {
-         crypto.randomBytes(20, function (err, buf) {
+         crypto.randomBytes(10, function (err, buf) {
             let token = buf.toString('hex');
             done(err, token);
          });
@@ -254,6 +256,7 @@ router.createNewPassword = (req, res) => {
       res.redirect('/users/login');
    });
 };
+
 
 
 module.exports = router;
