@@ -2,16 +2,15 @@
 
 <!-- Home page for products, we loop trough entire database and output all products -->
 
-
-   <div class="row mt-5">
-      <% items.forEach(function(item){ %>
+<div class="row mt-5">
+   <% items.forEach(function(item){ %>
+      <% if(user != undefined && user.id === item.user){ %>
       <div class="card col-md-6 col-lg-5 col-xl-3 mx-auto mt-1 pt-3">
          <div class="card mb-4 shadow-sm">
-            <img src="<%= item.photos[0] != '' ? item.photos[0] : '/public/img/noimg.png' %>" width="100%"
-               height="225" />            
+            <img src="<%= item.photos[0] != '' ? item.photos[0] : '/public/img/noimg.png' %>" width="100%" height="225" />
             <div class="card-body">
                <h5 class="overflow-hidden" style="min-height: 50px; max-height: 50px;"><%= item.title %></h5>
-               <p class="card-text" style="min-height: 115px; max-height: 115px;  overflow: hidden;"><%= item.salesPitch %>
+               <p class="card-text" style="min-height: 115px; max-height: 115px;  overflow: hidden"><%= item.salesPitch %>
                </p>
                <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
@@ -30,8 +29,9 @@
             </div>
          </div>
       </div>
-      <% }); %>
-   </div>
-   
+      <% } %>
+   <% }); %>
+</div>
+
 
 <%- include ./footer %>

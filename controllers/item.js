@@ -1,16 +1,36 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 
 // Load Item model
 const Item = require('../models/Item');
 
 // Item Index page
 router.getIndex = (req, res) => {
+  // Get user to match with his products, although we display all we only display edit button just for his own products
+  const user = req.user
+  // Find all items
   Item.find({})
     .sort({ date: 'desc' })
     .then(items => {
       res.render('items/index', {
-        items: items
+        items: items,
+        user
+      })
+    })
+}
+
+// Item Index page
+router.getmyItems = (req, res) => {
+  // Get user to match with his products, although we display all we only display edit button just for his own products
+  const user = req.user
+  // Find all items
+  Item.find({})
+    .sort({ date: 'desc' })
+    .then(items => {
+      res.render('items/my-items', {
+        items: items,
+        user
       })
     })
 }
@@ -19,6 +39,7 @@ router.getIndex = (req, res) => {
 router.getAddItem = (req, res) => {
   res.render('items/add')
 }
+
 
 // Post Item
 router.AddItem = (req, res) => {
@@ -30,14 +51,14 @@ router.AddItem = (req, res) => {
   if (!req.body.price) {
     errors.push({ msg: 'Please add a price' });
   }
-  if (!req.body.smallIntro) {
-    errors.push({ msg: 'Please add small description of the product, up to 150 words' });
+  if (!req.body.salesPitch) {
+    errors.push({ msg: 'Please add a sales pitch, max 150 letters' });
   }
   if (!req.body.details) {
     errors.push({ msg: 'Please add detailed description of the product' });
   }
-  if (!req.body.link) {
-    errors.push({ msg: 'Please add a http link for photo' });
+  if (!req.body.imgOne) {
+    errors.push({ msg: 'You need atleast one link for main photo' });
   }
 
   if (errors.length > 0) {
@@ -45,17 +66,27 @@ router.AddItem = (req, res) => {
       errors: errors,
       title: req.body.title,
       price: req.body.price,
-      smallIntro: req.body.smallIntro,
+      salesPitch: req.body.salesPitch,
       details: req.body.details,
-      link: req.body.link
+      imgOne: req.body.imgOne,
+      imgTwo: req.body.imgTwo,
+      imgThree: req.body.imgThree,
+      imgFour: req.body.imgFour
     })
   } else {
     const newUser = {
       title: req.body.title,
       price: req.body.price,
-      smallIntro: req.body.smallIntro,
+      salesPitch: req.body.salesPitch,
       details: req.body.details,
-      link: req.body.link
+      img: req.body.img,
+      user: req.user.id,
+      photos: [
+        req.body.imgOne,
+        req.body.imgTwo,
+        req.body.imgThree,
+        req.body.imgFour
+      ]
     }
     new Item(newUser)
       .save()
@@ -63,12 +94,10 @@ router.AddItem = (req, res) => {
         res.redirect('items');
       })
   }
-
 }
 
 // Get edit Item
 router.editItem = (req, res) => {
-
   Item.findOne({ _id: req.params.id })
     .then((item) => {
       res.render('items/edit', {
@@ -77,23 +106,30 @@ router.editItem = (req, res) => {
     })
 }
 
-// Get One Item
-router.getOneItem = (req, res) => {
+// Show One Item
+router.showOne = (req, res, next) => {
 
-  Item.findOne({ _id: req.params.id })
-    .then((item) => {
-      res.render('items/showOne', {
-        item: item
-      })
+  Item.find({})
+    .then(items => {
+      Item.findOne({_id: req.params.id})
+        .then((item) => {          
+          res.render('items/showOne', {
+            item: item,
+            items            
+          })
+        })
+        
     })
+  
 }
+
 
 // edit Item
 router.putItem = (req, res) => {
-  
+
   Item.findOne({ _id: req.params.id })
     .then((item) => {
-      
+
       let errors = [];
 
       if (!req.body.title) {
@@ -102,14 +138,14 @@ router.putItem = (req, res) => {
       if (!req.body.price) {
         errors.push({ msg: 'Please add a price' });
       }
-      if (!req.body.smallIntro) {
-        errors.push({ msg: 'Please add small description of the product, up to 150 words' });
+      if (!req.body.salesPitch) {
+        errors.push({ msg: 'Please add a sales pitch, max 150 letters' });
       }
       if (!req.body.details) {
         errors.push({ msg: 'Please add detailed description of the product' });
       }
-      if (!req.body.link) {
-        errors.push({ msg: 'Please add a http link for photo' });
+      if (!req.body.imgOne) {
+        errors.push({ msg: 'You need atleast one link for main photo' });
       }
 
       if (errors.length > 0) {
@@ -117,17 +153,24 @@ router.putItem = (req, res) => {
           errors: errors,
           title: req.body.title,
           price: req.body.price,
-          smallIntro: req.body.smallIntro,
+          salesPitch: req.body.salesPitch,
           details: req.body.details,
-          link: req.body.link,
-            
+          imgOne: req.body.imgOne,
+          imgTwo: req.body.imgTwo,
+          imgThree: req.body.imgThree,
+          imgFour: req.body.imgFour,
         })
       } else {
         item.title = req.body.title;
         item.price = req.body.price;
-        item.smallIntro = req.body.smallIntro;
+        item.salesPitch = req.body.salesPitch;
         item.details = req.body.details;
-        item.link = req.body.link; 
+        item.photos = [
+          req.body.imgOne,
+          req.body.imgTwo,
+          req.body.imgThree,
+          req.body.imgFour
+        ]
 
         item.save()
           .then(item => {
@@ -139,11 +182,9 @@ router.putItem = (req, res) => {
 }
 
 
-
 // Delete Item
 router.deleteItem = (req, res) => {
-  
-  Item.deleteOne({_id: req.params.id})
+  Item.deleteOne({ _id: req.params.id })
     .then(() => {
       req.flash('success_msg', 'product succesfully deleted');
       res.redirect('/items');

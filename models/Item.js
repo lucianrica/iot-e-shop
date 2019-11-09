@@ -8,9 +8,10 @@ const ItemSchema = new Schema({
       required: true
    },
    price: {
-      type: Number
+      type: Number,
+      required: true
    },
-   smallIntro: {
+   salesPitch:{
       type: String,
       required: true
    },
@@ -18,14 +19,17 @@ const ItemSchema = new Schema({
       type: String,
       required: true
    },
-   link: {
-      type: String
-   },
+   photos: [String],
    date: {
       type: Date,
       default: Date.now
+   },
+   user: {
+      type: String,
+      required: true
    }
 });
+
 
 // Create a Schema named 'User' for MongoDB, based on UserSchema above
 const Item = mongoose.model('items', ItemSchema);

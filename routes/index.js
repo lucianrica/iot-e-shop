@@ -7,7 +7,7 @@ const User = require('../models/User');
 const Item = require('../models/User');
 
 router.get('/', (req, res) => {
-
+   
    
    res.render('index')
 });

@@ -1,35 +1,50 @@
-   <!-- HTML Layout ending -->
+<!-- HTML Layout ending -->
 
-   </main>
-   <!-- Styling Scripts -->
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</main>
+<!-- Styling Scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-   <!-- Input Forms Functionality -->
-   <script>
-      $(function () {
-         $(".field-wrapper .field-placeholder").on("click", function () {
-            $(this).closest(".field-wrapper").find("input").focus();
-         });
-         $(".field-wrapper input").on("keyup", function () {
-            var value = $.trim($(this).val());
-            if (value) {
-               $(this).closest(".field-wrapper").addClass("hasValue");
-            } else {
-               $(this).closest(".field-wrapper").removeClass("hasValue");
-            }
-         });
+<!-- Editor script -->
+<script src="https://cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>
+
+<!-- Input Forms Functionality -->
+<script>
+   $(function () {
+      $(".field-wrapper .field-placeholder").on("click", function () {
+         $(this).closest(".field-wrapper").find("input").focus();
       });
-   </script>
+      $(".field-wrapper input").on("keyup", function () {
+         var value = $.trim($(this).val());
+         if (value) {
+            $(this).closest(".field-wrapper").addClass("hasValue");
+         } else {
+            $(this).closest(".field-wrapper").removeClass("hasValue");
+         }
+      });
+   });
+
+   // Editor script
+   CKEDITOR.replace('details', {
+      enterMode: CKEDITOR.ENTER_BR,
+      toolbar: [{ name: 'basicstyles', groups: ['basicstyles'], items: ['Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor'] },
+      { name: 'styles', items: ['Format', 'Font', 'FontSize'] },
+      { name: 'scripts', items: ['Subscript', 'Superscript'] },
+      { name: 'justify', groups: ['blocks', 'align'], items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+      { name: 'paragraph', groups: ['list', 'indent'], items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'] },
+      { name: 'insert', items: ['Image'] },
+      { name: 'spell', items: ['jQuerySpellChecker'] }
+      ],
+   });
+</script>
 
 
-    
 
 </body>
 
