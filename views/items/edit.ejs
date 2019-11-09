@@ -1,49 +1,100 @@
-<%- include ../partials/html-header %>
-<h1>Edit Product</h1>
-<div class="row">
-   <div class="col-md-8 col-lg-7 col-xl-10 mx-auto">
-      <% include ../partials/errors %>
+<% if(user.userType === 1 && user.id === item.user) { %>
 
-      <!-- edit -->
-      <form action="/items/<%= item.id%>?_method=PUT" method="POST">
-         <input type="hidden" name="_method" value="PUT">
-         <div class="form-row">
-            <div class=" mb-3">
-               <input type="text" class="form-control" name="title" placeholder="Product Name" value="<%= item.title %>">
-            </div>
+   <%- include ./header %>
+   <!-- edit -->
+   <form class="row" action="/items/<%= item.id%>?_method=PUT" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <!-- Title & Price -->
+      <div class="row col-md-12 mt-5">
+         <div class="col-md-1"></div>
+         <div class=" mb-4">
+            <input type="text" class="form-control" name="title" placeholder="Product Name" value="<%= item.title %>">
          </div>
-         <div class="form-row">
-            <div class=" mb-3">
-               <input type="number" class="form-control" name="price" step=".01" placeholder="Price" value="<%= item.price %>">
-            </div>
+         <div class="col-md-1"></div>
+         <div class=" mb-4">
+            <input type="number" class="form-control" name="price" step=".01" placeholder="Price" value="<%= item.price %>">         
          </div>
-         <div class="form-row">
-            <div class=" mb-3">
-               <textarea type="text" class="form-control" name="smallIntro" maxlength="150"
-                  placeholder="Description up to 150 words"><%= item.smallIntro %></textarea>
-            </div>
-         </div>
-         <div class="form-row">
-            <div class=" mb-3">
-               <textarea type="text" class="form-control" name="details" placeholder="Detailed Description"><%= item.details %></textarea>
-            </div>
-         </div>
-         <div class="form-row">
-            <div class=" mb-3">
-               <input type="text" class="form-control" name="link" placeholder="http:// link to photo" value="<%= item.link %>">
-            </div>
-         </div>
-         <button class="btn btn-warning btn-sm" type="submit">Save new Details</button>
-      </form>
+      </div>
 
-      <br>
-      <br>
-      <!-- Delete -->
-      <form action="/items/<%= item.id%>?_method=DELETE" method="POST">
-         <input type="hidden" name="_method" value="DELETE">
-         <button class="btn btn-danger btn-sm" type="submit">Delete Product</button>
-      </form>
+      <!-- Textarea -->
+      <div class="row col-md-12">
+         <div class="row col-md-12 mt-5">
+            <h6>Sales Pitch</h6>
+         </div>
+         <div class="col-md-12">
+            <textarea type="text" class="form-control" name="salesPitch"
+               maxlength="150"><%= item.salesPitch %></textarea>
+         </div>
+         <div class="row col-md-12 mt-5">
+            <h6>More Details</h6>
+         </div>
+         <div class="col-md-12">
+            <textarea type="text" class="form-control" name="details"><%= item.details %></textarea>
+         </div>
+      </div>
 
-   </div>
-</div>
-<%- include ../partials/html-footer %>
+      <!-- Links -->
+      <div class="row col-md-12 mt-5">
+         <div class="col-md-6 mt-2">
+            <input type="text" class="form-control" name="imgOne" placeholder="http:// link to photo 1"
+               value="<%= typeof item.photos[0] != 'undefined' ? item.photos[0] : '' %>">
+         </div>
+         <div class="col-md-6 mt-2">
+            <input type="text" class="form-control" name="imgTwo" placeholder="http:// link to photo 2"
+               value="<%= typeof item.photos[1] != 'undefined' ? item.photos[1] : '' %>">
+         </div>
+         <div class="col-md-6 mt-2">
+            <input type="text" class="form-control" name="imgThree" placeholder="http:// link to photo 3"
+               value="<%= typeof item.photos[2] != 'undefined' ? item.photos[2] : '' %>">
+         </div>
+         <div class="col-md-6 mt-2">
+            <input type="text" class="form-control" name="imgFour" placeholder="http:// link to photo 4"
+               value="<%= typeof item.photos[3] != 'undefined' ? item.photos[3] : '' %>">
+         </div>
+      </div>
+
+      <!-- Add button -->
+      <div class="row col-md-12 mt-5">
+         <div class="col-md-1"></div>
+         <div class="col-md-2">
+            <a href="../my-items" class="btn btn-secondary btn-sm" type="submit">Go Back</a>
+         </div>
+         <div class="col-md-2">
+            <button class="btn btn-warning btn-sm" type="submit">Save new Details</button>
+         </div>
+      </div>
+   </form>
+   <br>
+   <br>
+   <!-- Delete -->
+   <form class="row" action="/items/<%= item.id%>?_method=DELETE" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <div class="row col-md-12">
+         <div class="col-md-1"></div>         
+         <div class="col-md-2">
+            <button class="btn btn-danger btn-sm" type="submit">Delete Product</button>
+         </div>
+      </div>  
+   </form>
+   <%- include ./footer %>
+
+<% } else { %>
+   <%- include ../dashboards/partials/unauthorised-access %>
+<% } %>
+
+
+
+
+
+
+      
+         
+                
+        
+         
+         
+         
+         
+
+         
+      

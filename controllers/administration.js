@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-// Load User model
+// Load Models
 const User = require('../models/User');
+const Item = require('../models/Item');
 
 // Get Dashboard
 router.getDashboard = (req, res) => {
@@ -209,5 +210,42 @@ router.deleteUser = (req, res) => {
          res.redirect('/');
       });
 }
+
+
+
+
+/**
+ * Admin Product Controlls
+ */
+// Get Customers
+router.getProductsAsAdmin = (req, res) => {
+   const loggedinUser = req.user
+   User.find({})
+      .then(users => {
+         Item.find({})
+            .then((items) => {
+               res.render('dashboards/admin/products', {
+                  users,
+                  items,
+                  loggedinUser
+               })
+            })
+
+      })
+}
+
+// Get Customers
+router.findOneProd = (req, res) => {
+   const loggedinUser = req.user   
+   Item.findOne({_id: req.params.id})
+      .then(item => {
+         res.render('dashboards/admin/findOneProd', { 
+            item: item, 
+            loggedinUser 
+         })
+      })
+
+}
+
 
 module.exports = router;
