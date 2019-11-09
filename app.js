@@ -70,6 +70,7 @@ app.use(function (req, res, next) {
 // Routes
 
 app.use('/', require('./routes/index'));
+app.use('/index', require('./routes/index'));
 app.use('/items', require('./routes/items'));
 app.use('/users', require('./routes/users'));
 app.use('/dashboards', require('./routes/dashboards'));

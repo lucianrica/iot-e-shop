@@ -19,11 +19,23 @@
                      Shop
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                     <a class="dropdown-item" href="/">Home</a>
-                     <hr class="hr-text p-0 m-0">
-                     <a class="dropdown-item" href="/items">Item</a>
-                     <hr class="hr-text p-0 m-0">
-                     <a class="dropdown-item" href="/items/add">Add item</a>
+                     <a class="dropdown-item" href="/items">Home</a>
+
+
+
+                     <% if (user != undefined && user.userType === 1) { %>
+                        <hr class="hr-text p-0 m-0">
+                        <a class="dropdown-item" href="/items/add">Add Product</a>
+                        <hr class="hr-text p-0 m-0">
+                        <a class="dropdown-item" href="/items/my-items">My Products</a>
+                     <% } else { %> 
+                        <hr class="hr-text p-0 m-0">
+                        <a class="dropdown-item" href="#">Start Selling</a>
+                     <% } %>
+
+
+
+                     
                   </div>
                </li>
             </ul>

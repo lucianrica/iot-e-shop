@@ -63,6 +63,14 @@ router.put('/seller/:id', ensureAuthenticated, AdministrationController.editUser
 router.delete('/seller/:id', ensureAuthenticated, AdministrationController.deleteUser);
 
 
+/**
+ * Admin Products Controlls
+ */
+// Products Page
+router.get('/admin/products', ensureAuthenticated, AdministrationController.getProductsAsAdmin);
+
+// One Product Page on admin dashboard
+router.get('/admin/findOneProd/:id', ensureAuthenticated, AdministrationController.findOneProd);
 
 
 module.exports = router;

@@ -1,38 +1,71 @@
-<%- include ../partials/html-header %>
-<h1>Add Product</h1>
-<div class="row">
-   <div class="col-md-8 col-lg-7 col-xl-10 mx-auto">
-      <% include ../partials/errors %>
+<% if(user != undefined && user.userType === 1) { %>
 
-      <form  action="/items" method="POST">
-         <div class="form-row">
-            <div class=" mb-3">
-               <input type="text" class="form-control" name="title" placeholder="Product Name">               
-            </div>                        
-         </div>                  
-         <div class="form-row">
-            <div class=" mb-3">
-               <input type="number" class="form-control" name="price" step=".01" placeholder="Price">               
-            </div>                        
+   <%- include ./header %>
+   <form class="row" action="/items" method="POST">
+      <!-- Title & Price -->
+      <div class="row col-md-12 mt-5"> 
+         <div class="col-md-7 mb-4">
+            <label for="title"><h6>Title</h6></label>
+            <input type="text" class="form-control" name="title" placeholder=""
+               value="<%= typeof title != 'undefined' ? title : '' %>">
          </div>
-         <div class="form-row">
-            <div class=" mb-3">
-               <textarea type="text" class="form-control" name="smallIntro" maxlength="150" placeholder="Description up to 150 words"></textarea>              
-            </div>                        
-         </div>  
-         <div class="form-row">
-            <div class=" mb-3">
-               <textarea type="text" class="form-control" name="details" placeholder="Detailed Description"></textarea>              
-            </div>                        
-         </div>  
-         <div class="form-row">
-            <div class=" mb-3">
-               <input type="text" class="form-control" name="link" placeholder="http:// link to photo">
-            </div>
+         <div class="col-md-1"></div>
+         <div class=" mb-2">
+            <label for="price"><h6>Price</h6></label>
+            <input type="number" class="form-control" name="price" step=".01" placeholder="€"
+               value="<%= typeof price != 'undefined' ? price : '' %>">
          </div>
-         <button class="btn btn-primary btn-sm" type="submit">Add Product</button>
-      </form>     
+      </div>
+      
+      <!-- Textarea -->
+      <div class="row col-md-12">
+         <div class="row col-md-12 mt-5">
+            <h6>Sales Pitch</h6>
+         </div>
+         <div class="col-md-12">
+            <textarea type="text" class="form-control" name="salesPitch" maxlength = "150"><%= typeof salesPitch!= 'undefined' ? salesPitch : '' %></textarea>
+         </div>
+         <div class="row col-md-12 mt-5">
+            <h6>More Details</h6>
+         </div>
+         <div class="col-md-12">
+            <textarea type="text" class="form-control" name="details"><%= typeof details != 'undefined' ? details : '' %></textarea>
+         </div>
+      </div>
 
-   </div>
-</div>
-<%- include ../partials/html-footer %>
+      <!-- Links -->
+      <div class="row col-md-12 mt-5">
+         <div class="col-md-12">
+            <h6>Photo Links</h6>
+         </div>
+         <div class="col-md-6 mt-2">
+            <input type="text" class="form-control" name="imgOne" placeholder="http://"
+               value="<%= typeof imgOne != 'undefined' ? imgOne : '' %>">
+         </div>
+         <div class="col-md-6 mt-2">
+            <input type="text" class="form-control" name="imgTwo" placeholder="http:// "
+               value="<%= typeof imgTwo != 'undefined' ? imgTwo : '' %>">
+         </div>
+         <div class="col-md-6 mt-2">
+            <input type="text" class="form-control" name="imgThree" placeholder="http://"
+               value="<%= typeof imgThree != 'undefined' ? imgThree : '' %>">
+         </div>
+         <div class="col-md-6 mt-2">
+            <input type="text" class="form-control" name="imgFour" placeholder="http:// "
+               value="<%= typeof imgFour != 'undefined' ? imgFour : '' %>">
+         </div>
+      </div>
+
+      <!-- Add button -->
+      <div class="row col-md-12 mt-5">
+         <div class="col-md-1"></div>
+         <div class="col-md-2">
+            <button class="btn btn-primary btn-sm" type="submit">Add Product</button>
+         </div>
+      </div>
+   </form>
+   <%- include ./footer %>
+
+<% } else { %>
+   <%- include ../dashboards/partials/unauthorised-access %>
+<% } %>
