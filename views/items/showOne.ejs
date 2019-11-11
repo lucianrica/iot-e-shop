@@ -2,86 +2,81 @@
 
 <!-- Top div -->
 <div class="row mt-5">
-   <div class="row col-md-5">
+   <div class="col-md-2">
+   </div>
+   <div class="row col-md-10 mb-4">
+      <h1 class="display-4 text-center"><%= item.title %></h1>
+   </div>
+   <div class="row col-md-7">
       <div class="col-md-12 p-0">
          <img class="card shadow" src="<%= item.photos[0] != '' ? item.photos[0] : '/public/img/noimg.png' %>"
-            alt="product" width="100%" height="305">
+            alt="product" width="100%" height="405">
       </div>
-      <div class="col-md-4 d-none d-lg-block mt-2">
+      <div class="col-md-4 d-none d-lg-block mt-2 p-0">
          <img class="card shadow" src="<%= item.photos[1] != '' ? item.photos[1] : '/public/img/noimg.png' %>"
-            alt="product" width="100%" height="85">
+            alt="product" width="100%" height="185">
       </div>
-      <div class="col-md-4 d-none d-lg-block mt-2">
+      <div class="col-md-4 d-none d-lg-block mt-2 p-0">
          <img class="card shadow" src="<%= item.photos[2] != '' ? item.photos[2] : '/public/img/noimg.png' %>"
-            alt="product" width="100%" height="85">
+            alt="product" width="100%" height="185">
       </div>
-      <div class="col-md-4 d-none d-lg-block mt-2">
+      <div class="col-md-4 d-none d-lg-block mt-2 p-0">
          <img class="card shadow" src="<%= item.photos[3] != '' ? item.photos[3] : '/public/img/noimg.png' %>"
-            alt="product" width="100%" height="85">
+            alt="product" width="100%" height="185">
       </div>
    </div>
 
-   <div class="row col-md-7 shadow-sm" style="background: rgb(170,214,136, 0.05);">
+   <div class="row col-md-5 shadow-sm" style="background: rgb(170,214,136, 0.05);">
       <div class="col-md-12">
-         <h3><%= item.title %></h3>
+         <h5><%= item.salesPitch %></h5>
       </div>
-      <div class="col-md-2">
-         <div class="field-wrapper">
-            <select name="quantity" class="form-control" size="0">
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-               <option value="6">6</option>
-               <option value="7">7</option>
-               <option value="8">8</option>
-               <option value="9">9</option>
-            </select>
+      <div class="col-md-12">
+         <i class="fa fa-check fa-2x text-success"></i><span class="text-success font-weight-bold">In Stock</span>
+      </div>
+      <div class="row col-md-12 text-primary">
+         <div class="col-xs-1 pt-3 pl-0">
+            <span class="">Price: </span>
          </div>
-      </div>
-      <div class="col-md-8">
-         <p>Select the quantity you want to purchase</p>
-      </div>
-      <div class="col-md-12 text-muted">
-         <div class="col-md-4">
+         <div class="col-xs-9">
             <h1>€ <%= item.price %></h1>
          </div>
-         <div class="col-md-6 text-muted">
-            <h6><i class="fa fa-check fa-2x"></i> Shop secure, free returns</h6>
-         </div>
+         
       </div>
 
-      <div class="col-md-12 mt-2">
-         <a href="#" class="btn col-md-6 text-center" style="background: rgb(255, 165, 0, 0.4);">
-            <div class="">
-               <i class="fa fa-shopping-basket fa-2x" aria-hidden="true"> Add to Cart</i>
-            </div>
+      <div class="col-md-12 text-warning ">
+         <h6 class="small"><i class="fa fa-check text-warning"></i> Shop Secure</h6>
+      </div>
+      <div class="col-md-12 text-warning">
+         <h6 class="small"><i class="fa fa-check text-warning"></i> Free Returns</h6>
+      </div>
+      <div class="col-md-12 text-warning">
+         <h6 class="small"><i class="fa fa-check text-warning"></i> Free Delivery</h6>
+      </div>
+
+      <div class="col-md-6 mt-2">
+         <a class="btn text-center border-success text-success" >
+            <i class="fa fa-shopping-basket font-weight-bold" aria-hidden="true"> Add to Cart</i>
+         </a>
+      </div>
+      <div class="col-md-6 mt-2">
+         <a class="btn text-center border-secondary">
+            <i class="fa fa-heart" aria-hidden="true"> Add to Wishlist</i>
          </a>
       </div>
 
-      <div class="col-md-12 text-muted mt-2">
-
+      <div class="col-md-12 text-muted small">
+         <p>Add to cart and continue shopping, proceed to checkout any time you wish</p>
       </div>
 
-      <div class="col-md-12">
-         <a href="#" class="btn col-md-6 text-center" style="background: rgb(170,214,136, 0.4);">
-            <div class="">
-               <i class="fa fa-heart fa-2x" aria-hidden="true"> Add to Wishlist</i>
-            </div>
-         </a>
-      </div>
+      
 
       <div class="row col-md-12 mt-2">
-         <div class="col-md-2">
-            <p>Social media button</p>
+         <div class="col-xs-4 mx-auto">
+            <a class="btn fa fa-facebook"></a>            
          </div>
-         <div class="col-md-2 ">
-            <p>Social media button</p>
-         </div>
-         <div class="col-md-2">
-            <p>Social media button</p>
-         </div>
+         <div class="col-xs-4 mx-auto">
+            <a class="btn fa fa-google"></a>
+         </div>         
       </div>
    </div>
 </div>
@@ -96,29 +91,23 @@
 <div class="row font-weight-bold">
    <div class="col-md-2">
    </div>
-   <div class="col-md-3 rounded-top pt-2" style="background: rgb(255, 165, 0, 0.07);">
+   <div class="col-md-10 rounded-top pt-2">
       <h5>
-         <a href="#" class="">Product Description</a>
+         <div class="row col-md-12 mb-4">
+            <h1 class="display-4 text-center">Product Description</h1>
+         </div>
       </h5>
    </div>
 
-   <div class="col-md-2 rounded-top pt-2 ml-1" style="background: rgb(255, 165, 0, 0.0);">
-      <h5>
-         <a href="#" class="">Reviews</a>
-      </h5>
-   </div>
+   
 
-   <div class="col-md-3 rounded-top pt-2 ml-1" style="background: rgb(255, 165, 0, 0.0);">
-      <h5>
-         <a href="#" class="">Shipping Infrmation</a>
-      </h5>
-   </div>
+   
 </div>
 <!-- Product description body -->
 <div class="row overflow-auto " style="min-height: 450px;">
    <div class="card shadow col-md-12" style="background: rgb(255, 255, 255);">
       <%- item.details %>
-      
+
    </div>
 </div>
 <br>

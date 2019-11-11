@@ -1,6 +1,7 @@
 <!-- HTML Layout ending -->
 
 </main>
+
 <!-- Styling Scripts -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -15,6 +16,7 @@
 <script src="https://cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>
 
 <!-- Input Forms Functionality -->
+
 <script>
    $(function () {
       $(".field-wrapper .field-placeholder").on("click", function () {
@@ -30,19 +32,8 @@
       });
    });
 
-   // Editor script
-   CKEDITOR.replace('details', {
-      enterMode: CKEDITOR.ENTER_BR,
-      toolbar: [{ name: 'basicstyles', groups: ['basicstyles'], items: ['Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor'] },
-      { name: 'styles', items: ['Format', 'Font', 'FontSize'] },
-      { name: 'scripts', items: ['Subscript', 'Superscript'] },
-      { name: 'justify', groups: ['blocks', 'align'], items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
-      { name: 'paragraph', groups: ['list', 'indent'], items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'] },
-      { name: 'insert', items: ['Image'] },
-      { name: 'spell', items: ['jQuerySpellChecker'] }
-      ],
-   });
 </script>
+
 
 
 

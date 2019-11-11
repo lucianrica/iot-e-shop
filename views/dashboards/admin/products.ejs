@@ -21,15 +21,15 @@
                   <% if(user != undefined && user.id === item.user){ %>
                      <tr>
                         <td class="text-uppercase text-muted small">     
-                              <a href="/dashboards/admin/findOneProd/<%= item.id %>"><%= item.title %></a>
+                              <a href="/dashboards/admin/findOneProd/<%= item.id %>"><div><%= item.title %></div></a>
                         </td>
                         <td class="text-muted small"><%= item.id %></td>
                         <td class="text-uppercase text-muted small">
                            <%= item.date.toLocaleDateString("en-GB", options) %></td>
                         <td class="text-uppercase text-muted small">
-                           <a href="/dashboards/admin/edit/<%= user.id %>"><%= user.name %></a></td>
+                           <a href="/dashboards/admin/edit/<%= user.id %>"><div><%= user.name %></div></a></td>
                         <td class="text-uppercase text-muted small">
-                           <a href="mailto:<%= user.email %>"><%= user.email %></a>
+                           <a href="mailto:<%= user.email %>"><div><%= user.email %></div></a>
                         </td>
                      </tr>
                   <% } %>

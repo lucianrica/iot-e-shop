@@ -66,6 +66,23 @@
    </form>
    <%- include ./footer %>
 
+
+   <script>
+
+      // Editor script
+      CKEDITOR.replace('details', {
+         enterMode: CKEDITOR.ENTER_BR,
+         toolbar: [{ name: 'basicstyles', groups: ['basicstyles'], items: ['Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor'] },
+         { name: 'styles', items: ['Format', 'Font', 'FontSize'] },
+         { name: 'scripts', items: ['Subscript', 'Superscript'] },
+         { name: 'justify', groups: ['blocks', 'align'], items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+         { name: 'paragraph', groups: ['list', 'indent'], items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'] },
+         { name: 'insert', items: ['Image'] },
+         { name: 'spell', items: ['jQuerySpellChecker'] }
+         ],
+      });
+   </script>
+
 <% } else { %>
    <%- include ../dashboards/partials/unauthorised-access %>
 <% } %>
