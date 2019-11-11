@@ -227,6 +227,7 @@ a {
 
    /* tablets and desktop */
    #side-nav {
-      height: 873px;
+      /* min-height: 100%; */
+      min-height: 2000px;
    }
 }

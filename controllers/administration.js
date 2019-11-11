@@ -7,18 +7,60 @@ const Item = require('../models/Item');
 
 // Get Dashboard
 router.getDashboard = (req, res) => {
-   const loggedinUser = req.user
+   const loggedinUser = req.user;   
+   
    User.find({})
       .then(users => {
          if (loggedinUser.userType === 2) {
-            // console.log(loggedinUser.userType)
-            res.render('dashboards/admin/index', { users: users, loggedinUser })
+            Item.find({})
+               .then((items) => {
+
+                  let countAdmins = 0;
+                  let countSellers = 0;
+                  let countShoppers = 0;
+                  users.forEach(function (user) {
+                     if (user.userType === 2) {
+                        countAdmins++;
+                     }
+                     if (user.userType === 1) {
+                        countSellers++;
+                     }
+                     if (user.userType === 0) {
+                        countShoppers++;
+                     }
+                  });     
+
+                  let countItems = 0;
+                  let mostExpensive = 0;
+                  let total = 0;
+                  items.forEach(function (item) {
+                     countItems++;
+                     if (item.price > mostExpensive) {
+                        mostExpensive = Math.round(item.price);
+                     }
+                     total += Math.round(item.price)
+                  });               
+
+                  // console.log(loggedinUser.userType)
+                  res.render('dashboards/admin/index', { 
+                     users,
+                     items,
+                     loggedinUser,
+                     total,
+                     mostExpensive,
+                     countItems,
+                     countAdmins,
+                     countShoppers,
+                     countSellers
+                  })
+               })
+            
          } else if (loggedinUser.userType === 1) {
-            res.render('dashboards/seller/index', { users: users, loggedinUser })
+            res.render('dashboards/seller/index', { users, loggedinUser })
          } else {
-            res.render('dashboards/basic/index', { users: users, loggedinUser })
+            res.render('dashboards/basic/index', { users, loggedinUser })
          }
-      })
+      })   
 }
 
 
