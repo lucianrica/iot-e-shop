@@ -1,37 +1,95 @@
-<%- include ./header %>
+<%- include ../partials/html-header %>
 
 <!-- Home page for products, we loop trough entire database and output all products -->
+<div class="container">
+   <div class="row mt-5">
+      <% items.forEach(function(item){ %>
+      <% if(user != undefined){ %>
+      <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 mx-auto mb-5 px-1">
+         <div class="card p-0 m-0 bg-transparent border">
+            <img src="<%= item.photos[0] != '' ? item.photos[0] : '/public/img/noimg.png' %>" width="100%"
+               height="250px" />
+            <div class="card-body border-top">
+               <h6 class="overflow-hidden font-weight-bold" style="min-height: 20px; max-height: 20px;">
+                  <%= item.title %>
+               </h6>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+               <small class="text-muted text-success"><i class="fa fa-eye pl-3"></i> <%= item.views %>
+               </small>
+               <!-- ------------------------------------------------------- -->
+               <!-- Cheap otion, to be changed -->
+               <% if(item.rating >= 5) { %>
+               <div>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+               </div>
+               <% } else if(item.rating >= 4) { %>
+               <div>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+               </div>
+               <% } else if(item.rating >= 3) { %>
+               <div>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+               </div>
+               <% } else if(item.rating >= 2) { %>
+               <div>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+               </div>
+               <% } else if(item.rating >= 1) { %>
+               <div>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+               </div>
+               <% } else { %>
+               <div>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+               </div>
+               <% } %>
 
-<div class="row mt-5">
-   <% items.forEach(function(item){ %>
-      <% if(user != undefined && user.id === item.user){ %>
-      <div class="card col-md-6 col-lg-5 col-xl-3 mx-auto mt-1 pt-3">
-         <div class="card mb-4 shadow-sm">
-            <img src="<%= item.photos[0] != '' ? item.photos[0] : '/public/img/noimg.png' %>" width="100%" height="225" />
-            <div class="card-body">
-               <h5 class="overflow-hidden" style="min-height: 50px; max-height: 50px;"><%= item.title %></h5>
-               <p class="card-text" style="min-height: 115px; max-height: 115px;  overflow: hidden"><%= item.salesPitch %>
-               </p>
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                     <button type="button" class="btn btn-sm btn-outline-secondary">
-                        <a href="/items/showOne/<%= item.id %>">View</a>
-                     </button>
-                     <% if(user != undefined && user.id === item.user){ %>
-                     <button type="button" class="btn btn-sm btn-outline-secondary">
-                        <a href="/items/edit/<%= item.id %>">Edit</a>
-                     </button>
-                     <% } %>
-                  </div>
-                  <small class="text-muted text-success">€<%= typeof item.price != 'undefined' ? item.price : '' %>
-                  </small>
+               <small class="text-muted text-success pr-3"><i class="fa fa-eur"></i><%= item.price %>
+               </small>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-right pl-4 pb-3">
+               <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
+                     <a href="/items/<%= item.id %>">View</a>
+                  </button>
+                  <% if(user != undefined){ %>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
+                     <a href="/items/edit/<%= item.id %>">Edit</a>
+                  </button>
+                  <% } %>
                </div>
             </div>
          </div>
       </div>
       <% } %>
-   <% }); %>
+      <% }); %>
+   </div>
 </div>
 
-
-<%- include ./footer %>
+<%- include ../partials/html-footer %>

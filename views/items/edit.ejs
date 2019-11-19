@@ -1,18 +1,38 @@
-<% if(user.userType === 1 && user.id === item.user) { %>
-
-   <%- include ./header %>
+<% if(user.userType === 1) { %>
+<%- include ../partials/html-header %>
+ 
+<div class="container">
    <!-- edit -->
-   <form class="row" action="/items/<%= item.id%>?_method=PUT" method="POST">
-      <input type="hidden" name="_method" value="PUT">
+   <form class="form-signin" action="/items/<%= item.id %>?_method=PATCH" method="POST">
+      <input type="hidden" name="_method" value="PATCH" />
+      <div class="col-md-12 m-0 p-0">
+         <% include ../partials/errors %>
+      </div>
       <!-- Title & Price -->
       <div class="row col-md-12 mt-5">
-         <div class="col-md-1"></div>
-         <div class=" mb-4">
-            <input type="text" class="form-control" name="title" placeholder="Product Name" value="<%= item.title %>">
+         <div class="col-md-5 mb-4">
+            <label for="title">
+               <h6>Title</h6>
+            </label>
+            <input type="text" class="form-control" name="title"
+               value="<%= typeof item.title != 'undefined' ? item.title : '' %>">
          </div>
          <div class="col-md-1"></div>
-         <div class=" mb-4">
-            <input type="number" class="form-control" name="price" step=".01" placeholder="Price" value="<%= item.price %>">         
+         <div class=" mb-2">
+            <label for="price">
+               <h6>Price</h6>
+            </label>
+            <input type="number" class="form-control" name="price" step=".01"
+            placeholder="<%= typeof price != 'undefined' ? price : '' %>"
+               value="<%= typeof item.price != 'undefined' ? item.price : '' %>">
+         </div>
+         <div class="col-md-1"></div>
+         <div class=" mb-2">
+            <label for="quantity">
+               <h6>Quantity</h6>
+            </label>
+            <input type="number" class="form-control" name="quantity"
+               value="<%= typeof item.quantity != 'undefined' ? item.quantity : '' %>">
          </div>
       </div>
 
@@ -29,7 +49,7 @@
             <h6>More Details</h6>
          </div>
          <div class="col-md-12">
-            <textarea type="text" class="form-control" name="details"><%= item.details %></textarea>
+            <textarea type="text" class="form-control" name="details"><%- item.details %></textarea>
          </div>
       </div>
 
@@ -57,7 +77,7 @@
       <div class="row col-md-12 mt-5">
          <div class="col-md-1"></div>
          <div class="col-md-2">
-            <a href="../my-items" class="btn btn-secondary btn-sm" type="submit">Go Back</a>
+            <a href="/users/<%= user.id %>/items" class="btn btn-secondary btn-sm" type="submit">Go Back</a>
          </div>
          <div class="col-md-2">
             <button class="btn btn-warning btn-sm" type="submit">Save new Details</button>
@@ -76,10 +96,26 @@
          </div>
       </div>  
    </form>
-   <%- include ./footer %>
+   </div>
+ 
+   <%- include ../partials/html-footer %>
+   <script>
+
+      // Editor script
+      CKEDITOR.replace('details', {
+         enterMode: CKEDITOR.ENTER_BR,
+         toolbar: [{ name: 'basicstyles', groups: ['basicstyles'], items: ['Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor'] },
+         { name: 'styles', items: ['Format'] },
+         { name: 'justify', groups: ['blocks', 'align'], items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+         { name: 'paragraph', groups: ['list', 'indent'], items: ['NumberedList', 'BulletedList', '-'] },
+         { name: 'spell', items: ['jQuerySpellChecker'] }
+         ],
+      });
+   </script>
+   
 
 <% } else { %>
-   <%- include ../dashboards/partials/unauthorised-access %>
+   <%- include ../partials/unauthorised-access %>
 <% } %>
 
 

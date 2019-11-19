@@ -1,0 +1,21 @@
+<!-- Check if loggedin user has clearance to view this page -->
+<% if(loggedinUser.userType === 0) { %>
+
+<!-- Dashboard header starts -->
+<% include ../../partials/html-header %>
+
+
+<%- include ../edit %>
+
+
+
+<!-- Dashboard Footer end -->
+
+<%- include ../../partials/html-footer %>
+
+<% } else { %>
+<%- include ../../partials/unauthorised-access %>
+<% } %>
+
+
+

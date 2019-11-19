@@ -1,5 +1,150 @@
 <%- include ../partials/html-header %>
-   <div class="container mt-5">
-      <%- include ./nav-products %>
-      
 
+
+
+<!-- Container Start -->
+<div class="container">
+
+   <!-- Start 1st nav -->
+   <div class="row col-md-12 py-0 bg-light">
+      <a class="navbar-brand" href="/">
+         <span class="fa fa-home fa-3x"></span>
+      </a>
+   </div>
+   <hr class="mt-0">
+
+   <!-- Start 2nd nav -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0 justify-content-end">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <div class="row col-md-12">
+
+            <!-- Start 1st row -->
+            <div class="row col-md-12 py-3">
+               <div class="col-md-12">
+                  <h4 class=" text-uppercase font-weight-bold pt-3"><%= item.title %></h4>
+               </div>
+            </div>
+            <!-- END 1st row -->
+
+            <!-- Start 2nd row -->
+            <div class="row col-md-12 py-3">
+               <% if(item.quantity > 0) { %>
+               <div class="col-md-2 text-success font-weight-bold">
+                  <i class="fa fa-check fa-lg"></i><span>In Stock</span>
+               </div>
+               <% } else { %>
+               <div class="col-md-2 text-danger font-weight-bold">
+                  <i class="fa fa-times fa-lg"></i><span>Out of Stock</span>
+               </div>
+               <% } %>
+
+               <div class="col-md-1 text-primary font-weight-bold pl-0 pr-0">
+                  <i class="fa fa-eur fa-lg"></i><span> <%= item.price %></span>
+               </div>
+               <div class="col-md-3 text-warning">
+                  <i class="fa fa-star fa-lg"></i><span> Secure Shopping</span>
+               </div>
+               <div class="col-md-3 text-warning">
+                  <i class="fa fa-star text-warning"></i></i><span> Free Returns</span>
+               </div>
+               <div class="col-md-3 text-warning">
+                  <i class="fa fa-star text-warning"></i><span> Free Delivery</span>
+               </div>
+            </div>
+            <!-- END 2nd row -->
+
+            <!-- Start 3rd row -->
+            <div class="row col-md-12 py-3">
+               <!-- Photos -->
+               <div class="row col-md-8 py-2">
+                  <div class="col-md-3 d-none d-lg-block mt-2">
+                     <img class="card shadow"
+                        src="<%= item.photos[0] != '' ? item.photos[0] : '/public/img/noimg.png' %>" alt="product"
+                        width="100%" height="90">
+                  </div>
+                  <div class="col-md-3 d-none d-lg-block mt-2">
+                     <img class="card shadow"
+                        src="<%= item.photos[1] != '' ? item.photos[1] : '/public/img/noimg.png' %>" alt="product"
+                        width="100%" height="90">
+                  </div>
+                  <div class="col-md-3 d-none d-lg-block mt-2">
+                     <img class="card shadow"
+                        src="<%= item.photos[2] != '' ? item.photos[2] : '/public/img/noimg.png' %>" alt="product"
+                        width="100%" height="90">
+                  </div>
+                  <div class="col-md-3 d-none d-lg-block mt-2">
+                     <img class="card shadow"
+                        src="<%= item.photos[3] != '' ? item.photos[3] : '/public/img/noimg.png' %>" alt="product"
+                        width="100%" height="90">
+                  </div>
+               </div>
+               <!-- END Photos -->
+
+               <!-- Buy/Wish buttons -->
+               <div class="row col-md-4">
+                  <div class="row col-md-12 text-success py-3">
+                     <a class="btn text-center border-success text-success w-100">
+                        <i class="fa fa-shopping-basket" aria-hidden="true"> Buy Now</i>
+                     </a>
+                  </div>
+
+                  <div class="row col-md-12 pb-3 text-secondary">
+                     <a class="btn text-center border-secondary w-100">
+                        <i class="fa fa-heart" aria-hidden="true"> Wishlist</i>
+                     </a>
+                  </div>
+               </div>
+               <!-- END Buy/Wish buttons-->
+            </div>
+            <!--END 3rd row  -->
+
+            <!-- Start 4th row -->
+            <div class="row col-md-12 small text-muted py-3">
+               <i class="fa fa-copyright" aria-hidden="true"> Every credit card purchase is covered by our Safe Shopping
+                  Guarantee: Under the Fair ... With VeriSign, you can feel
+                  confident shopping on our website!</i>
+            </div>
+            <!-- END 4th row -->
+
+            <div class="row col-md-12">
+               <div class="row col-md-10">
+                  <div class="col-xs-4 mt-4">
+                     <p class="text-muted">Share </p>
+                  </div>
+                  <div class="col-xs-4 p-2">
+                     <a class="btn fa fa-facebook"></a>
+                  </div>
+                  <div class="col-xs-4 p-2">
+                     <a class="btn fa fa-google"></a>
+                  </div>
+               </div>
+               <div class="col-md-2">
+                  <div class="col-xs-4 p-2 id="like">
+
+
+                     <form class="row" action="/items/<%= item.id %>?_method=PUT" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+
+                     
+                        <button  type="submit" class="btn text-center border-secondary w-100" >
+
+                           <i class="fa fa-thumbs-up fa-3x" aria-hidden="true"></i>
+                        </button>
+                     </form>
+                  </div>
+               </div>
+
+
+            </div>
+
+         </div>
+      </div>
+   </nav>
+   <hr class="mt-0">
+   <!-- END 2nd nav -->
+</div>
+<!-- End Container -->
