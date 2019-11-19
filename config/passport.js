@@ -40,14 +40,16 @@ module.exports = function (passport) {
       new GoogleStrategy({
          clientID: keys.googleClientID,
          clientSecret: keys.googleClientSecret,
-         callbackURL: '/users/google/callback',
+         callbackURL: '/login/google/callback',
          proxy: true
       }, (accessToken, refreshToken, profile, done) => {
          // console.log(profile);
 
          const newUser = {
-            name: profile._json.name,
+            firstName: profile._json.given_name,
+            lastName: profile._json.family_name,
             email: profile._json.email,
+            profilePhoto: profile._json.picture,
             password: false
          }
 
@@ -73,14 +75,15 @@ module.exports = function (passport) {
       new FacebookStrategy({
          clientID: keys.facebookClientID,
          clientSecret: keys.facebookClientSecret,
-         callbackURL: '/users/facebook/callback',
+         callbackURL: '/login/facebook/callback',
          profileFields: ['email', 'name'],
          proxy: true
       }, (accessToken, refreshToken, profile, done) => {
          // console.log('profile', profile);
 
          const newUser = {
-            name: profile._json.name,
+            firstName: profile._json.first_name,
+            lastName: profile._json.last_name,
             email: profile.emails[0].value,
             password: false
          }

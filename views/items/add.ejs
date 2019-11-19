@@ -1,10 +1,14 @@
 <% if(user != undefined && user.userType === 1) { %>
 
-   <%- include ./header %>
+<% include ../partials/html-header %>
+ <div class="container">     
    <form class="row" action="/items" method="POST">
+      <div class="col-md-12 m-0 p-0">
+         <% include ../partials/errors %>
+      </div>
       <!-- Title & Price -->
       <div class="row col-md-12 mt-5"> 
-         <div class="col-md-7 mb-4">
+         <div class="col-md-5 mb-4">
             <label for="title"><h6>Title</h6></label>
             <input type="text" class="form-control" name="title" placeholder=""
                value="<%= typeof title != 'undefined' ? title : '' %>">
@@ -14,6 +18,12 @@
             <label for="price"><h6>Price</h6></label>
             <input type="number" class="form-control" name="price" step=".01" placeholder="€"
                value="<%= typeof price != 'undefined' ? price : '' %>">
+         </div>
+         <div class="col-md-1"></div>
+         <div class=" mb-2">
+            <label for="quantity"><h6>Quantity</h6></label>
+            <input type="number" class="form-control" name="quantity" 
+               value="<%= typeof quantity != 'undefined' ? quantity : '' %>">
          </div>
       </div>
       
@@ -64,25 +74,25 @@
          </div>
       </div>
    </form>
-   <%- include ./footer %>
+</div>
 
 
+
+<%- include ../partials/html-footer %>
    <script>
 
       // Editor script
       CKEDITOR.replace('details', {
          enterMode: CKEDITOR.ENTER_BR,
          toolbar: [{ name: 'basicstyles', groups: ['basicstyles'], items: ['Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor'] },
-         { name: 'styles', items: ['Format', 'Font', 'FontSize'] },
-         { name: 'scripts', items: ['Subscript', 'Superscript'] },
+         { name: 'styles', items: ['Format'] },
          { name: 'justify', groups: ['blocks', 'align'], items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
-         { name: 'paragraph', groups: ['list', 'indent'], items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'] },
-         { name: 'insert', items: ['Image'] },
+         { name: 'paragraph', groups: ['list', 'indent'], items: ['NumberedList', 'BulletedList', '-'] },
          { name: 'spell', items: ['jQuerySpellChecker'] }
          ],
       });
    </script>
 
 <% } else { %>
-   <%- include ../dashboards/partials/unauthorised-access %>
+   <%- include ../partials/unauthorised-access %>
 <% } %>

@@ -1,0 +1,49 @@
+<div class="col-md-4">
+   <div class="card mb-4 box-shadow">
+      <div class="card-body">
+         <hr class="hr-text" data-content="Edit Account">
+         <div class="card-footer">
+
+            <!-- Form -->
+            <form class="form-signin" action="/users/edit/<%= user.id %>?_method=PATCH" method="POST">
+               <input type="hidden" name="_method" value="PATCH" />
+
+
+               <!-- Manually Register -->
+               <div class="field-wrapper">
+                  <input type="name" id="name" name="firstName" value="<%= typeof firstName != 'undefined' ? firstName : '' %>">
+
+                  <div class="field-placeholder"><span> First Name</span></div>
+               </div>
+               <div class="field-wrapper">
+                  <input type="name" id="name" name="lastName" value="<%= typeof lastName != 'undefined' ? lastName : '' %>">
+
+                  <div class="field-placeholder"><span> Last Name</span></div>
+               </div>
+
+
+
+               <div class="d-flex">
+                  <div class="mr-auto small">
+                     <a id="forgotPassword" href="#"></a>
+                  </div>
+                  <div class=" small">
+                     <a id="forgotPassword" href="/login/forgot">Change Password?</a>
+                  </div>
+               </div>
+               <br>
+               <div class="d-flex justify-content-center">
+                  <div>
+                     <div class="text-center">
+                        <button class="btn btn-warning m-2 p-1" type="submit">Save
+                           Settings</button>
+                     </div>
+                  </div>
+               </div>
+
+            </form>
+
+         </div>
+      </div>
+   </div>
+</div>

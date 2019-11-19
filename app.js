@@ -6,12 +6,12 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
 const path = require('path');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
-const { ensureAuthenticated } = require('./config/auth');
 
 
 // Passport Config
@@ -19,6 +19,13 @@ require('./config/passport')(passport);
 // Initialise express
 const app = express();
 
+// SET ROUTES
+const homeRoute = require('./routes/shop/home-route');
+const loginRoute = require('./routes/account/login-route'),
+      registerRoute = require('./routes/account/register-route'),
+      logoutRoute = require('./routes/account/logout-route');
+const usersRoute = require('./routes/users/users-route');
+const itemsRoute = require('./routes/items/items-route');
 
 // Set the View-Engine
 app.set('view engine', 'ejs');
@@ -62,26 +69,17 @@ app.use(function (req, res, next) {
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
     res.locals.user = req.user || null;
-    res.locals.item = req.item || null;
     next();
 });
 
 
-// Routes
-
-app.use('/', require('./routes/index'));
-app.use('/index', require('./routes/index'));
-app.use('/items', require('./routes/items'));
-app.use('/users', require('./routes/users'));
-app.use('/dashboards', require('./routes/dashboards'));
-
-
-// Global Logout
-app.get('/logout', (req, res) => {
-    req.logout();
-    req.flash('success_msg', 'You are logged out');
-    res.redirect('/users/login');
-});
+// USE ROUTE
+app.use('/', homeRoute);
+app.use('/login', loginRoute);
+app.use('/register', registerRoute);
+app.use('/logout', logoutRoute);
+app.use('/users', usersRoute);
+app.use('/items', itemsRoute);
 
 
 // Setup Server
