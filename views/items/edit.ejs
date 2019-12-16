@@ -1,136 +1,89 @@
-<% if(user.userType === 1) { %>
-<%- include ../partials/html-header %>
- 
-<div class="container">
-   <!-- edit -->
-   <form class="form-signin" action="/items/<%= item.id %>?_method=PATCH" method="POST">
-      <input type="hidden" name="_method" value="PATCH" />
-      <div class="col-md-12 m-0 p-0">
-         <% include ../partials/errors %>
-      </div>
-      <!-- Title & Price -->
-      <div class="row col-md-12 mt-5">
-         <div class="col-md-5 mb-4">
-            <label for="title">
-               <h6>Title</h6>
-            </label>
-            <input type="text" class="form-control" name="title"
-               value="<%= typeof item.title != 'undefined' ? item.title : '' %>">
-         </div>
-         <div class="col-md-1"></div>
-         <div class=" mb-2">
-            <label for="price">
-               <h6>Price</h6>
-            </label>
-            <input type="number" class="form-control" name="price" step=".01"
-            placeholder="<%= typeof price != 'undefined' ? price : '' %>"
-               value="<%= typeof item.price != 'undefined' ? item.price : '' %>">
-         </div>
-         <div class="col-md-1"></div>
-         <div class=" mb-2">
-            <label for="quantity">
-               <h6>Quantity</h6>
-            </label>
-            <input type="number" class="form-control" name="quantity"
-               value="<%= typeof item.quantity != 'undefined' ? item.quantity : '' %>">
-         </div>
-      </div>
+<% if(user != undefined && user.userType === 1) { %>
+<% include ../partials/html-header %>
+<div class="get-item-nav">
+   <a class="get-item-home-link" href="/"><span class="fa fa-home fa-3x"></span></a>
+</div>
 
-      <!-- Textarea -->
-      <div class="row col-md-12">
-         <div class="row col-md-12 mt-5">
-            <h6>Sales Pitch</h6>
-         </div>
-         <div class="col-md-12">
-            <textarea type="text" class="form-control" name="salesPitch"
-               maxlength="150"><%= item.salesPitch %></textarea>
-         </div>
-         <div class="row col-md-12 mt-5">
-            <h6>More Details</h6>
-         </div>
-         <div class="col-md-12">
-            <textarea type="text" class="form-control" name="details"><%- item.details %></textarea>
-         </div>
-      </div>
+<% include ../partials/errors %>
+<form class="add-item" action="/items/<%= item.id %>?_method=PATCH" method="POST">
+   <input type="hidden" name="_method" value="PATCH" />
 
-      <!-- Links -->
-      <div class="row col-md-12 mt-5">
-         <div class="col-md-6 mt-2">
-            <input type="text" class="form-control" name="imgOne" placeholder="http:// link to photo 1"
-               value="<%= typeof item.photos[0] != 'undefined' ? item.photos[0] : '' %>">
-         </div>
-         <div class="col-md-6 mt-2">
-            <input type="text" class="form-control" name="imgTwo" placeholder="http:// link to photo 2"
-               value="<%= typeof item.photos[1] != 'undefined' ? item.photos[1] : '' %>">
-         </div>
-         <div class="col-md-6 mt-2">
-            <input type="text" class="form-control" name="imgThree" placeholder="http:// link to photo 3"
-               value="<%= typeof item.photos[2] != 'undefined' ? item.photos[2] : '' %>">
-         </div>
-         <div class="col-md-6 mt-2">
-            <input type="text" class="form-control" name="imgFour" placeholder="http:// link to photo 4"
-               value="<%= typeof item.photos[3] != 'undefined' ? item.photos[3] : '' %>">
-         </div>
-      </div>
-
-      <!-- Add button -->
-      <div class="row col-md-12 mt-5">
-         <div class="col-md-1"></div>
-         <div class="col-md-2">
-            <a href="/users/<%= user.id %>/items" class="btn btn-secondary btn-sm" type="submit">Go Back</a>
-         </div>
-         <div class="col-md-2">
-            <button class="btn btn-warning btn-sm" type="submit">Save new Details</button>
-         </div>
-      </div>
-   </form>
-   <br>
-   <br>
-   <!-- Delete -->
-   <form class="row" action="/items/<%= item.id%>?_method=DELETE" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <div class="row col-md-12">
-         <div class="col-md-1"></div>         
-         <div class="col-md-2">
-            <button class="btn btn-danger btn-sm" type="submit">Delete Product</button>
-         </div>
-      </div>  
-   </form>
+   <div class="add-title">
+      <label for="title">Title</label><br>
+      <input type="text" name="title" placeholder="" value="<%= typeof item.title != 'undefined' ? item.title : '' %>">
    </div>
- 
-   <%- include ../partials/html-footer %>
-   <script>
 
-      // Editor script
-      CKEDITOR.replace('details', {
-         enterMode: CKEDITOR.ENTER_BR,
-         toolbar: [{ name: 'basicstyles', groups: ['basicstyles'], items: ['Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor'] },
-         { name: 'styles', items: ['Format'] },
-         { name: 'justify', groups: ['blocks', 'align'], items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
-         { name: 'paragraph', groups: ['list', 'indent'], items: ['NumberedList', 'BulletedList', '-'] },
-         { name: 'spell', items: ['jQuerySpellChecker'] }
-         ],
-      });
-   </script>
-   
+   <div class="add-price">
+      <label for="price">Price</label><br>
+      <input type="number" name="price" step=".01" placeholder="€"
+         value="<%= typeof item.price != 'undefined' ? item.price : '' %>">
+   </div>
+
+   <div class="add-quantity">
+      <label for="quantity">Quantity</label><br>
+      <input type="number" name="quantity" value="<%= typeof item.quantity != 'undefined' ? item.quantity : '' %>">
+   </div>
+
+   <img class="add-img" src="/public/img/illustration1.jpg" alt="">
+
+   <div class="add-sales-pitch">
+      <label for="salesPitch">Short Sales Pitch</label><br>
+      <textarea type="text" name="salesPitch" maxlength="150"><%= item.salesPitch %></textarea>
+   </div>
+
+   <div class="add-details">
+      <label for="details">Add more details</label><br>
+      <textarea type="text" name="details"><%- item.details %></textarea>
+   </div>
+
+   <br>
+
+   <img class="add-img2" src="/public/img/illustration2.png" alt="">
+
+   <div class="photo-links">
+      <label for="links">add HTTP link</label><br>
+      <input type="text" name="imgOne" value="<%= typeof item.photos[0] != 'undefined' ? item.photos[0] : '' %>">
+
+      <label for="links">add HTTP link</label><br>
+      <input type="text" name="imgTwo" value="<%= typeof item.photos[1] != 'undefined' ? item.photos[1] : '' %>">
+
+      <label for="links">add HTTP link</label><br>
+      <input type="text" name="imgThree" value="<%= typeof item.photos[2] != 'undefined' ? item.photos[2] : '' %>">
+
+      <label for="links">add HTTP link</label><br>
+      <input type="text" name="imgFour" value="<%= typeof item.photos[3] != 'undefined' ? item.photos[3] : '' %>">
+   </div>
+
+   <button class="add-item-btn" type="submit">Save new Details</button>
+
+   <a class="go-back-btn" href="/users/<%= user.id %>/items" class="btn btn-secondary btn-sm">Go Back</a>
+
+
+   <!-- Delete -->
+   <form action="/items/<%= item.id%>?_method=DELETE" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+
+      <button class="delete-btn" type="submit">Delete</button>
+
+   </form>
+
+</form>
+
+<%- include ../partials/html-footer %>
+<script>
+
+   // Editor script
+   CKEDITOR.replace('details', {
+      enterMode: CKEDITOR.ENTER_BR,
+      toolbar: [{ name: 'basicstyles', groups: ['basicstyles'], items: ['Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor'] },
+      { name: 'styles', items: ['Format'] },
+      { name: 'justify', groups: ['blocks', 'align'], items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+      { name: 'paragraph', groups: ['list', 'indent'], items: ['NumberedList', 'BulletedList', '-'] },
+      { name: 'spell', items: ['jQuerySpellChecker'] }
+      ],
+   });
+</script>
 
 <% } else { %>
-   <%- include ../partials/unauthorised-access %>
+<%- include ../partials/unauthorised-access %>
 <% } %>
-
-
-
-
-
-
-      
-         
-                
-        
-         
-         
-         
-         
-
-         
-      

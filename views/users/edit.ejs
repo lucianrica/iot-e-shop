@@ -1,146 +1,69 @@
 <% if(loggedinUser) { %>
+
+
+<% if(loggedinUser.userType === 2) { %>
+<%- include ../partials/html-header %>
+<% include ../users/admins/navbar %>
+<div class="admin-grid-users-nav">
+   <a href="/users/admins/all">All</a>
+   <a href="/users/admins/admins">Admins</a>
+   <a href="/users/admins/sellers">Sellers</a>
+   <a href="/users/admins/shoppers">Shoppers</a>
+</div>
+<% } %>
+
+<div class="edit-user-body">
+   <div class="account-info">
+      <hr class="hr-text" data-content="Account Info">
+      <i class="fa fa-calendar">
+         <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
+         <%= user.createdAt.toLocaleDateString("en-GB", options) %>
+      </i>
+      <i class="fa fa-user"><%= user.firstName %> <%= user.lastName %></i>
+      <i class="fa fa-envelope"> <%= user.email %></i>
+      <% if(user.userType === 0) { %>
+      <i class="fa fa-check">BASIC Account</i>
+      <% } else if(user.userType === 1) { %>
+      <i class="fa fa-bitcoin">Seller Account</i>
+      <% } else { %>
+      <i class="fa fa-certificate">Admin Account</i>
+      <% } %>
+   </div>
+
    <% if(loggedinUser.userType === 2) { %>
-   <%- include ../partials/html-header %>
+
+   <%- include ./partials/change-user-type %>
+
+   <% } else if(loggedinUser.userType === 1) { %>
+
+   <%- include ./partials/change-user-name %>
+
+   <% } else { %>
+
+   <%- include ./partials/change-user-name %>
+
    <% } %>
 
-<div class="container-flex">
-   <div class="row no-gutters">
-      <% if(loggedinUser.userType === 2) { %>
-      <%- include ../users/admins/sidenav %>      
-      <% } %>
-      <div class="col-md-10 mx-auto">
-         <% if(loggedinUser.userType === 2) { %>
-         <div class="navbar navbar-expand bg-dark navbar-dark ">
-         
-            <div class="navbar-collapse col-md-6">
-               <ul class="navbar-nav">
-                  <li class="nav-item">
-                     <a class="nav-link disabled text-primary" tabindex="-1" aria-disabled="true" href="#"
-                        style="min-width: 200px;;">Welcome
-                        <%= loggedinUser.firstName %>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="/users/admins/all">All</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="/users/admins/admins">Admins</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="/users/admins/sellers">Sellers</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="/users/admins/shoppers">Shoppers</a>
-                  </li>
-               </ul>
-            </div>
-            <div class="col-md-6 m-0 p-0">
-               <% include ../partials/errors %>
-            </div>
-         </div>
+   <div class="account-delete">
+
+      <hr class="hr-text" data-content="DELETE ACCOUNT">
+      <h5>WARNING, account, its settings and all and all will be lost</h5>
+      <form action="/users/edit/<%= user.id %>?_method=DELETE" method="POST">
+         <input type="hidden" name="_method" value="DELETE" />
+
+         <% if(user.firstName === 'shopper'||user.firstName ==='admin'||user.firstName ==='seller') { %>
+         <p>Cannot delete, protected account</p>
+         <% } else { %>
+         <button type="submit" style="background: var(--red-color);">Delete Account ?
+         </button>
          <% } %>
-         <div class="row no-gutters">
-            <div class="col-lg-4">
-               <div class="card mb-4 box-shadow">
-                  <div class="card-body">
-                     <hr class="hr-text" data-content="Account Info">
-                     <div class="card-footer">
-                        <div>
-                           <i class="fa fa-calendar"></i>
-                           <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
-                           <div class="text-uppercase text-muted small">
-                              <%= user.createdAt.toLocaleDateString("en-GB", options) %></div>
-                        </div>
-                        <div>
-                           <i class="fa fa-user"></i>
-                           <div class="text-uppercase text-muted small"><%= user.firstName %> <%= user.lastName %></div>
-                        </div>
-                        <div>
-                           <i class="fa fa-envelope"></i>
-                           <div class="text-uppercase text-muted small"> <%= user.email %></div>
-                        </div>
 
-                        <% if(user.userType === 0) { %>
+         <p>WARNING, ACCOUNT: "<%= user.email %>" OWENED BY "<%= user.firstName %>" WILL BE DESTROYED</p>
 
-                        <div>
-                           <i class="fa fa-check"></i>
-                           <div class="text-uppercase text-muted small">BASIC Account</div>
-                        </div>
-                        <% } else if(user.userType === 1) { %>
-                        <div>
-                           <i class="fa fa-bitcoin"></i>
-                           <div class="text-uppercase text-muted small">Seller Account</div>
-                        </div>
-                        <% } else { %>
-                        <div>
-                           <i class="fa fa-certificate"></i>
-                           <div class="text-uppercase text-muted small">Admin Account</div>
-                        </div>
-                        <% } %>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-            <% if(loggedinUser.userType === 2) { %>
-
-            <%- include ./partials/change-user-type %>
-
-            <% } else if(loggedinUser.userType === 1) { %>
-
-            <%- include ./partials/change-user-name %>
-
-            <% } else { %>
-
-            <%- include ./partials/change-user-name %>
-
-            <% } %>
-
-
-            <div class="col-lg-4">
-               <div class="card mb-4 box-shadow">
-                  <div class="card-body">
-                     <hr class="hr-text" data-content="Delete Account">
-                     <div class="card-footer">
-                        <div class="card-body text-danger">
-                           <h5 class="card-title text-uppercase">WARNING, account, its settings and all and all
-                              will be
-                              lost</h5>
-
-                        </div>
-                        <form class="form-signin" action="/users/edit/<%= user.id %>?_method=DELETE" method="POST">
-                           <input type="hidden" name="_method" value="DELETE" />
-                           <div class="d-flex justify-content-center small">
-                              <div>
-                                 <div class="text-center">
-
-                                    <% if(user.firstName === 'shopper'||user.firstName ==='admin'||user.firstName ==='seller') { %>
-                                    <p>Cannot delete, protected account</p>
-                                    <% } else { %>
-                                    <button class="btn btn-danger m-4 p-2" type="submit">Delete Account
-                                    </button>
-                                    <% } %>
-
-
-                                    <div class="card-body text-danger">
-                                       <h5 class="card-title small">WARNING, ACCOUNT: "<%= user.email %>"
-                                          <br>OWENED BY
-                                          "<%= user.firstName %>"
-                                          <br>WILL BE DESTROYED</h5>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </form>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+      </form>
    </div>
 </div>
-</div>
+
 
 <% if(loggedinUser.userType === 2) { %>
 <%- include ../partials/html-footer %>

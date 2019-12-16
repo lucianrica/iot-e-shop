@@ -1,30 +1,30 @@
 <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
-   <div class="field-wrapper m-0 p-0">
-      <div class="alert alert-warning alert-dismissible fade show m-0 border-0 pt-2 pb-2" role="alert">
+   <div class="error-div">
+      <div class="alert error" >
          <%= error.msg %>
-         <button type="button" class="close pt-1 pb-2" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+         <button type="button" data-dismiss="alert" >
+            <span >&times;</span>
          </button>
       </div>
       <% }); %> <% } %> <% if(success_msg != ''){ %>
-      <div class="alert alert-success alert-dismissible fade show m-0 border-0 pt-2 pb-2" role="alert">
+      <div class="alert error" style="background: var(--green-color);">
          <%= success_msg %>
-         <button type="button" class="close pt-1 pb-2" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+         <button type="button"  data-dismiss="alert" >
+            <span >&times;</span>
          </button>
       </div>
       <% } %> <% if(error_msg != ''){ %>
-      <div class="alert alert-danger alert-dismissible fade show m-0 border-0 pt-2 pb-2" role="alert">
+      <div class="alert error" >
          <%= error_msg %>
-         <button type="button" class="close pt-1 pb-2" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+         <button type="button"  data-dismiss="alert" >
+            <span >&times;</span>
          </button>
       </div>
       <% } %> <% if(error != ''){ %>
-      <div class="alert alert-danger alert-dismissible fade show m-0 border-0 pt-2 pb-2" role="alert">
+      <div class="alert error" >
          <%= error %>
-         <button type="button" class="close pt-1 pb-2" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+         <button type="button"  data-dismiss="alert" >
+            <span >&times;</span>
          </button>
       </div>
    </div>
