@@ -1,86 +1,49 @@
 <!-- Check if loggedin user has clearance to view this page -->
 <% if(loggedinUser.userType === 2) { %>
 <% include ../../partials/html-header %>
-<div class="row no-gutters">
-   <%- include ./sidenav %>
+<% include ./navbar %>
 
-   <div class="col-md-10">
-      <div class="navbar navbar-expand bg-dark navbar-dark ">
-
-         <div class="navbar-collapse col-md-6">
-            <ul class="navbar-nav">
-               <li class="nav-item">
-                  <a class="nav-link disabled text-primary" tabindex="-1" aria-disabled="true" href="#"
-                     style="min-width: 200px;;">Welcome
-                     <%= loggedinUser.firstName %>
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="all">All</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="admins">Admins</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="sellers">Sellers</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="shoppers">Shoppers</a>
-               </li>
-            </ul>
-         </div>
-         <div class="col-md-6 m-0 p-0">
-            <% include ../../partials/errors %>
-         </div>
-      </div>
-
-      <div class="table-responsive">
-         <table class="table table-striped table-sm">
-            <thead>
-               <tr>
-                  <th>User Name</th>
-                  <th>Account Type</th>
-                  <th>Created On</th>
-                  <th>User Email</th>
-                  <th>Account ID</th>
-               </tr>
-            </thead>
-            <tbody>
-               <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
-               <% users.forEach(function(user){ %>
-               <% if(user.userType === 0) { %>
-               <tr>
-      
-                  <td class="text-uppercase text-muted small"><a href="/users/edit/<%= user.id %>">
-                        <div><%= user.firstName %></div>
-                        <div><%= user.lastName %></div>
-                     </a>
-                  </td>
-      
-                  <td class="text-uppercase text-muted small">
-                     <% if(user.userType === 0) { %>
-                     BASIC
-                     <% } else if(user.userType === 1) { %>
-                     Seller
-                     <% } else { %>
-                     Admin
-                     <% } %>
-                  </td>
-                  <td class="text-uppercase text-muted small">
-                     <%= user.createdAt.toLocaleDateString("en-GB", options) %>
-                  </td>
-                  <td class="text-uppercase text-muted small"><%= user.email %>
-                  </td>
-                  <td class="text-muted small"><%= user.id %>
-                  </td>
-               </tr>
-               <% } %>
-               <% }); %>
-            </tbody>
-         </table>
-      </div>
-   </div>
+<div class="admin-grid-users-nav">
+   <a href="all">All</a>
+   <a href="admins">Admins</a>
+   <a href="sellers">Sellers</a>
+   <a href="shoppers">Shoppers</a>
 </div>
+
+<table id="customers">
+   <tr>
+      <th>User Name</th>
+      <th>Account Type</th>
+      <th>Created On</th>
+      <th>User Email</th>
+      <th>Account ID</th>
+   </tr>
+
+   <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
+   <% users.forEach(function(user){ %>
+   <% if(user.userType === 0) { %>
+   <tr>
+      <td><a href="/users/edit/<%= user.id %>">
+            <%= user.firstName %><%= user.lastName %></a>
+      </td>
+      <td>
+         <% if(user.userType === 0) { %>
+         BASIC
+         <% } else if(user.userType === 1) { %>
+         Seller
+         <% } else { %>
+         Admin
+         <% } %>
+      </td>
+      <td><%= user.createdAt.toLocaleDateString("en-GB", options) %></td>
+      <td><%= user.email %></td>
+      <td><%= user.id %></td>
+   </tr>
+   <% } %>
+   <% }); %>
+</table>
+
+
 <%- include ../../partials/html-footer %>
 
 <% } else { %>

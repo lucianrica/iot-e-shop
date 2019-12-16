@@ -1,0 +1,67 @@
+
+<div class="border">
+   <% if(user != undefined && user.id == item.user){ %>
+   <button style="position: absolute; margin-top: -8px; width: 130px; ">
+      <a href="/items/edit/<%= item.id %>">Edit</a>
+   </button>
+   <% } %>
+   <a class="card" href="/items/<%= item.id %>">   
+      <img src="<%= item.photos[0] != '' ? item.photos[0] : '/public/img/noimg.png' %>" />      
+      <div class="rating">
+         <p><%= item.title %></p>
+         <p style="color: var(--green-color)"><i class="fa fa-eur" ></i> <%= item.price %></p>
+         <small><i class="fa fa-eye"></i> <%= item.views %></small>
+         <!-- ------------------------------------------------------- -->
+         <!-- Cheap otion, to be changed -->
+         <% if(item.rating >= 5) { %>
+         <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+         </div>
+         <% } else if(item.rating >= 4) { %>
+         <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+         </div>
+         <% } else if(item.rating >= 3) { %>
+         <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+         </div>
+         <% } else if(item.rating >= 2) { %>
+         <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+         </div>
+         <% } else if(item.rating >= 1) { %>
+         <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+         </div>
+         <% } else { %>
+         <div>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+         </div>
+         <% } %>           
+      </div>     
+   </a>   
+</div>

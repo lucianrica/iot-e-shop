@@ -1,0 +1,52 @@
+<div class="intro">
+   <img src="/public/img/team.jpg" alt=""> 
+   
+</div>
+
+<div class="latest">
+   <% let count = 0 %>
+   <% newItems.forEach((item) => { %>
+      <% if(count > 2) { %>
+         <% return; %>
+      <% } %>
+
+      <%- include ./item %>
+
+      <% count++; %>
+   <% }); %>
+</div>
+
+<div class="seller-info">
+   <section>
+      <h3>Why become a seller</h3>
+      <p>
+         About 50 percent of sales on IoT eShop are made through third-party sellers. You could take a slice of that pie and
+         make your own five or six-figure income as an IoT entrepreneur.
+         <br>
+         As far as how to market your products — there are a lot of examples of profitable online
+         businesses to follow.
+         <br>
+      <h3>just contact us, <small>iot.shop.company@gmail.com</small></h3>
+   </p>
+   </section>
+   <img src="/public/img/illustration1.jpg" alt="">
+</div>
+
+<div class="buyer-info">
+   <section>
+      <h3>Want to buy?</h3>
+      <p>
+         Whether you're looking for a connected light bulb, security camera, or thermostat, start with the best smart home
+         devices we've tested for every room in the house.
+         <br>
+         They also happen to make fantastic gifts, whether you're shopping for the holidays or buying a housewarming present.
+         <br>
+      
+   </p>
+   <a href="/register">Register</a>
+   </section>
+   <img src="/public/img/illustration2.png" alt="">
+</div>
+
+
+

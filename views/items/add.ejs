@@ -1,98 +1,80 @@
 <% if(user != undefined && user.userType === 1) { %>
-
 <% include ../partials/html-header %>
- <div class="container">     
-   <form class="row" action="/items" method="POST">
-      <div class="col-md-12 m-0 p-0">
-         <% include ../partials/errors %>
-      </div>
-      <!-- Title & Price -->
-      <div class="row col-md-12 mt-5"> 
-         <div class="col-md-5 mb-4">
-            <label for="title"><h6>Title</h6></label>
-            <input type="text" class="form-control" name="title" placeholder=""
-               value="<%= typeof title != 'undefined' ? title : '' %>">
-         </div>
-         <div class="col-md-1"></div>
-         <div class=" mb-2">
-            <label for="price"><h6>Price</h6></label>
-            <input type="number" class="form-control" name="price" step=".01" placeholder="€"
-               value="<%= typeof price != 'undefined' ? price : '' %>">
-         </div>
-         <div class="col-md-1"></div>
-         <div class=" mb-2">
-            <label for="quantity"><h6>Quantity</h6></label>
-            <input type="number" class="form-control" name="quantity" 
-               value="<%= typeof quantity != 'undefined' ? quantity : '' %>">
-         </div>
-      </div>
-      
-      <!-- Textarea -->
-      <div class="row col-md-12">
-         <div class="row col-md-12 mt-5">
-            <h6>Sales Pitch</h6>
-         </div>
-         <div class="col-md-12">
-            <textarea type="text" class="form-control" name="salesPitch" maxlength = "150"><%= typeof salesPitch!= 'undefined' ? salesPitch : '' %></textarea>
-         </div>
-         <div class="row col-md-12 mt-5">
-            <h6>More Details</h6>
-         </div>
-         <div class="col-md-12">
-            <textarea type="text" class="form-control" name="details"><%= typeof details != 'undefined' ? details : '' %></textarea>
-         </div>
-      </div>
 
-      <!-- Links -->
-      <div class="row col-md-12 mt-5">
-         <div class="col-md-12">
-            <h6>Photo Links</h6>
-         </div>
-         <div class="col-md-6 mt-2">
-            <input type="text" class="form-control" name="imgOne" placeholder="http://"
-               value="<%= typeof imgOne != 'undefined' ? imgOne : '' %>">
-         </div>
-         <div class="col-md-6 mt-2">
-            <input type="text" class="form-control" name="imgTwo" placeholder="http:// "
-               value="<%= typeof imgTwo != 'undefined' ? imgTwo : '' %>">
-         </div>
-         <div class="col-md-6 mt-2">
-            <input type="text" class="form-control" name="imgThree" placeholder="http://"
-               value="<%= typeof imgThree != 'undefined' ? imgThree : '' %>">
-         </div>
-         <div class="col-md-6 mt-2">
-            <input type="text" class="form-control" name="imgFour" placeholder="http:// "
-               value="<%= typeof imgFour != 'undefined' ? imgFour : '' %>">
-         </div>
-      </div>
-
-      <!-- Add button -->
-      <div class="row col-md-12 mt-5">
-         <div class="col-md-1"></div>
-         <div class="col-md-2">
-            <button class="btn btn-primary btn-sm" type="submit">Add Product</button>
-         </div>
-      </div>
-   </form>
+<div class="get-item-nav">
+   <a class="get-item-home-link" href="/"><span class="fa fa-home fa-3x"></span></a>
 </div>
+<% include ../partials/errors %>
+<form class="add-item" action="/items" method="POST">
 
+   <div class="add-title">
+      <label for="title">Title</label><br>
+      <input type="text" name="title" placeholder="" value="<%= typeof title != 'undefined' ? title : '' %>">
+   </div>
 
+   <div class="add-price">
+      <label for="price">Price</label><br>
+      <input type="number" name="price" step=".01" placeholder="€"
+         value="<%= typeof price != 'undefined' ? price : '' %>">
+   </div>
+
+   <div class="add-quantity">
+      <label for="quantity">Quantity</label><br>
+      <input type="number" name="quantity" value="<%= typeof quantity != 'undefined' ? quantity : '' %>">
+   </div>
+
+   <img class="add-img" src="/public/img/illustration1.jpg" alt="">
+
+   <div class="add-sales-pitch">
+      <label for="salesPitch">Short Sales Pitch</label><br>
+      <textarea type="text" name="salesPitch"
+         maxlength="150"><%= typeof salesPitch!= 'undefined' ? salesPitch : '' %></textarea>
+   </div>
+
+   <div class="add-details">
+      <label for="details">Add more details</label><br>
+      <textarea type="text" name="details"><%= typeof details != 'undefined' ? details : '' %></textarea>
+   </div>
+
+   <br>
+
+   <img class="add-img2" src="/public/img/illustration2.png" alt="">
+
+   <div class="photo-links">
+      <label for="links">add HTTP link</label><br>
+      <input type="text" name="imgOne" value="<%= typeof imgOne != 'undefined' ? imgOne : '' %>">
+
+      <label for="links">add HTTP link</label><br>
+      <input type="text" name="imgTwo" value="<%= typeof imgTwo != 'undefined' ? imgTwo : '' %>">
+
+      <label for="links">add HTTP link</label><br>
+      <input type="text" name="imgThree" value="<%= typeof imgThree != 'undefined' ? imgThree : '' %>">
+
+      <label for="links">add HTTP link</label><br>
+      <input type="text" name="imgFour" value="<%= typeof imgFour != 'undefined' ? imgFour : '' %>">
+   </div>
+
+   <button class="add-item-btn" type="submit">Add Product</button>
+   
+   <a class="go-back-btn" href="/users/<%= user.id %>/items" class="btn btn-secondary btn-sm">Go Back</a>
+
+</form>
 
 <%- include ../partials/html-footer %>
-   <script>
+<script>
 
-      // Editor script
-      CKEDITOR.replace('details', {
-         enterMode: CKEDITOR.ENTER_BR,
-         toolbar: [{ name: 'basicstyles', groups: ['basicstyles'], items: ['Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor'] },
-         { name: 'styles', items: ['Format'] },
-         { name: 'justify', groups: ['blocks', 'align'], items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
-         { name: 'paragraph', groups: ['list', 'indent'], items: ['NumberedList', 'BulletedList', '-'] },
-         { name: 'spell', items: ['jQuerySpellChecker'] }
-         ],
-      });
-   </script>
+   // Editor script
+   CKEDITOR.replace('details', {
+      enterMode: CKEDITOR.ENTER_BR,
+      toolbar: [{ name: 'basicstyles', groups: ['basicstyles'], items: ['Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor'] },
+      { name: 'styles', items: ['Format'] },
+      { name: 'justify', groups: ['blocks', 'align'], items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+      { name: 'paragraph', groups: ['list', 'indent'], items: ['NumberedList', 'BulletedList', '-'] },
+      { name: 'spell', items: ['jQuerySpellChecker'] }
+      ],
+   });
+</script>
 
 <% } else { %>
-   <%- include ../partials/unauthorised-access %>
+<%- include ../partials/unauthorised-access %>
 <% } %>

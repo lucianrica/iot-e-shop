@@ -1,0 +1,387 @@
+:root {
+   --green-color: #8bc34a;
+   --red-color: #f9423a;
+}
+
+* {
+   font-family: "Open Sans", sans-serif;
+   font-weight: 300;
+   
+}
+
+a {
+   text-decoration: none;
+}
+
+.error-div {
+   grid-column: 1/13;
+   display: grid;
+   grid-template-columns: 1fr;   
+}
+
+.error {
+   grid-column: 1/12;
+   opacity: 0.5;
+   background: var(--red-color);
+   margin-bottom: 1px;
+   display: grid;
+   grid-template-columns: 15fr 1fr;
+   font-weight: 900;
+   align-items: center;
+}
+
+.error button {
+   align-self: end;
+   max-width: 80px;
+   background: transparent;
+}
+/* NAVBAR */
+.navbar {
+   display: grid;
+   grid-template-columns: 1fr 8fr 1fr 1fr 1fr;
+}
+
+.logo {
+   width: 60px;
+   height: 60px;
+}
+
+.dropbtn {
+   border-radius: 0.2rem;
+   padding: 10px 16px;
+   width: 110px;
+   font-size: 16px;
+   background: transparent;
+   border: 1px solid rgb(51, 51, 51);
+   cursor: pointer;
+}
+
+.profile-photo {
+   padding: 0 30px;
+   width: 42px;
+   height: 39px;
+}
+
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+.dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   border-radius: 0.2rem;
+   border: 1px solid rgb(51, 51, 51);
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+   z-index: 1;
+}
+
+.dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+}
+
+.dropdown-content a:hover {
+   background-color: white;
+   font-weight: bold;
+   font-size: 115%;
+}
+
+.dropdown:hover .dropdown-content {
+   display: block;
+}
+
+.dropdown:hover .dropbtn {
+   box-shadow: 0px 0px 3px 1px var(--green-color);
+   background: radial-gradient(ellipse at top, white, transparent),
+      radial-gradient(ellipse at bottom, var(--green-color), transparent);
+}
+
+/* NAVBAR END */
+/* NAVBAR END */
+/* NAVBAR END */
+
+/* CONTENT */
+
+.shop {
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+   grid-template-rows: minmax(240px, auto);
+   gap: 40px;
+}
+
+.intro {
+   grid-column: 1/13;
+   grid-row: 1/3;
+}
+
+.intro img {
+   width: 100%;
+   height: 400px;
+   object-fit: cover;
+}
+
+
+
+.latest {
+   grid-column: 4/10;
+   grid-row: 2/4;
+   display: grid;
+   gap: 20px;
+   grid-template-columns: repeat(3, 2fr);
+}
+
+
+.card {
+   display: grid;
+   grid-template-columns: 1fr;
+   color: rgb(77, 77, 77);
+} 
+
+.card:hover {
+   box-shadow: 0px 1px 3px 1px #C0C0C0;
+}
+
+.card img {   
+   width: 100%;
+   height: 285px;
+   object-fit: cover; 
+   border-radius: 0.2rem 0.2rem 0 0;
+}
+
+.border {
+   border: 1.3px solid #C0C0C0;
+   border-radius: 0.3rem;
+}
+
+.rating {
+   border-top: 1.3px solid #C0C0C0;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   
+}
+
+.rating p {
+   padding: 6px;
+   margin: 0;
+   grid-column: 1/3;
+   max-height: 15px;
+   overflow: hidden;
+   text-align: start;
+}
+
+.rating small {
+   padding: 6px;
+   text-align: start;
+}
+
+
+@media only screen and (max-width:1440px) {
+   .latest {
+      grid-column: 3/11;
+   }
+
+   .card img {
+      height: 200px;
+   }
+}
+
+@media only screen and (max-width:1024px) {
+   .latest {
+      grid-column: 2/12;
+   }
+}
+
+@media only screen and (max-width:768px) {
+   .latest {
+      grid-column: 1/13;
+   }
+
+   .card img {
+      height: 160px;
+   }
+}
+
+@media only screen and (max-width:600px) {
+   .latest {
+      grid-column: 1/13;
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
+
+
+.seller-info {
+   grid-column: 1/13;
+   grid-row: 4/6;   
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 30px;
+}
+
+.seller-info section{
+   grid-column: 2/3;
+   grid-row: 4/6;
+   text-align: start;
+}
+
+.seller-info img{
+   grid-column: 3/4;
+   grid-row: 4/6;
+   width: 100%;
+   height: 300px;
+   object-fit: cover;
+}
+
+.seller-info h3 {
+   color: var(--green-color);
+   font-weight: 600;
+}
+
+
+.buyer-info {
+   grid-column: 1/13;
+   grid-row: 6/8;   
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 30px;
+}
+
+.buyer-info section {
+   grid-column: 3/4;
+   grid-row: 6/8;
+   text-align: start;
+}
+
+.buyer-info img {
+   grid-column: 2/3;
+   grid-row: 6/8;
+   width: 100%;
+   height: 300px;
+   object-fit: cover;
+}
+
+.buyer-info h3 {
+   color: var(--green-color);
+   font-weight: 600;
+}
+
+.buyer-info a {
+   background-color: var(--green-color);
+   color: black;
+   border-radius: 0.3rem;
+   border: 1.3px solid #C0C0C0;
+   font-weight: 600;
+   padding: 6px;
+   width: 100px;
+}
+
+@media only screen and (max-width:768px) {
+   .seller-info section {
+      grid-column: 1/5;      
+      grid-row: 2/3;
+   }
+
+   .seller-info img {
+      grid-column: 1/5;
+      grid-row: 1/2;
+   }
+
+   .buyer-info section {
+      grid-column: 1/5;
+      grid-row: 2/3;
+   }
+
+   .buyer-info img {
+      grid-column: 1/5;      
+      grid-row: 1/2;
+   }
+}
+
+@media only screen and (min-width:1024px) {
+   .seller-info section {
+      grid-column: 2/4;
+      grid-row: 2/3;
+   }
+
+   .seller-info img {
+      grid-column: 2/4;
+      grid-row: 1/2;
+   }
+
+   .buyer-info section {
+      grid-column: 2/4;
+      grid-row: 2/3;
+   }
+
+   .buyer-info img {
+      grid-column: 2/4;
+      grid-row: 1/2;
+   }
+}
+
+@media only screen and (min-width:1440px) {
+   .seller-info section {
+      grid-column: 2/3;
+      grid-row: 4/6;
+   }
+
+   .seller-info img {
+      grid-column: 3/4;
+      grid-row: 4/6;
+   }
+
+   .buyer-info section {
+      grid-column: 3/4;
+      grid-row: 6/8;
+   }
+
+   .buyer-info img {
+      grid-column: 2/3;
+      grid-row: 6/8;
+   }
+}
+
+
+/* ALL ITEMS DISPLAY */
+
+.all-items {
+   grid-column: 4/10;
+   grid-row: 8/10;
+   display: grid;
+   gap: 20px;
+   grid-template-columns: repeat(3, 2fr);
+}
+
+@media only screen and (max-width:1440px) {
+   .all-items {
+      grid-column: 3/11;
+   }
+}
+
+@media only screen and (max-width:1024px) {
+   .all-items {
+      grid-column: 2/12;
+   }
+}
+
+@media only screen and (max-width:768px) {
+   .all-items {
+      grid-column: 1/13;
+   }
+}
+
+@media only screen and (max-width:600px) {
+   .all-items {
+      grid-column: 1/13;
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
+
+
+
+
+

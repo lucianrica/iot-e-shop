@@ -1,150 +1,72 @@
-<!-- Include items header -->
-<%- include ./header %>
+<%- include ../partials/html-header %>
 
-<!-- Start container -->
-<div class="container">
-
-   <!-- spacing div -->
-   <div class="row d-none d-md-block col-12" style="height: 100px;">
+<% if(user != undefined && user.userType === 2) { %>
+<% include ../users/admins/navbar %>
+<% } else { %>
+   <div class="get-item-nav">
+      <a class="get-item-home-link" href="/"><span class="fa fa-home fa-3x"></span></a>
+      <% if(item.quantity > 0) { %>
+      <i class="stock fa fa-check"><span> In Stock</span></i>
+      <% } else { %>
+      <i class="stock fa fa-times" style="color: var(--red-color);">
+         <span style="color: var(--red-color);">Out of Stock</span>
+      </i>
+      <% } %>
+      <i class="fa fa-eur"><span> <%= item.price %></span></i>
+      <i class="fa fa-star"><span> Secure Shopping</span></i>
+      <i class="fa fa-star"><span> Free Returns</span></i>
+      <i class="fa fa-star"><span> Free Delivery</span></i>
+   
    </div>
-   <!-- END -->
+<% } %>
 
-   <!-- Start 1st row -->
-   <div class="row col-md-12">
-      <div class="col-md-12 my-3">
-         <img class="order-1" src="<%= item.photos[1] != '' ? item.photos[1] : '/public/img/noimg.png' %>" alt="product"
-            width="100%" height="100%">
-      </div>
-   </div>
-   <!-- END 1st row -->
+<div class="get-item-description">
+   <h1 class="get-item-title"><%= item.title %></h1>
+   <img class="img-1" src="<%= item.photos[1] != '' ? item.photos[1] : '/public/img/noimg.png' %>" alt="product">
+   <h2 class="paragraph-1"><%= item.salesPitch%></h2>
 
-   <!-- spacing div -->
-   <div class="row d-none d-md-block col-12" style="height: 100px;">
-   </div>
-   <!-- END -->
+   <form id="like" action="/items/<%= item.id %>?_method=PUT" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <button type="submit">
+         <i class="fa fa-thumbs-up fa-3x" aria-hidden="true"></i>
+      </button>
+   </form>   
+   <img class="img-2" src="<%= item.photos[2] != '' ? item.photos[2] : '/public/img/noimg.png' %>" alt="product">
+   <span class="paragraph-2"><%- item.details%></span>
+   <img class="img-3" src="<%= item.photos[3] != '' ? item.photos[3] : '/public/img/noimg.png' %>" alt="product">
 
-   <!-- Start 2nd row -->
-   <div class="row col-md-12">
-      <div class="col-md-12 my-3 text-center">
-         <h3 class="order-1"><%= item.salesPitch%></h3>
-      </div>
-      <div class="col-md-5 my-3">
-         <img class="order-2" src="<%= item.photos[2] != '' ? item.photos[2] : '/public/img/noimg.png' %>" alt="product"
-            width="100%" height="100%">
-      </div>
-      <div class="col-md-7 my-3 text-center">
-         <span class="order-3"><%- item.details%></span>
-      </div>
-   </div>
-   <!-- END 2nd row -->
-
-   <!-- spacing div -->
-   <div class="row d-none d-md-block col-12" style="height: 100px;">
-   </div>
-   <!-- END -->
-
-   <!-- Start 3rd row -->
-   <div class="row col-md-12">
-      <div class="col-md-8 my-3 mx-auto">
-         <img class="order-1" src="<%= item.photos[3] != '' ? item.photos[3] : '/public/img/noimg.png' %>" alt="product"
-            width="100%" height="100%">
-      </div>
-   </div>
-   <!-- END 3rd row -->
-
-   <!-- spacing div -->
-   <div class="row d-none d-md-block col-12" style="height: 100px;">
-   </div>
-   <!-- END -->
-
-   <!-- Start 4th row -->
-   <div class="row col-md-12">
-      <div class="col-md-9 my-3 text-center border-left">
-         <span class="order-1">Comments Section (TBC)</span>
-      </div>
-      <div class="col-md-3 my-3 border-left">
+   <div class="more">
+      <div class="latest">
          <% items.forEach(function(item, index){ %>
-         <% if(index > 3) { %>
+         <% if(index > 2) { %>
          <% return; %>
          <% } %>
-         <div class="col-md-12 mx-auto mb-5 px-1 ">
-            <a class="text-dark" href="/items/<%= item.id %>">
-               <div class="card p-0 m-0 bg-transparent border">
-                  <img src="<%= item.photos[0] != '' ? item.photos[0] : '/public/img/noimg.png' %>" width="100%" height="250px" />
-                  <div class="card-body border-top">
-                     <h6 class="overflow-hidden font-weight-bold" style="min-height: 20px; max-height: 20px;"><%= item.title %>
-                     </h6>
-                     <span class="text-success font-weight-bold"><i class="fa fa-eur"></i><%= item.price %>
-                     </span>
-                  </div>
-                  <div class="d-flex justify-content-between align-items-center">
-                     <small class="text-muted"><i class="fa fa-eye pl-3"></i> <%= item.views %>
-                     </small>
-                     <!-- ------------------------------------------------------- -->
-                     <!-- Cheap otion, to be changed -->
-                     <% if(item.rating >= 5) { %>
-                     <div class="pr-3">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                     </div>
-                     <% } else if(item.rating >= 4) { %>
-                     <div class="pr-3">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                     </div>
-                     <% } else if(item.rating >= 3) { %>
-                     <div class="pr-3">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                     </div>
-                     <% } else if(item.rating >= 2) { %>
-                     <div class="pr-3">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                     </div>
-                     <% } else if(item.rating >= 1) { %>
-                     <div class="pr-3">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                     </div>
-                     <% } else { %>
-                     <div class="pr-3">
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                     </div>
-                     <% } %>
-               
-               
-                  </div>
-               </div>
-            </a>
-         </div>
+      
+         <%- include ../shop/components/item %>
+      
          <% }); %>
       </div>
    </div>
-   <!-- END 4th row -->
-
-   <button class="col-md-12 text-center bg-dark text-white" onclick="topFunction()" id="myBtn" title="Go to top">Back To Top</button>
-
+   <button class="back-to-top" onclick="topFunction()" title="Go to top">Back To
+      Top</button>
+   
 </div>
+
+   <!-- <a class="btn text-center border-success text-success w-100">
+      <i class="fa fa-shopping-basket" aria-hidden="true"> Buy Now</i>
+   </a>
+   
+   
+   
+   <a class="btn text-center border-secondary w-100">
+      <i class="fa fa-heart" aria-hidden="true"> Wishlist</i>
+   </a>
+   
+   <i class="fa fa-copyright" aria-hidden="true"> Every credit card purchase is covered by our Safe Shopping
+      Guarantee: Under the Fair ... With VeriSign, you can feel
+      confident shopping on our website!</i> -->
+
+
 <script>
 
    let mybutton = document.getElementById("myBtn");
@@ -155,7 +77,4 @@
 </script>
 
 <!-- Include items footer -->
-<%- include ./footer %>
-
-
-
+<%- include ../partials/html-footer %>
