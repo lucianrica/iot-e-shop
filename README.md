@@ -1,6 +1,6 @@
 ```
 P.S. We had some further issues with the development and shopping cart functionality is down at the moment.
-Thank You and do enjoy Christmas in few days :)
+Thank You and do enjoy Christmas for now :)
 ```
 ### Live demo of the application: https://iot-eshop.herokuapp.com/
  
