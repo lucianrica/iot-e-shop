@@ -1,3 +1,41 @@
+```
+P.S. We had some further issues with the development and shopping cart functionality is down at the moment.
+Thank You and do enjoy Christmas in few days :)
+```
+### Live demo of the application: https://iot-eshop.herokuapp.com/
+ 
+### Accounts:
+
+1 Gmail - We created a company email on https://www.google.com/gmail, you can log in with the following credentials
+        - Email - iot.shop.company@gmail.com
+        - Password - SmartDevices
+        
+2 Database - We created an account on https://cloud.mongodb.com/ (Cloud) for this app, you can log in with the following credentials
+           - iot.shop.company@gmail.com
+           - Password - SmartDevices
+           
+3 Deployoment - We created an account on https://dashboard.heroku.com/ for this app, you can log in with the following credentials
+           - iot.shop.company@gmail.com
+           - Password - SmartDevices1!
+
+### Project keys:
+> For local development download git repository, navigate to the downloaded folder and open it with any IDE, run **npm install** command inside a terminal within that document. After that in iot-e-shop/config folder add a new file called **keys_dev.js** and add the following code:
+```
+// DEVELOPER API keys,Usualy we wont upload this keys to the repository, and will only be available for few days here
+module.exports = {
+   MongoURI: 'mongodb+srv://Luci:Luci@cluster0-i0xrh.azure.mongodb.net/iot-shop?retryWrites=true&w=majority',
+   googleClientID: '426907091471-r26f2dnnc3crovg0ln9leihpflt67f6p.apps.googleusercontent.com',
+   googleClientSecret: 'BPpvZiBCP6HbRssxc3Rj-MoO',
+   facebookClientID: '2478197722264940',
+   facebookClientSecret: '8669235c88c19dec72795eef53ee1874',
+   gmailPassword: 'SmartDevices'
+}
+
+```
+> After you add this file and saved the code please run **npm run dev** inside the terminal than open the application on http://localhost:5000/
+
+### Disclaimer
+
 
  ```
             © Kouakou Carlos Barbier, Lucian Nechita, Marius Pal, Daniel Costel Neagu [2019]
@@ -72,20 +110,9 @@ contained therein.
 >
 
 ### 5. Application Deployment:
-> [`TBC`](#) Choose deployment!!! .
->
+> [`Heroku - Cloud Application Platform`](https://www.heroku.com/) Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 
 
-### 6. Installation Guide
->
-> [`Click here for installation guidelines for this project`](INSTALL.md)
 
-### 7. Contributing Guide
->
-> [`Contribution guidelines for this project`](CONTRIBUTING.md)
-
-### 8. License
->
-> [`License Type`](LICENSE)
  
-### 9. About Jezus
+
