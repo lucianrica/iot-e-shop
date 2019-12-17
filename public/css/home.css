@@ -207,9 +207,17 @@ a {
 }
 
 @media only screen and (max-width:600px) {
+   .card img {
+      height: 260px;
+   }
+
+   .border {
+      margin-bottom: 50px;
+      margin-right: 8px;
+   }
+
    .latest {
-      grid-column: 1/13;
-      grid-template-columns: repeat(1, 1fr);
+      display: none;
    }
 }
 
