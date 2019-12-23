@@ -23,16 +23,16 @@ Thank You and do enjoy Christmas for now :)
 ```
 // DEVELOPER API keys,Usualy we wont upload this keys to the repository, and will only be available for few days here
 module.exports = {
-   MongoURI: 'mongodb+srv://Luci:Luci@cluster0-i0xrh.azure.mongodb.net/iot-shop?retryWrites=true&w=majority',
-   googleClientID: '426907091471-r26f2dnnc3crovg0ln9leihpflt67f6p.apps.googleusercontent.com',
-   googleClientSecret: 'BPpvZiBCP6HbRssxc3Rj-MoO',
-   facebookClientID: '2478197722264940',
-   facebookClientSecret: '8669235c88c19dec72795eef53ee1874',
-   gmailPassword: 'SmartDevices'
+   MongoURI: '',
+   googleClientID: '',
+   googleClientSecret: '',
+   facebookClientID: '',
+   facebookClientSecret: '',
+   gmailPassword: ''
 }
 
 ```
-> After you add this file and saved the code please run **npm run dev** inside the terminal than open the application on http://localhost:5000/
+> Add youre own conection strings on the code above and after that run **npm run dev** inside the terminal than open the application on http://localhost:5000/
 
 ### Disclaimer
 
