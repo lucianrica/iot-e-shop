@@ -6,17 +6,11 @@ Thank You and do enjoy Christmas for now :)
  
 ### Accounts:
 
-1 Gmail - We created a company email on https://www.google.com/gmail, you can log in with the following credentials
-        - Email - iot.shop.company@gmail.com
-        - Password - SmartDevices
+1 Gmail - We created a company email on https://www.google.com/gmail
         
-2 Database - We created an account on https://cloud.mongodb.com/ (Cloud) for this app, you can log in with the following credentials
-           - iot.shop.company@gmail.com
-           - Password - SmartDevices
+2 Database - We created an account on https://cloud.mongodb.com/ (Cloud) for this app
            
-3 Deployoment - We created an account on https://dashboard.heroku.com/ for this app, you can log in with the following credentials
-           - iot.shop.company@gmail.com
-           - Password - SmartDevices1!
+3 Deployoment - We created an account on https://dashboard.heroku.com/ for this app
 
 ### Project keys:
 > For local development download git repository, navigate to the downloaded folder and open it with any IDE, run **npm install** command inside a terminal within that document. After that in iot-e-shop/config folder add a new file called **keys_dev.js** and add the following code:
