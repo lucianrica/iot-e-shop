@@ -3,14 +3,7 @@ P.S. We had some further issues with the development and shopping cart functiona
 Thank You and do enjoy Christmas for now :)
 ```
 ### Live demo of the application: https://iot-eshop.herokuapp.com/
- 
-### Accounts:
 
-1 Gmail - We created a company email on https://www.google.com/gmail
-        
-2 Database - We created an account on https://cloud.mongodb.com/ (Cloud) for this app
-           
-3 Deployoment - We created an account on https://dashboard.heroku.com/ 
 
 ### Project keys:
 > For local development download git repository, navigate to the downloaded folder and open it with any IDE, run **npm install** command inside a terminal within that document. After that in iot-e-shop/config folder add a new file called **keys_dev.js** and add the following code:
