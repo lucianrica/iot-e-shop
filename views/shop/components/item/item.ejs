@@ -1,0 +1,65 @@
+
+
+
+
+<div class="card border">
+
+   <!-- card top navigation -->
+   <div class="card-top-nav">
+      <img class="card-top-logo" src="https://miro.medium.com/max/560/1*MccriYX-ciBniUzRKAUsAw.png" alt="logo">
+      <a class="card-top-name" href="">poster name</a>
+   </div>
+
+
+   <!-- big image -->
+   <img class="card-image"
+      src="<%= item.photos[0] != '' ? item.photos[0] : '/public/img/noimg.png' %>">
+
+
+   <!-- card bottom navigation -->   
+   <div class="card-bottom-nav">  
+
+      <a href="" class="v-center h-center">
+         <i class="far fa-heart fa-lg"></i>
+      </a> 
+
+      <a href="" class="v-center h-center">
+         <i class="far fa-comment fa-lg"></i>
+      </a> 
+
+      <a href="" class="v-center h-center">
+         <i class="far fa-paper-plane fa-lg"></i>
+      </a> 
+
+      <% if(user != undefined && user.id == item.user){ %> 
+         <a href="/items/edit/<%= item.id %>" class="v-center h-right pr">
+            <i class="far fa-edit fa-lg"></i>
+         </a> 
+      <% } else {%>
+         <a href="/items/<%= item.id %>" class="v-center h-right pr">
+            <i class="fas fa-ellipsis-h fa-lg"></i>
+         </a>
+      <% } %>
+      
+      
+      
+   </div>
+   <small>€ <%= item.price %></small>
+   <p><%= item.views %></p>
+   
+   <div class="card-body">
+      <h5 class="card-title"><%= item.title %></h5>
+      <p><%- item.details %></p>
+   </div>
+</div>
+
+<style>
+   <%- include ./item.css %>
+</style>
+
+<script>
+   <%- include ./item.js %>   
+</script>
+
+
+

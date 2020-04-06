@@ -5,57 +5,44 @@
 
    <!-- Meta tags -->
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-   <!-- Styling links -->
-   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+   <link rel="icon" type="image/png"
+      href="https://github.com/lucianrica/iot-e-shop/blob/master/public/img/logo.PNG?raw=true" />
 
    <!-- Font awesome Script -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-   <!-- fonts -->
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
    <!-- Local Styles -->
-   <link rel="stylesheet" href="/public/css/home.css" type="text/css">
+   <!-- <link rel="stylesheet" href="/public/css/home.css" type="text/css">
    <link rel="stylesheet" href="/public/css/items.css" type="text/css">
    <link rel="stylesheet" href="/public/css/main.css" type="text/css">
    <link rel="stylesheet" href="/public/css/star-rating.css" type="text/css">
-   <link rel="stylesheet" href="/public/css/admin-dashboard.css" type="text/css">
+   <link rel="stylesheet" href="/public/css/admin-dashboard.css" type="text/css"> -->
 
+   <link rel="stylesheet" href="/public/css/main-layout.css">
+   <link rel="stylesheet" href="/public/css/main-content.css">
 
    <!-- Chart.js script -->
    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.2/dist/Chart.min.js"></script>
 
    <title>IoT eShop</title>
-
 </head>
 
 <body>
-   <div class="navbar">
-      <a href="/"><img class="logo" src="/public/img/logo.PNG"></a>
-      <div></div> 
-      <div class="dropdown">
-         <button class="dropbtn">Shop</button>
-         <div class="dropdown-content">
-            <a href="/">Home</a>
-            <% if (user != undefined && user.userType === 1) { %>
-            <a href="/items">Add Product</a>
-            <a href="/users/<%= user.id %>/items">My Products</a>
-            <% } %>
-         </div>
-      </div>
+   <top-nav>
+      <a class="top-logo" href="/"><img
+            src="https://github.com/lucianrica/iot-e-shop/blob/master/public/img/logo.PNG?raw=true" alt="logo"></a>
 
-      <div class="dropdown">
+      <div class="top-button dropdown">
          <% if (user) { %>
-            <!-- IF USER -->
-            <img class="dropbtn profile-photo"
-               src="<%= user.profilePhoto != undefined ? loggedinUser.profilePhoto : '/public/img/profile-no-photo.png' %>" />
+         <!-- IF USER -->
+         <img class="dropbtn profile-photo"
+            src="<%= user.profilePhoto != undefined ? loggedinUser.profilePhoto : '/public/img/profile-no-photo.png' %>" />
          <% } else { %>
-            <!-- IF NO USER -->
-            <button class="dropbtn">Account</button>
+         <!-- IF NO USER -->
+         <button class="dropbtn">Account</button>
          <% } %>
          <div class="dropdown-content">
             <% if (user) { %>
@@ -69,4 +56,5 @@
             <% } %>
          </div>
       </div>
-   </div>
+   </top-nav>
+   <main>

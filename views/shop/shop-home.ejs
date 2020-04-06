@@ -1,9 +1,12 @@
 
-<div class="shop">
-   <%- include ./components/intro %>
-   <%- include ./components/all-items %>
+
+<% allItems.forEach((item) => { %>
+   <%- include ./components/item/item %>
+<% }); %>
+
+
    
-</div>
+
 
 
 
